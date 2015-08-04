@@ -1,0 +1,1991 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="569db30d-f259-4ca4-87ea-38c99fc586f7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2015_04_22_080521_create_users_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2015_04_22_080521_create_users_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ClientIndiController.php" afterPath="$PROJECT_DIR$/app/controllers/ClientIndiController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/controllers/HomeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/client/createTask.blade.php" afterPath="$PROJECT_DIR$/app/views/client/createTask.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/database.php" afterPath="$PROJECT_DIR$/app/config/database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reg-taskminator.blade.php" afterPath="$PROJECT_DIR$/app/views/reg-taskminator.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/client/tskmntrSearch.blade.php" afterPath="$PROJECT_DIR$/app/views/client/tskmntrSearch.blade.php" />
+    </list>
+    <ignored path="taskminator.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="taskminator" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="67" column="88" selection-start="4252" selection-end="4252" vertical-scroll-proportion="-14.72" vertical-offset="704" max-vertical-offset="2448">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reg-taskminator.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/reg-taskminator.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="212" column="60" selection-start="12534" selection-end="12551" vertical-scroll-proportion="-7.2352943" vertical-offset="3023" max-vertical-offset="6832">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="912" column="44" selection-start="46847" selection-end="46952" vertical-scroll-proportion="-12.16" vertical-offset="240" max-vertical-offset="1392">
+              <folding>
+                <element signature="n#generateConfirmationCode#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#125#302#0" expanded="false" />
+                <element signature="e#196#292#0" expanded="false" />
+                <element signature="n#emailValidate#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#565#1025#0" expanded="false" />
+                <element signature="n#logout#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#1115#1409#0" expanded="false" />
+                <element signature="e#1134#1408#1" expanded="false" />
+                <element signature="n#register#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="n#doRegisterComp#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#1667#1863#0" expanded="false" />
+                <element signature="e#1909#2346#0" expanded="false" />
+                <element signature="e#2097#2346#0" expanded="false" />
+                <element signature="e#2384#2785#0" expanded="false" />
+                <element signature="e#2567#2785#0" expanded="false" />
+                <element signature="e#2833#3020#0" expanded="false" />
+                <element signature="e#3068#3275#0" expanded="false" />
+                <element signature="e#3328#3760#0" expanded="false" />
+                <element signature="e#3537#3760#0" expanded="false" />
+                <element signature="e#3808#4007#0" expanded="false" />
+                <element signature="e#4047#4406#0" expanded="false" />
+                <element signature="e#4221#4406#0" expanded="false" />
+                <element signature="e#4408#4438#0" expanded="false" />
+                <element signature="e#4653#4848#0" expanded="false" />
+                <element signature="e#4889#5092#0" expanded="false" />
+                <element signature="e#5094#5126#0" expanded="false" />
+                <element signature="e#5398#5848#0" expanded="false" />
+                <element signature="e#5639#5848#0" expanded="false" />
+                <element signature="e#5900#6349#0" expanded="false" />
+                <element signature="e#6141#6349#0" expanded="false" />
+                <element signature="e#6399#6846#0" expanded="false" />
+                <element signature="e#6639#6846#0" expanded="false" />
+                <element signature="e#6895#7145#0" expanded="false" />
+                <element signature="e#7199#7411#0" expanded="false" />
+                <element signature="e#7457#7659#0" expanded="false" />
+                <element signature="e#7740#8718#0" expanded="false" />
+                <element signature="e#7945#8718#0" expanded="false" />
+                <element signature="e#8127#8718#0" expanded="false" />
+                <element signature="e#8331#8718#0" expanded="false" />
+                <element signature="e#8521#8718#0" expanded="false" />
+                <element signature="e#8759#9340#0" expanded="false" />
+                <element signature="e#8963#9340#0" expanded="false" />
+                <element signature="e#9153#9340#0" expanded="false" />
+                <element signature="e#9376#9561#0" expanded="false" />
+                <element signature="e#9571#9671#0" expanded="false" />
+                <element signature="e#9631#9671#0" expanded="false" />
+                <element signature="e#9731#10921#0" expanded="false" />
+                <element signature="e#9744#10920#1" expanded="false" />
+                <element signature="e#11013#11119#0" expanded="false" />
+                <element signature="e#11033#11118#1" expanded="false" />
+                <element signature="e#11130#11615#0" expanded="false" />
+                <element signature="e#11152#11614#1" expanded="false" />
+                <element signature="e#11626#12215#0" expanded="false" />
+                <element signature="e#11642#12214#1" expanded="false" />
+                <element signature="e#11661#11826#1" expanded="false" />
+                <element signature="e#11840#12013#1" expanded="false" />
+                <element signature="e#12027#12204#1" expanded="false" />
+                <element signature="e#12226#12586#0" expanded="false" />
+                <element signature="e#12245#12585#1" expanded="false" />
+                <element signature="n#doRegisterIndi#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#12878#13271#0" expanded="false" />
+                <element signature="e#13091#13271#0" expanded="false" />
+                <element signature="e#13315#13705#0" expanded="false" />
+                <element signature="e#13526#13705#0" expanded="false" />
+                <element signature="e#13747#14135#0" expanded="false" />
+                <element signature="e#13957#14135#0" expanded="false" />
+                <element signature="e#14175#14534#0" expanded="false" />
+                <element signature="e#14349#14534#0" expanded="false" />
+                <element signature="e#14580#15017#0" expanded="false" />
+                <element signature="e#14768#15017#0" expanded="false" />
+                <element signature="e#15055#15456#0" expanded="false" />
+                <element signature="e#15238#15456#0" expanded="false" />
+                <element signature="e#15458#15488#0" expanded="false" />
+                <element signature="e#15693#15878#0" expanded="false" />
+                <element signature="e#15919#16112#0" expanded="false" />
+                <element signature="e#16114#16146#0" expanded="false" />
+                <element signature="e#16357#17335#0" expanded="false" />
+                <element signature="e#16562#17335#0" expanded="false" />
+                <element signature="e#16744#17335#0" expanded="false" />
+                <element signature="e#16948#17335#0" expanded="false" />
+                <element signature="e#17138#17335#0" expanded="false" />
+                <element signature="e#17376#17957#0" expanded="false" />
+                <element signature="e#17580#17957#0" expanded="false" />
+                <element signature="e#17770#17957#0" expanded="false" />
+                <element signature="e#17998#18193#0" expanded="false" />
+                <element signature="e#18234#18429#0" expanded="false" />
+                <element signature="e#18465#18650#0" expanded="false" />
+                <element signature="e#18660#18760#0" expanded="false" />
+                <element signature="e#18720#18760#0" expanded="false" />
+                <element signature="e#18820#19856#0" expanded="false" />
+                <element signature="e#18833#19855#1" expanded="false" />
+                <element signature="e#19948#20054#0" expanded="false" />
+                <element signature="e#19968#20053#1" expanded="false" />
+                <element signature="e#20065#20833#0" expanded="false" />
+                <element signature="e#20081#20832#1" expanded="false" />
+                <element signature="e#20100#20265#1" expanded="false" />
+                <element signature="e#20279#20450#1" expanded="false" />
+                <element signature="e#20464#20635#1" expanded="false" />
+                <element signature="e#20649#20822#1" expanded="false" />
+                <element signature="e#20844#21207#0" expanded="false" />
+                <element signature="e#20863#21206#1" expanded="false" />
+                <element signature="n#doRegisterTaskminator#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#21517#22106#0" expanded="false" />
+                <element signature="e#21720#22106#0" expanded="false" />
+                <element signature="e#21922#22106#0" expanded="false" />
+                <element signature="e#22148#22541#0" expanded="false" />
+                <element signature="e#22361#22541#0" expanded="false" />
+                <element signature="e#22585#22976#0" expanded="false" />
+                <element signature="e#22797#22976#0" expanded="false" />
+                <element signature="e#23018#23407#0" expanded="false" />
+                <element signature="e#23229#23407#0" expanded="false" />
+                <element signature="e#23447#23806#0" expanded="false" />
+                <element signature="e#23621#23806#0" expanded="false" />
+                <element signature="e#23808#23838#0" expanded="false" />
+                <element signature="e#24053#24248#0" expanded="false" />
+                <element signature="e#24289#24492#0" expanded="false" />
+                <element signature="e#24494#24526#0" expanded="false" />
+                <element signature="e#24761#24977#0" expanded="false" />
+                <element signature="e#24987#25017#0" expanded="false" />
+                <element signature="e#25276#25451#0" expanded="false" />
+                <element signature="e#25492#25667#0" expanded="false" />
+                <element signature="e#25677#25879#0" expanded="false" />
+                <element signature="e#25973#26428#0" expanded="false" />
+                <element signature="e#26217#26428#0" expanded="false" />
+                <element signature="e#26480#26933#0" expanded="false" />
+                <element signature="e#26723#26933#0" expanded="false" />
+                <element signature="e#26983#27434#0" expanded="false" />
+                <element signature="e#27225#27434#0" expanded="false" />
+                <element signature="e#27480#27689#0" expanded="false" />
+                <element signature="e#27743#28242#0" expanded="false" />
+                <element signature="e#27962#28242#0" expanded="false" />
+                <element signature="e#28291#28541#0" expanded="false" />
+                <element signature="e#28650#31444#0" expanded="false" />
+                <element signature="e#28817#29282#0" expanded="false" />
+                <element signature="e#29066#29282#0" expanded="false" />
+                <element signature="e#29334#29797#0" expanded="false" />
+                <element signature="e#29582#29797#0" expanded="false" />
+                <element signature="e#29847#30308#0" expanded="false" />
+                <element signature="e#30094#30308#0" expanded="false" />
+                <element signature="e#30354#30568#0" expanded="false" />
+                <element signature="e#30622#31131#0" expanded="false" />
+                <element signature="e#30846#31131#0" expanded="false" />
+                <element signature="e#31180#31434#0" expanded="false" />
+                <element signature="e#31545#31982#0" expanded="false" />
+                <element signature="e#31733#31982#0" expanded="false" />
+                <element signature="e#32023#32218#0" expanded="false" />
+                <element signature="e#32259#32455#0" expanded="false" />
+                <element signature="e#32493#32894#0" expanded="false" />
+                <element signature="e#32676#32894#0" expanded="false" />
+                <element signature="e#32935#33913#0" expanded="false" />
+                <element signature="e#33140#33913#0" expanded="false" />
+                <element signature="e#33322#33913#0" expanded="false" />
+                <element signature="e#33526#33913#0" expanded="false" />
+                <element signature="e#33716#33913#0" expanded="false" />
+                <element signature="e#33954#34535#0" expanded="false" />
+                <element signature="e#34158#34535#0" expanded="false" />
+                <element signature="e#34348#34535#0" expanded="false" />
+                <element signature="e#34571#34756#0" expanded="false" />
+                <element signature="e#34798#35021#0" expanded="false" />
+                <element signature="e#35023#35055#0" expanded="false" />
+                <element signature="e#35621#37036#0" expanded="false" />
+                <element signature="e#35634#37035#1" expanded="false" />
+                <element signature="e#37128#37234#0" expanded="false" />
+                <element signature="e#37148#37233#1" expanded="false" />
+                <element signature="e#37245#38013#0" expanded="false" />
+                <element signature="e#37261#38012#1" expanded="false" />
+                <element signature="e#37280#37445#1" expanded="false" />
+                <element signature="e#37459#37630#1" expanded="false" />
+                <element signature="e#37644#37815#1" expanded="false" />
+                <element signature="e#37829#38002#1" expanded="false" />
+                <element signature="e#38024#38499#0" expanded="false" />
+                <element signature="e#38046#38498#1" expanded="false" />
+                <element signature="e#38510#39164#0" expanded="false" />
+                <element signature="e#38641#39153#0" expanded="false" />
+                <element signature="e#38663#39152#1" expanded="false" />
+                <element signature="e#39174#39671#0" expanded="false" />
+                <element signature="e#39221#39661#0" expanded="false" />
+                <element signature="e#39433#39646#0" expanded="false" />
+                <element signature="e#39461#39645#1" expanded="false" />
+                <element signature="e#39672#39811#0" expanded="false" />
+                <element signature="e#40375#40732#0" expanded="false" />
+                <element signature="e#40394#40731#1" expanded="false" />
+                <element signature="n#login#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#40984#41105#0" expanded="false" />
+                <element signature="e#41050#41105#0" expanded="false" />
+                <element signature="n#index#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#41150#43729#0" expanded="false" />
+                <element signature="e#41181#41525#0" expanded="false" />
+                <element signature="e#41311#41511#0" expanded="false" />
+                <element signature="e#41547#41683#0" expanded="false" />
+                <element signature="e#41547#41715#0" expanded="false" />
+                <element signature="e#41730#43661#0" expanded="false" />
+                <element signature="e#41761#41853#0" expanded="false" />
+                <element signature="e#41870#43394#0" expanded="false" />
+                <element signature="e#41923#42139#0" expanded="false" />
+                <element signature="e#41923#42202#0" expanded="false" />
+                <element signature="e#42248#42423#0" expanded="false" />
+                <element signature="e#42248#42479#0" expanded="false" />
+                <element signature="e#42527#42699#0" expanded="false" />
+                <element signature="e#42527#42758#0" expanded="false" />
+                <element signature="e#42808#42980#0" expanded="false" />
+                <element signature="e#42808#43040#0" expanded="false" />
+                <element signature="e#43079#43168#0" expanded="false" />
+                <element signature="e#43079#43230#0" expanded="false" />
+                <element signature="e#43079#43296#0" expanded="false" />
+                <element signature="e#43079#43366#0" expanded="false" />
+                <element signature="e#43447#43548#0" expanded="false" />
+                <element signature="e#43565#43647#0" expanded="false" />
+                <element signature="e#43671#43729#0" expanded="false" />
+                <element signature="n#doLogin#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#43776#45080#0" expanded="false" />
+                <element signature="e#43945#44246#0" expanded="false" />
+                <element signature="e#43964#44245#1" expanded="false" />
+                <element signature="e#44261#44684#0" expanded="false" />
+                <element signature="e#44399#44670#0" expanded="false" />
+                <element signature="e#44738#45080#0" expanded="false" />
+                <element signature="e#44960#45080#0" expanded="false" />
+                <element signature="n#chainCity#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#45129#45445#0" expanded="false" />
+                <element signature="e#45215#45445#0" expanded="false" />
+                <element signature="e#45311#45445#0" expanded="false" />
+                <element signature="e#45402#45445#0" expanded="false" />
+                <element signature="e#45455#45625#0" expanded="false" />
+                <element signature="e#45521#45625#0" expanded="false" />
+                <element signature="n#chainRegion#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#45676#46012#0" expanded="false" />
+                <element signature="e#45768#46012#0" expanded="false" />
+                <element signature="e#45870#46012#0" expanded="false" />
+                <element signature="e#45967#46012#0" expanded="false" />
+                <element signature="e#46022#46188#0" expanded="false" />
+                <element signature="e#46086#46188#0" expanded="false" />
+                <element signature="n#chainProvince#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#46241#46577#0" expanded="false" />
+                <element signature="e#46333#46577#0" expanded="false" />
+                <element signature="e#46435#46577#0" expanded="false" />
+                <element signature="e#46532#46577#0" expanded="false" />
+                <element signature="e#46587#46757#0" expanded="false" />
+                <element signature="e#46651#46757#0" expanded="false" />
+                <element signature="e#46818#47015#0" expanded="false" />
+                <element signature="e#46818#47101#0" expanded="false" />
+                <element signature="e#46818#47214#0" expanded="false" />
+                <element signature="n#regClientComp#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="n#regClientIndi#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="n#changePassword#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#47693#48290#0" expanded="false" />
+                <element signature="e#47834#48290#0" expanded="false" />
+                <element signature="e#48020#48290#0" expanded="false" />
+                <element signature="e#48300#49417#0" expanded="false" />
+                <element signature="e#48367#48473#0" expanded="false" />
+                <element signature="e#48402#48472#1" expanded="false" />
+                <element signature="e#48532#49013#0" expanded="false" />
+                <element signature="e#48789#49013#0" expanded="false" />
+                <element signature="e#49082#49348#0" expanded="false" />
+                <element signature="e#49130#49347#1" expanded="false" />
+                <element signature="e#49434#49518#0" expanded="false" />
+                <element signature="e#49527#49566#0" expanded="false" />
+                <element signature="n#activateResetPass#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#51394#51698#0" expanded="false" />
+                <element signature="e#51471#51698#0" expanded="false" />
+                <element signature="e#51563#51698#0" expanded="false" />
+                <element signature="n#activateChangePass#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#51842#52146#0" expanded="false" />
+                <element signature="e#51919#52146#0" expanded="false" />
+                <element signature="e#52011#52146#0" expanded="false" />
+                <element signature="n#confirmReset#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#52199#52784#0" expanded="false" />
+                <element signature="e#52403#52784#0" expanded="false" />
+                <element signature="e#52593#52784#0" expanded="false" />
+                <element signature="e#52794#52971#0" expanded="false" />
+                <element signature="e#52842#52970#1" expanded="false" />
+                <element signature="n#confirmChange#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#53166#53446#0" expanded="false" />
+                <element signature="e#53309#53446#0" expanded="false" />
+                <element signature="e#53456#54041#0" expanded="false" />
+                <element signature="e#53660#54041#0" expanded="false" />
+                <element signature="e#53850#54041#0" expanded="false" />
+                <element signature="e#54053#54230#0" expanded="false" />
+                <element signature="e#54101#54229#1" expanded="false" />
+                <element signature="n#chainCategoryItems#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="n#profile#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#54566#54651#0" expanded="false" />
+                <element signature="e#54566#54721#0" expanded="false" />
+                <element signature="e#54723#54780#0" expanded="false" />
+                <element signature="n#editProfile#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#55341#55992#0" expanded="false" />
+                <element signature="e#55428#55557#0" expanded="false" />
+                <element signature="e#55570#55701#0" expanded="false" />
+                <element signature="e#55740#55982#0" expanded="false" />
+                <element signature="e#55777#55890#0" expanded="false" />
+                <element signature="e#55777#55981#0" expanded="false" />
+                <element signature="n#uploadProfilePic#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#56323#56454#0" expanded="false" />
+                <element signature="e#56597#57380#0" expanded="false" />
+                <element signature="e#56939#57042#0" expanded="false" />
+                <element signature="e#56983#57041#1" expanded="false" />
+                <element signature="e#57057#57287#0" expanded="false" />
+                <element signature="e#57071#57286#1" expanded="false" />
+                <element signature="e#57298#57380#0" expanded="false" />
+                <element signature="n#getNotification#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#57620#57772#0" expanded="false" />
+                <element signature="n#showAllNotif#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#57825#57910#0" expanded="false" />
+                <element signature="e#57825#57987#0" expanded="false" />
+                <element signature="e#57932#57986#1" expanded="false" />
+                <element signature="e#58005#58135#0" expanded="false" />
+                <element signature="n#messages#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#58191#58349#0" expanded="false" />
+                <element signature="n#getMessages#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#58424#58539#0" expanded="false" />
+                <element signature="e#58424#58599#0" expanded="false" />
+                <element signature="e#58424#58822#0" expanded="false" />
+                <element signature="e#58629#58821#1" expanded="false" />
+                <element signature="e#58970#59112#0" expanded="false" />
+                <element signature="n#sendMsg#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#59211#59520#0" expanded="false" />
+                <element signature="e#59227#59519#1" expanded="false" />
+                <element signature="n#checkMsgThread#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#59625#59749#0" expanded="false" />
+                <element signature="e#59625#59806#0" expanded="false" />
+                <element signature="e#59625#59852#0" expanded="false" />
+                <element signature="e#59625#59904#0" expanded="false" />
+                <element signature="e#59625#60079#0" expanded="false" />
+                <element signature="e#59926#60078#1" expanded="false" />
+                <element signature="e#60097#60224#0" expanded="false" />
+                <element signature="e#60241#60343#0" expanded="false" />
+                <element signature="n#checkMsgs#0;n#HomeController#0;n#!!top" expanded="false" />
+                <element signature="e#60416#60540#0" expanded="false" />
+                <element signature="e#60416#60597#0" expanded="false" />
+                <element signature="e#60416#60643#0" expanded="false" />
+                <element signature="e#60670#60769#0" expanded="false" />
+                <element signature="n#checkMsgCount#0;n#HomeController#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="createTask.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/client/createTask.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="126" column="146" selection-start="7312" selection-end="7312" vertical-scroll-proportion="0.82865584" vertical-offset="1455" max-vertical-offset="3152">
+              <folding>
+                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <marker date="1432383360761" expanded="true" signature="6034:6511" placeholder="..." />
+                <marker date="1432383360761" expanded="true" signature="6089:6511" placeholder="..." />
+                <marker date="1432383360761" expanded="true" signature="6150:6511" placeholder="..." />
+                <marker date="1432383360761" expanded="true" signature="6333:6511" placeholder="..." />
+                <marker date="1432383360761" expanded="true" signature="6836:7991" placeholder="..." />
+                <marker date="1432383360761" expanded="true" signature="6897:7991" placeholder="..." />
+                <marker date="1432383360761" expanded="true" signature="7096:7991" placeholder="..." />
+                <marker date="1432383360761" expanded="true" signature="8342:8744" placeholder="..." />
+                <marker date="1432383360761" expanded="true" signature="8397:8744" placeholder="..." />
+                <marker date="1432383360761" expanded="true" signature="8458:8744" placeholder="..." />
+                <marker date="1432383360761" expanded="true" signature="8666:8744" placeholder="..." />
+                <marker date="1432383360761" expanded="true" signature="9435:9569" placeholder="..." />
+                <marker date="1432383360761" expanded="true" signature="9829:10031" placeholder="..." />
+                <marker date="1432383360761" expanded="true" signature="9890:10031" placeholder="..." />
+                <marker date="1432383360761" expanded="true" signature="10267:11229" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientIndiController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/ClientIndiController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="35" selection-start="2198" selection-end="2198" vertical-scroll-proportion="-6.4" vertical-offset="0" max-vertical-offset="1984">
+              <folding>
+                <element signature="n#emailValidate#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="n#generateUniqueId#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#353#530#0" expanded="false" />
+                <element signature="e#424#520#0" expanded="false" />
+                <element signature="n#createTask#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#772#1647#0" expanded="false" />
+                <element signature="e#806#1048#0" expanded="false" />
+                <element signature="e#1063#1647#0" expanded="false" />
+                <element signature="e#1099#1341#0" expanded="false" />
+                <element signature="e#1356#1647#0" expanded="false" />
+                <element signature="e#1393#1637#0" expanded="false" />
+                <element signature="e#1664#1800#0" expanded="false" />
+                <element signature="e#1664#1870#0" expanded="false" />
+                <element signature="e#1664#1959#0" expanded="false" />
+                <element signature="e#1664#2154#0" expanded="false" />
+                <element signature="e#2271#3380#0" expanded="false" />
+                <element signature="e#2317#3370#0" expanded="false" />
+                <element signature="e#2351#3347#0" expanded="false" />
+                <element signature="e#2403#2852#0" expanded="false" />
+                <element signature="e#2445#2821#0" expanded="false" />
+                <element signature="e#2511#2794#0" expanded="false" />
+                <element signature="e#2873#3329#0" expanded="false" />
+                <element signature="e#2915#3298#0" expanded="false" />
+                <element signature="e#2982#3271#0" expanded="false" />
+                <element signature="e#3421#3659#0" expanded="false" />
+                <element signature="e#3694#3887#0" expanded="false" />
+                <element signature="e#3926#4131#0" expanded="false" />
+                <element signature="e#4171#4346#0" expanded="false" />
+                <element signature="e#4389#4598#0" expanded="false" />
+                <element signature="e#4638#4841#0" expanded="false" />
+                <element signature="e#4884#5226#0" expanded="false" />
+                <element signature="e#5067#5226#0" expanded="false" />
+                <element signature="e#5268#5470#0" expanded="false" />
+                <element signature="e#5504#5694#0" expanded="false" />
+                <element signature="e#5783#5961#0" expanded="false" />
+                <element signature="e#5999#6142#0" expanded="false" />
+                <element signature="e#6089#6142#0" expanded="false" />
+                <element signature="e#6181#6379#0" expanded="false" />
+                <element signature="e#6423#6594#0" expanded="false" />
+                <element signature="e#6654#7637#0" expanded="false" />
+                <element signature="e#6667#7636#1" expanded="false" />
+                <element signature="e#7764#8141#0" expanded="false" />
+                <element signature="e#7783#8140#1" expanded="false" />
+                <element signature="n#messages#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="n#editTask#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#8397#8772#0" expanded="false" />
+                <element signature="e#8839#8902#0" expanded="false" />
+                <element signature="e#8839#8972#0" expanded="false" />
+                <element signature="e#8839#9056#0" expanded="false" />
+                <element signature="e#8839#9145#0" expanded="false" />
+                <element signature="e#8839#9354#0" expanded="false" />
+                <element signature="n#doEditTask#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#9436#9674#0" expanded="false" />
+                <element signature="e#9709#9902#0" expanded="false" />
+                <element signature="e#9941#10146#0" expanded="false" />
+                <element signature="e#10186#10361#0" expanded="false" />
+                <element signature="e#10404#10613#0" expanded="false" />
+                <element signature="e#10653#10856#0" expanded="false" />
+                <element signature="e#10899#11241#0" expanded="false" />
+                <element signature="e#11082#11241#0" expanded="false" />
+                <element signature="e#11283#11485#0" expanded="false" />
+                <element signature="e#11574#11752#0" expanded="false" />
+                <element signature="e#11790#11933#0" expanded="false" />
+                <element signature="e#11880#11933#0" expanded="false" />
+                <element signature="e#11972#12170#0" expanded="false" />
+                <element signature="e#12214#12385#0" expanded="false" />
+                <element signature="e#12473#13434#0" expanded="false" />
+                <element signature="e#12521#13433#1" expanded="false" />
+                <element signature="e#13445#13804#0" expanded="false" />
+                <element signature="e#13464#13803#1" expanded="false" />
+                <element signature="n#deleteTask#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#14399#14496#0" expanded="false" />
+                <element signature="e#14446#14495#1" expanded="false" />
+                <element signature="e#14507#14910#0" expanded="false" />
+                <element signature="e#14526#14909#1" expanded="false" />
+                <element signature="n#tasks#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="n#taskDetails#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#15312#16303#0" expanded="false" />
+                <element signature="e#15359#15459#0" expanded="false" />
+                <element signature="e#15359#15538#0" expanded="false" />
+                <element signature="e#15554#16303#0" expanded="false" />
+                <element signature="e#15603#15706#0" expanded="false" />
+                <element signature="e#15603#15788#0" expanded="false" />
+                <element signature="e#15603#15872#0" expanded="false" />
+                <element signature="e#15888#16303#0" expanded="false" />
+                <element signature="e#15934#16037#0" expanded="false" />
+                <element signature="e#15934#16121#0" expanded="false" />
+                <element signature="e#15934#16203#0" expanded="false" />
+                <element signature="e#16214#16303#0" expanded="false" />
+                <element signature="n#hireTskmntr#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#16738#17518#0" expanded="false" />
+                <element signature="e#16789#17036#0" expanded="false" />
+                <element signature="e#17085#17518#0" expanded="false" />
+                <element signature="e#17136#17384#0" expanded="false" />
+                <element signature="e#17429#17518#0" expanded="false" />
+                <element signature="e#17866#18147#0" expanded="false" />
+                <element signature="e#17893#18146#1" expanded="false" />
+                <element signature="e#18158#18248#0" expanded="false" />
+                <element signature="e#18193#18247#1" expanded="false" />
+                <element signature="e#18389#18682#0" expanded="false" />
+                <element signature="e#18693#19025#0" expanded="false" />
+                <element signature="e#18714#19024#1" expanded="false" />
+                <element signature="e#19100#19487#0" expanded="false" />
+                <element signature="e#19119#19486#1" expanded="false" />
+                <element signature="e#19498#19853#0" expanded="false" />
+                <element signature="e#19517#19852#1" expanded="false" />
+                <element signature="n#tskmntrSearch#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#20077#20181#0" expanded="false" />
+                <element signature="e#20077#20320#0" expanded="false" />
+                <element signature="n#doTskmntrSearch#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#20573#20817#0" expanded="false" />
+                <element signature="e#20647#20807#0" expanded="false" />
+                <element signature="e#20827#21078#0" expanded="false" />
+                <element signature="e#20867#21068#0" expanded="false" />
+                <element signature="e#20988#21068#0" expanded="false" />
+                <element signature="e#21168#21245#0" expanded="false" />
+                <element signature="e#21168#21315#0" expanded="false" />
+                <element signature="e#21168#21454#0" expanded="false" />
+                <element signature="n#viewTaskminator#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="n#directHire#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#21774#21883#0" expanded="false" />
+                <element signature="e#22248#22327#0" expanded="false" />
+                <element signature="e#22248#22525#0" expanded="false" />
+                <element signature="n#doDirectHire#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#22775#23081#0" expanded="false" />
+                <element signature="e#22803#23080#1" expanded="false" />
+                <element signature="e#23092#23432#0" expanded="false" />
+                <element signature="e#23111#23431#1" expanded="false" />
+                <element signature="e#23443#23779#0" expanded="false" />
+                <element signature="e#23462#23778#1" expanded="false" />
+                <element signature="n#retractOffer#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="n#completeTask#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#24198#24349#0" expanded="false" />
+                <element signature="e#24198#24449#0" expanded="false" />
+                <element signature="e#24371#24448#1" expanded="false" />
+                <element signature="e#24474#24574#0" expanded="false" />
+                <element signature="e#24474#24614#0" expanded="false" />
+                <element signature="n#rateTaskminator#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#24870#25086#0" expanded="false" />
+                <element signature="e#24927#25085#1" expanded="false" />
+                <element signature="e#25097#25207#0" expanded="false" />
+                <element signature="e#25157#25206#1" expanded="false" />
+                <element signature="e#25218#25538#0" expanded="false" />
+                <element signature="e#25231#25537#1" expanded="false" />
+                <element signature="e#25549#25896#0" expanded="false" />
+                <element signature="e#25570#25895#1" expanded="false" />
+                <element signature="e#25936#26326#0" expanded="false" />
+                <element signature="e#25955#26325#1" expanded="false" />
+                <element signature="e#26337#26818#0" expanded="false" />
+                <element signature="e#26356#26817#1" expanded="false" />
+                <element signature="e#26829#27277#0" expanded="false" />
+                <element signature="e#26848#27276#1" expanded="false" />
+                <element signature="n#accomplishedTasks#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="n#cancelledTasks#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="n#automaticSearch#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#27971#28055#0" expanded="false" />
+                <element signature="e#28078#28267#0" expanded="false" />
+                <element signature="e#28078#28361#0" expanded="false" />
+                <element signature="e#28078#28554#0" expanded="false" />
+                <element signature="e#28395#28553#1" expanded="false" />
+                <element signature="e#28604#28683#0" expanded="false" />
+                <element signature="e#28604#28728#0" expanded="false" />
+                <element signature="n#automaticOffer#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#28980#29286#0" expanded="false" />
+                <element signature="e#29008#29285#1" expanded="false" />
+                <element signature="e#29297#29637#0" expanded="false" />
+                <element signature="e#29316#29636#1" expanded="false" />
+                <element signature="e#29648#29984#0" expanded="false" />
+                <element signature="e#29667#29983#1" expanded="false" />
+                <element signature="e#30002#30095#0" expanded="false" />
+                <element signature="n#cltEditPersonalInfo#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#30155#30357#0" expanded="false" />
+                <element signature="e#30293#30357#0" expanded="false" />
+                <element signature="e#30374#30452#0" expanded="false" />
+                <element signature="e#30374#30522#0" expanded="false" />
+                <element signature="e#30374#30637#0" expanded="false" />
+                <element signature="e#30374#30677#0" expanded="false" />
+                <element signature="n#doCltEditPersonalInfo#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#30774#30970#0" expanded="false" />
+                <element signature="e#31018#31225#0" expanded="false" />
+                <element signature="e#31278#31710#0" expanded="false" />
+                <element signature="e#31487#31710#0" expanded="false" />
+                <element signature="e#31750#32109#0" expanded="false" />
+                <element signature="e#31924#32109#0" expanded="false" />
+                <element signature="e#32146#32341#0" expanded="false" />
+                <element signature="e#32382#32585#0" expanded="false" />
+                <element signature="e#32595#33177#0" expanded="false" />
+                <element signature="e#32652#33176#1" expanded="false" />
+                <element signature="n#cltEditContactInfo#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#33343#33543#0" expanded="false" />
+                <element signature="e#33480#33543#0" expanded="false" />
+                <element signature="e#33559#33678#0" expanded="false" />
+                <element signature="e#33559#33720#0" expanded="false" />
+                <element signature="n#doCltEditContactInfo#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#33819#33968#0" expanded="false" />
+                <element signature="e#34014#34451#0" expanded="false" />
+                <element signature="e#34202#34451#0" expanded="false" />
+                <element signature="e#34489#34933#0" expanded="false" />
+                <element signature="e#34672#34933#0" expanded="false" />
+                <element signature="e#35006#35622#0" expanded="false" />
+                <element signature="e#35022#35621#1" expanded="false" />
+                <element signature="e#35041#35215#1" expanded="false" />
+                <element signature="e#35229#35411#1" expanded="false" />
+                <element signature="e#35425#35611#1" expanded="false" />
+                <element signature="n#cltEditAcctInfo#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="n#doCltEditPass#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#35868#36066#0" expanded="false" />
+                <element signature="e#36076#36227#0" expanded="false" />
+                <element signature="e#36268#36584#0" expanded="false" />
+                <element signature="e#36438#36584#0" expanded="false" />
+                <element signature="e#36594#36717#0" expanded="false" />
+                <element signature="e#36638#36716#1" expanded="false" />
+                <element signature="n#doCltIndiEditPersonalInfo#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#36903#37296#0" expanded="false" />
+                <element signature="e#37116#37296#0" expanded="false" />
+                <element signature="e#37340#37730#0" expanded="false" />
+                <element signature="e#37551#37730#0" expanded="false" />
+                <element signature="e#37772#38160#0" expanded="false" />
+                <element signature="e#37982#38160#0" expanded="false" />
+                <element signature="e#38200#38559#0" expanded="false" />
+                <element signature="e#38374#38559#0" expanded="false" />
+                <element signature="e#38596#38781#0" expanded="false" />
+                <element signature="e#38822#39015#0" expanded="false" />
+                <element signature="e#39025#39767#0" expanded="false" />
+                <element signature="e#39082#39766#1" expanded="false" />
+                <element signature="n#doCltEditIndiContactInfo#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+                <element signature="e#39968#40405#0" expanded="false" />
+                <element signature="e#40156#40405#0" expanded="false" />
+                <element signature="e#40443#40887#0" expanded="false" />
+                <element signature="e#40626#40887#0" expanded="false" />
+                <element signature="e#40928#41123#0" expanded="false" />
+                <element signature="e#41164#41359#0" expanded="false" />
+                <element signature="e#41432#42236#0" expanded="false" />
+                <element signature="e#41448#42235#1" expanded="false" />
+                <element signature="e#41467#41641#1" expanded="false" />
+                <element signature="e#41655#41835#1" expanded="false" />
+                <element signature="e#41849#42029#1" expanded="false" />
+                <element signature="e#42043#42225#1" expanded="false" />
+                <marker date="1432382629724" expanded="false" signature="18401:18671" placeholder="INSERT INTO ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2015_04_22_080521_create_users_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_04_22_080521_create_users_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="51" selection-start="1846" selection-end="1846" vertical-scroll-proportion="-20.76" vertical-offset="169" max-vertical-offset="1200">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tskmntrSearch.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/client/tskmntrSearch.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="163" column="126" selection-start="7486" selection-end="7486" vertical-scroll-proportion="-7.48" vertical-offset="2421" max-vertical-offset="3392">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#a#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#h3#0;n#a#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#hr#1;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="553" column="16" selection-start="23023" selection-end="23023" vertical-scroll-proportion="-10.24" vertical-offset="4512" max-vertical-offset="5296">
+              <folding>
+                <element signature="n#index#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#userList#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="e#180#270#0" expanded="false" />
+                <element signature="n#userListTaskminators#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="e#343#490#0" expanded="false" />
+                <element signature="e#343#548#0" expanded="false" />
+                <element signature="e#343#616#0" expanded="false" />
+                <element signature="e#343#733#0" expanded="false" />
+                <element signature="n#userListClientIndi#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#userListClientComp#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#adminActivate#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#adminDeactivate#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#viewUserProfile#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#pendingTskmntr#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#pendingClientIndi#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#pendingClientComp#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#categoryAndSkills#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#auditTrail#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#userAuditTrail#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#taskDetails#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#viewRatings#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#taskListBidding#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#taskListAuto#0;n#AdminController#0;n#!!top" expanded="false" />
+                <element signature="n#taskListDirect#0;n#AdminController#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/database.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="75" column="35" selection-start="2204" selection-end="2204" vertical-scroll-proportion="-21.12" vertical-offset="672" max-vertical-offset="2112">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_05_02_022625_create_taskcategory_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_05_02_022656_create_taskitems_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_05_02_051529_create_documents_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_05_02_051847_create_photos_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_05_03_002419_create_task_has_bidders_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_05_05_072728_create_taskminator_has_offer_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_05_08_031341_create_notifications_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_05_08_032102_create_threads_table.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/models/Document.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/AT_taskminator.blade.php" />
+        <option value="$PROJECT_DIR$/app/models/AuditTrail.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_05_08_031408_create_audit_trail_table.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php" />
+        <option value="$PROJECT_DIR$/app/models/TaskminatorHasSkills.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_05_11_094156_create_taskminator_has_skills.php" />
+        <option value="$PROJECT_DIR$/app/views/editProfile_tskmntr.blade.php" />
+        <option value="$PROJECT_DIR$/app/models/Rate.php" />
+        <option value="$PROJECT_DIR$/app/views/client/rateTaskminator.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/client/taskList_complete.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/taskminator/taskDetails_direct.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/taskminator/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/taskminator/taskDetails_bid.blade.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_04_24_040040_create_tasks_table.php" />
+        <option value="$PROJECT_DIR$/app/views/client/taskList_cancelled.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/client/directHireSummary.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/client/taskList.blade.php" />
+        <option value="$PROJECT_DIR$/app/database/seeds/UsersTableSeeder.php" />
+        <option value="$PROJECT_DIR$/app/views/taskminator/taskDetails_auto.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/client/taskDetails_direct.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/client/automaticSearch.blade.php" />
+        <option value="$PROJECT_DIR$/app/controllers/TaskminatorController.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_05_11_105325_create_ratings_table.php" />
+        <option value="$PROJECT_DIR$/app/filters.php" />
+        <option value="$PROJECT_DIR$/app/views/client/taskDetails_bid.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/taskminator/currentTask.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/userTrail.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/taskList.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/taskDetails.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/ratings.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/viewUserProfile_tskmntr.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/profile.blade.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/app/config/database.php" />
+        <option value="$PROJECT_DIR$/app/views/client/tskmntrSearch.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/reg-taskminator.blade.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_04_22_080521_create_users_table.php" />
+        <option value="$PROJECT_DIR$/app/controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/app/controllers/ClientIndiController.php" />
+        <option value="$PROJECT_DIR$/app/views/client/createTask.blade.php" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1366" />
+    <option name="height" value="768" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskminator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../website-itsq133" />
+    <property name="FullScreen" value="true" />
+    <property name="SearchEverywhereHistory" value="" />
+    <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="569db30d-f259-4ca4-87ea-38c99fc586f7" name="Default" comment="" />
+      <created>1430020418635</created>
+      <updated>1430020418635</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1366" height="768" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294271" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="SonarQube" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29648608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294271" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/models/TaskminatorHasSkill.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="1" selection-start="100" selection-end="100" vertical-scroll-proportion="0.08938547" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_05_08_031341_create_notifications_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="825" selection-end="825" vertical-scroll-proportion="0.8044693" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/taskminator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_05_11_094156_create_taskminator_has_skills.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="59" selection-start="473" selection-end="473" vertical-scroll-proportion="0.40223464" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Rate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="1" selection-start="72" selection-end="72" vertical-scroll-proportion="0.08938547" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Task.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="1" selection-start="146" selection-end="146" vertical-scroll-proportion="0.17877094" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/client/taskList_complete.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="137" selection-start="1446" selection-end="1446" vertical-scroll-proportion="0.7268848" vertical-offset="257" max-vertical-offset="1408" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/client/rateTaskminator.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="7" selection-start="1087" selection-end="1087" vertical-scroll-proportion="0.5139665" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/editProfile_tskmntr.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="38" selection-start="4319" selection-end="4319" vertical-scroll-proportion="0.8179232" vertical-offset="865" max-vertical-offset="1616" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/taskminator/taskDetails_bid.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="52" selection-start="2026" selection-end="2026" vertical-scroll-proportion="0.0" vertical-offset="464" max-vertical-offset="624" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_04_24_040040_create_tasks_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="40" selection-start="1114" selection-end="1114" vertical-scroll-proportion="0.0" vertical-offset="496" max-vertical-offset="880" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/client/taskList_cancelled.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="55" selection-start="2417" selection-end="2417" vertical-scroll-proportion="0.0" vertical-offset="715" max-vertical-offset="1392" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/client/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="9" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.72753626" vertical-offset="74" max-vertical-offset="1696" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/client/taskList.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="74" selection-start="6820" selection-end="6820" vertical-scroll-proportion="-19.84" vertical-offset="1296" max-vertical-offset="2144" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/AuditTrail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="6" selection-start="7" selection-end="43" vertical-scroll-proportion="0.044692736" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/taskminator/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="46" selection-start="2825" selection-end="2825" vertical-scroll-proportion="0.88762444" vertical-offset="768" max-vertical-offset="2592" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/ProvinceTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="26" selection-start="434" selection-end="434" vertical-scroll-proportion="0.3575419" vertical-offset="0" max-vertical-offset="1696" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_05_11_105325_create_ratings_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="33" selection-start="508" selection-end="508" vertical-scroll-proportion="0.44692737" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/client/taskDetails_direct.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="53" selection-start="2198" selection-end="2198" vertical-scroll-proportion="0.42532006" vertical-offset="229" max-vertical-offset="1280" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/client/automaticSearch.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="7" selection-start="1714" selection-end="1714" vertical-scroll-proportion="0.72830725" vertical-offset="0" max-vertical-offset="703" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/UsersTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="278" column="32" selection-start="12329" selection-end="12329" vertical-scroll-proportion="0.8659218" vertical-offset="660" max-vertical-offset="1424" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/client/directHireSummary.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="84" selection-start="2654" selection-end="2654" vertical-scroll-proportion="0.658606" vertical-offset="129" max-vertical-offset="976" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Session/TokenMismatchException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="88" selection-end="88" vertical-scroll-proportion="0.06703911" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/client/taskDetails_bid.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="8" selection-start="26" selection-end="424" vertical-scroll-proportion="0.045519203" vertical-offset="0" max-vertical-offset="1216" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/date.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1201" column="9" selection-start="35677" selection-end="35677" vertical-scroll-proportion="0.34423897" vertical-offset="18974" max-vertical-offset="21376">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/TaskminatorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="205" column="22" selection-start="9584" selection-end="9584" vertical-scroll-proportion="0.43574592" vertical-offset="2985" max-vertical-offset="6160" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/client/taskDetails_auto.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="26" selection-start="1614" selection-end="1614" vertical-scroll-proportion="0.45519203" vertical-offset="0" max-vertical-offset="704" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/taskminator/taskDetails_direct.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="11" selection-start="37" selection-end="39" vertical-scroll-proportion="0.070901036" vertical-offset="0" max-vertical-offset="677" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/taskminator/taskDetails_auto.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="17" selection-start="1682" selection-end="1684" vertical-scroll-proportion="0.5745938" vertical-offset="27" max-vertical-offset="704" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/taskminator/bid.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="31" selection-start="1099" selection-end="1102" vertical-scroll-proportion="0.52732646" vertical-offset="27" max-vertical-offset="704" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/taskminator/currentTask.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="16" selection-start="2554" selection-end="2554" vertical-scroll-proportion="0.6256983" vertical-offset="336" max-vertical-offset="1600" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/main.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="16" selection-start="93" selection-end="93" vertical-scroll-proportion="0.11379801" vertical-offset="0" max-vertical-offset="4384" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/filters.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="1" selection-start="4155" selection-end="4155" vertical-scroll-proportion="0.55307263" vertical-offset="1940" max-vertical-offset="2656" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/userTrail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="37" selection-start="2027" selection-end="2027" vertical-scroll-proportion="0.62028986" vertical-offset="292" max-vertical-offset="1008" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/ratings.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="12" selection-start="526" selection-end="526" vertical-scroll-proportion="0.22346368" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/viewUserProfile_tskmntr.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="42" selection-start="2055" selection-end="2055" vertical-scroll-proportion="0.6256983" vertical-offset="240" max-vertical-offset="1344" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/taskDetails.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="55" selection-start="1122" selection-end="1122" vertical-scroll-proportion="0.44692737" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/taskList.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="7" selection-start="630" selection-end="630" vertical-scroll-proportion="0.2905028" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Routing/RoutingServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1504" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/RolesTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="11" selection-start="362" selection-end="362" vertical-scroll-proportion="0.2905028" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="75" selection-start="643" selection-end="643" vertical-scroll-proportion="0.3575419" vertical-offset="0" max-vertical-offset="716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LARAVEL_IDE.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6004" column="25" selection-start="181542" selection-end="181542" vertical-scroll-proportion="1.1494414" vertical-offset="95145" max-vertical-offset="193536">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="553" column="16" selection-start="23023" selection-end="23023" vertical-scroll-proportion="-10.24" vertical-offset="4512" max-vertical-offset="5296">
+          <folding>
+            <element signature="n#index#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#userList#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="e#180#270#0" expanded="false" />
+            <element signature="n#userListTaskminators#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="e#343#490#0" expanded="false" />
+            <element signature="e#343#548#0" expanded="false" />
+            <element signature="e#343#616#0" expanded="false" />
+            <element signature="e#343#733#0" expanded="false" />
+            <element signature="n#userListClientIndi#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#userListClientComp#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#adminActivate#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#adminDeactivate#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#viewUserProfile#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#pendingTskmntr#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#pendingClientIndi#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#pendingClientComp#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#categoryAndSkills#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#auditTrail#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#userAuditTrail#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#taskDetails#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#viewRatings#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#taskListBidding#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#taskListAuto#0;n#AdminController#0;n#!!top" expanded="false" />
+            <element signature="n#taskListDirect#0;n#AdminController#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="35" selection-start="2204" selection-end="2204" vertical-scroll-proportion="-21.12" vertical-offset="672" max-vertical-offset="2112">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="88" selection-start="4252" selection-end="4252" vertical-scroll-proportion="-14.72" vertical-offset="704" max-vertical-offset="2448">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/client/tskmntrSearch.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="163" column="126" selection-start="7486" selection-end="7486" vertical-scroll-proportion="-7.48" vertical-offset="2421" max-vertical-offset="3392">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#a#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#h3#0;n#a#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#hr#1;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/reg-taskminator.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="212" column="60" selection-start="12534" selection-end="12551" vertical-scroll-proportion="-7.2352943" vertical-offset="3023" max-vertical-offset="6832">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_04_22_080521_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="51" selection-start="1846" selection-end="1846" vertical-scroll-proportion="-20.76" vertical-offset="169" max-vertical-offset="1200">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="912" column="44" selection-start="46847" selection-end="46952" vertical-scroll-proportion="-12.16" vertical-offset="240" max-vertical-offset="1392">
+          <folding>
+            <element signature="n#generateConfirmationCode#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#125#302#0" expanded="false" />
+            <element signature="e#196#292#0" expanded="false" />
+            <element signature="n#emailValidate#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#565#1025#0" expanded="false" />
+            <element signature="n#logout#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#1115#1409#0" expanded="false" />
+            <element signature="e#1134#1408#1" expanded="false" />
+            <element signature="n#register#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="n#doRegisterComp#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#1667#1863#0" expanded="false" />
+            <element signature="e#1909#2346#0" expanded="false" />
+            <element signature="e#2097#2346#0" expanded="false" />
+            <element signature="e#2384#2785#0" expanded="false" />
+            <element signature="e#2567#2785#0" expanded="false" />
+            <element signature="e#2833#3020#0" expanded="false" />
+            <element signature="e#3068#3275#0" expanded="false" />
+            <element signature="e#3328#3760#0" expanded="false" />
+            <element signature="e#3537#3760#0" expanded="false" />
+            <element signature="e#3808#4007#0" expanded="false" />
+            <element signature="e#4047#4406#0" expanded="false" />
+            <element signature="e#4221#4406#0" expanded="false" />
+            <element signature="e#4408#4438#0" expanded="false" />
+            <element signature="e#4653#4848#0" expanded="false" />
+            <element signature="e#4889#5092#0" expanded="false" />
+            <element signature="e#5094#5126#0" expanded="false" />
+            <element signature="e#5398#5848#0" expanded="false" />
+            <element signature="e#5639#5848#0" expanded="false" />
+            <element signature="e#5900#6349#0" expanded="false" />
+            <element signature="e#6141#6349#0" expanded="false" />
+            <element signature="e#6399#6846#0" expanded="false" />
+            <element signature="e#6639#6846#0" expanded="false" />
+            <element signature="e#6895#7145#0" expanded="false" />
+            <element signature="e#7199#7411#0" expanded="false" />
+            <element signature="e#7457#7659#0" expanded="false" />
+            <element signature="e#7740#8718#0" expanded="false" />
+            <element signature="e#7945#8718#0" expanded="false" />
+            <element signature="e#8127#8718#0" expanded="false" />
+            <element signature="e#8331#8718#0" expanded="false" />
+            <element signature="e#8521#8718#0" expanded="false" />
+            <element signature="e#8759#9340#0" expanded="false" />
+            <element signature="e#8963#9340#0" expanded="false" />
+            <element signature="e#9153#9340#0" expanded="false" />
+            <element signature="e#9376#9561#0" expanded="false" />
+            <element signature="e#9571#9671#0" expanded="false" />
+            <element signature="e#9631#9671#0" expanded="false" />
+            <element signature="e#9731#10921#0" expanded="false" />
+            <element signature="e#9744#10920#1" expanded="false" />
+            <element signature="e#11013#11119#0" expanded="false" />
+            <element signature="e#11033#11118#1" expanded="false" />
+            <element signature="e#11130#11615#0" expanded="false" />
+            <element signature="e#11152#11614#1" expanded="false" />
+            <element signature="e#11626#12215#0" expanded="false" />
+            <element signature="e#11642#12214#1" expanded="false" />
+            <element signature="e#11661#11826#1" expanded="false" />
+            <element signature="e#11840#12013#1" expanded="false" />
+            <element signature="e#12027#12204#1" expanded="false" />
+            <element signature="e#12226#12586#0" expanded="false" />
+            <element signature="e#12245#12585#1" expanded="false" />
+            <element signature="n#doRegisterIndi#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#12878#13271#0" expanded="false" />
+            <element signature="e#13091#13271#0" expanded="false" />
+            <element signature="e#13315#13705#0" expanded="false" />
+            <element signature="e#13526#13705#0" expanded="false" />
+            <element signature="e#13747#14135#0" expanded="false" />
+            <element signature="e#13957#14135#0" expanded="false" />
+            <element signature="e#14175#14534#0" expanded="false" />
+            <element signature="e#14349#14534#0" expanded="false" />
+            <element signature="e#14580#15017#0" expanded="false" />
+            <element signature="e#14768#15017#0" expanded="false" />
+            <element signature="e#15055#15456#0" expanded="false" />
+            <element signature="e#15238#15456#0" expanded="false" />
+            <element signature="e#15458#15488#0" expanded="false" />
+            <element signature="e#15693#15878#0" expanded="false" />
+            <element signature="e#15919#16112#0" expanded="false" />
+            <element signature="e#16114#16146#0" expanded="false" />
+            <element signature="e#16357#17335#0" expanded="false" />
+            <element signature="e#16562#17335#0" expanded="false" />
+            <element signature="e#16744#17335#0" expanded="false" />
+            <element signature="e#16948#17335#0" expanded="false" />
+            <element signature="e#17138#17335#0" expanded="false" />
+            <element signature="e#17376#17957#0" expanded="false" />
+            <element signature="e#17580#17957#0" expanded="false" />
+            <element signature="e#17770#17957#0" expanded="false" />
+            <element signature="e#17998#18193#0" expanded="false" />
+            <element signature="e#18234#18429#0" expanded="false" />
+            <element signature="e#18465#18650#0" expanded="false" />
+            <element signature="e#18660#18760#0" expanded="false" />
+            <element signature="e#18720#18760#0" expanded="false" />
+            <element signature="e#18820#19856#0" expanded="false" />
+            <element signature="e#18833#19855#1" expanded="false" />
+            <element signature="e#19948#20054#0" expanded="false" />
+            <element signature="e#19968#20053#1" expanded="false" />
+            <element signature="e#20065#20833#0" expanded="false" />
+            <element signature="e#20081#20832#1" expanded="false" />
+            <element signature="e#20100#20265#1" expanded="false" />
+            <element signature="e#20279#20450#1" expanded="false" />
+            <element signature="e#20464#20635#1" expanded="false" />
+            <element signature="e#20649#20822#1" expanded="false" />
+            <element signature="e#20844#21207#0" expanded="false" />
+            <element signature="e#20863#21206#1" expanded="false" />
+            <element signature="n#doRegisterTaskminator#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#21517#22106#0" expanded="false" />
+            <element signature="e#21720#22106#0" expanded="false" />
+            <element signature="e#21922#22106#0" expanded="false" />
+            <element signature="e#22148#22541#0" expanded="false" />
+            <element signature="e#22361#22541#0" expanded="false" />
+            <element signature="e#22585#22976#0" expanded="false" />
+            <element signature="e#22797#22976#0" expanded="false" />
+            <element signature="e#23018#23407#0" expanded="false" />
+            <element signature="e#23229#23407#0" expanded="false" />
+            <element signature="e#23447#23806#0" expanded="false" />
+            <element signature="e#23621#23806#0" expanded="false" />
+            <element signature="e#23808#23838#0" expanded="false" />
+            <element signature="e#24053#24248#0" expanded="false" />
+            <element signature="e#24289#24492#0" expanded="false" />
+            <element signature="e#24494#24526#0" expanded="false" />
+            <element signature="e#24761#24977#0" expanded="false" />
+            <element signature="e#24987#25017#0" expanded="false" />
+            <element signature="e#25276#25451#0" expanded="false" />
+            <element signature="e#25492#25667#0" expanded="false" />
+            <element signature="e#25677#25879#0" expanded="false" />
+            <element signature="e#25973#26428#0" expanded="false" />
+            <element signature="e#26217#26428#0" expanded="false" />
+            <element signature="e#26480#26933#0" expanded="false" />
+            <element signature="e#26723#26933#0" expanded="false" />
+            <element signature="e#26983#27434#0" expanded="false" />
+            <element signature="e#27225#27434#0" expanded="false" />
+            <element signature="e#27480#27689#0" expanded="false" />
+            <element signature="e#27743#28242#0" expanded="false" />
+            <element signature="e#27962#28242#0" expanded="false" />
+            <element signature="e#28291#28541#0" expanded="false" />
+            <element signature="e#28650#31444#0" expanded="false" />
+            <element signature="e#28817#29282#0" expanded="false" />
+            <element signature="e#29066#29282#0" expanded="false" />
+            <element signature="e#29334#29797#0" expanded="false" />
+            <element signature="e#29582#29797#0" expanded="false" />
+            <element signature="e#29847#30308#0" expanded="false" />
+            <element signature="e#30094#30308#0" expanded="false" />
+            <element signature="e#30354#30568#0" expanded="false" />
+            <element signature="e#30622#31131#0" expanded="false" />
+            <element signature="e#30846#31131#0" expanded="false" />
+            <element signature="e#31180#31434#0" expanded="false" />
+            <element signature="e#31545#31982#0" expanded="false" />
+            <element signature="e#31733#31982#0" expanded="false" />
+            <element signature="e#32023#32218#0" expanded="false" />
+            <element signature="e#32259#32455#0" expanded="false" />
+            <element signature="e#32493#32894#0" expanded="false" />
+            <element signature="e#32676#32894#0" expanded="false" />
+            <element signature="e#32935#33913#0" expanded="false" />
+            <element signature="e#33140#33913#0" expanded="false" />
+            <element signature="e#33322#33913#0" expanded="false" />
+            <element signature="e#33526#33913#0" expanded="false" />
+            <element signature="e#33716#33913#0" expanded="false" />
+            <element signature="e#33954#34535#0" expanded="false" />
+            <element signature="e#34158#34535#0" expanded="false" />
+            <element signature="e#34348#34535#0" expanded="false" />
+            <element signature="e#34571#34756#0" expanded="false" />
+            <element signature="e#34798#35021#0" expanded="false" />
+            <element signature="e#35023#35055#0" expanded="false" />
+            <element signature="e#35621#37036#0" expanded="false" />
+            <element signature="e#35634#37035#1" expanded="false" />
+            <element signature="e#37128#37234#0" expanded="false" />
+            <element signature="e#37148#37233#1" expanded="false" />
+            <element signature="e#37245#38013#0" expanded="false" />
+            <element signature="e#37261#38012#1" expanded="false" />
+            <element signature="e#37280#37445#1" expanded="false" />
+            <element signature="e#37459#37630#1" expanded="false" />
+            <element signature="e#37644#37815#1" expanded="false" />
+            <element signature="e#37829#38002#1" expanded="false" />
+            <element signature="e#38024#38499#0" expanded="false" />
+            <element signature="e#38046#38498#1" expanded="false" />
+            <element signature="e#38510#39164#0" expanded="false" />
+            <element signature="e#38641#39153#0" expanded="false" />
+            <element signature="e#38663#39152#1" expanded="false" />
+            <element signature="e#39174#39671#0" expanded="false" />
+            <element signature="e#39221#39661#0" expanded="false" />
+            <element signature="e#39433#39646#0" expanded="false" />
+            <element signature="e#39461#39645#1" expanded="false" />
+            <element signature="e#39672#39811#0" expanded="false" />
+            <element signature="e#40375#40732#0" expanded="false" />
+            <element signature="e#40394#40731#1" expanded="false" />
+            <element signature="n#login#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#40984#41105#0" expanded="false" />
+            <element signature="e#41050#41105#0" expanded="false" />
+            <element signature="n#index#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#41150#43729#0" expanded="false" />
+            <element signature="e#41181#41525#0" expanded="false" />
+            <element signature="e#41311#41511#0" expanded="false" />
+            <element signature="e#41547#41683#0" expanded="false" />
+            <element signature="e#41547#41715#0" expanded="false" />
+            <element signature="e#41730#43661#0" expanded="false" />
+            <element signature="e#41761#41853#0" expanded="false" />
+            <element signature="e#41870#43394#0" expanded="false" />
+            <element signature="e#41923#42139#0" expanded="false" />
+            <element signature="e#41923#42202#0" expanded="false" />
+            <element signature="e#42248#42423#0" expanded="false" />
+            <element signature="e#42248#42479#0" expanded="false" />
+            <element signature="e#42527#42699#0" expanded="false" />
+            <element signature="e#42527#42758#0" expanded="false" />
+            <element signature="e#42808#42980#0" expanded="false" />
+            <element signature="e#42808#43040#0" expanded="false" />
+            <element signature="e#43079#43168#0" expanded="false" />
+            <element signature="e#43079#43230#0" expanded="false" />
+            <element signature="e#43079#43296#0" expanded="false" />
+            <element signature="e#43079#43366#0" expanded="false" />
+            <element signature="e#43447#43548#0" expanded="false" />
+            <element signature="e#43565#43647#0" expanded="false" />
+            <element signature="e#43671#43729#0" expanded="false" />
+            <element signature="n#doLogin#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#43776#45080#0" expanded="false" />
+            <element signature="e#43945#44246#0" expanded="false" />
+            <element signature="e#43964#44245#1" expanded="false" />
+            <element signature="e#44261#44684#0" expanded="false" />
+            <element signature="e#44399#44670#0" expanded="false" />
+            <element signature="e#44738#45080#0" expanded="false" />
+            <element signature="e#44960#45080#0" expanded="false" />
+            <element signature="n#chainCity#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#45129#45445#0" expanded="false" />
+            <element signature="e#45215#45445#0" expanded="false" />
+            <element signature="e#45311#45445#0" expanded="false" />
+            <element signature="e#45402#45445#0" expanded="false" />
+            <element signature="e#45455#45625#0" expanded="false" />
+            <element signature="e#45521#45625#0" expanded="false" />
+            <element signature="n#chainRegion#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#45676#46012#0" expanded="false" />
+            <element signature="e#45768#46012#0" expanded="false" />
+            <element signature="e#45870#46012#0" expanded="false" />
+            <element signature="e#45967#46012#0" expanded="false" />
+            <element signature="e#46022#46188#0" expanded="false" />
+            <element signature="e#46086#46188#0" expanded="false" />
+            <element signature="n#chainProvince#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#46241#46577#0" expanded="false" />
+            <element signature="e#46333#46577#0" expanded="false" />
+            <element signature="e#46435#46577#0" expanded="false" />
+            <element signature="e#46532#46577#0" expanded="false" />
+            <element signature="e#46587#46757#0" expanded="false" />
+            <element signature="e#46651#46757#0" expanded="false" />
+            <element signature="e#46818#47015#0" expanded="false" />
+            <element signature="e#46818#47101#0" expanded="false" />
+            <element signature="e#46818#47214#0" expanded="false" />
+            <element signature="n#regClientComp#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="n#regClientIndi#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="n#changePassword#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#47693#48290#0" expanded="false" />
+            <element signature="e#47834#48290#0" expanded="false" />
+            <element signature="e#48020#48290#0" expanded="false" />
+            <element signature="e#48300#49417#0" expanded="false" />
+            <element signature="e#48367#48473#0" expanded="false" />
+            <element signature="e#48402#48472#1" expanded="false" />
+            <element signature="e#48532#49013#0" expanded="false" />
+            <element signature="e#48789#49013#0" expanded="false" />
+            <element signature="e#49082#49348#0" expanded="false" />
+            <element signature="e#49130#49347#1" expanded="false" />
+            <element signature="e#49434#49518#0" expanded="false" />
+            <element signature="e#49527#49566#0" expanded="false" />
+            <element signature="n#activateResetPass#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#51394#51698#0" expanded="false" />
+            <element signature="e#51471#51698#0" expanded="false" />
+            <element signature="e#51563#51698#0" expanded="false" />
+            <element signature="n#activateChangePass#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#51842#52146#0" expanded="false" />
+            <element signature="e#51919#52146#0" expanded="false" />
+            <element signature="e#52011#52146#0" expanded="false" />
+            <element signature="n#confirmReset#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#52199#52784#0" expanded="false" />
+            <element signature="e#52403#52784#0" expanded="false" />
+            <element signature="e#52593#52784#0" expanded="false" />
+            <element signature="e#52794#52971#0" expanded="false" />
+            <element signature="e#52842#52970#1" expanded="false" />
+            <element signature="n#confirmChange#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#53166#53446#0" expanded="false" />
+            <element signature="e#53309#53446#0" expanded="false" />
+            <element signature="e#53456#54041#0" expanded="false" />
+            <element signature="e#53660#54041#0" expanded="false" />
+            <element signature="e#53850#54041#0" expanded="false" />
+            <element signature="e#54053#54230#0" expanded="false" />
+            <element signature="e#54101#54229#1" expanded="false" />
+            <element signature="n#chainCategoryItems#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="n#profile#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#54566#54651#0" expanded="false" />
+            <element signature="e#54566#54721#0" expanded="false" />
+            <element signature="e#54723#54780#0" expanded="false" />
+            <element signature="n#editProfile#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#55341#55992#0" expanded="false" />
+            <element signature="e#55428#55557#0" expanded="false" />
+            <element signature="e#55570#55701#0" expanded="false" />
+            <element signature="e#55740#55982#0" expanded="false" />
+            <element signature="e#55777#55890#0" expanded="false" />
+            <element signature="e#55777#55981#0" expanded="false" />
+            <element signature="n#uploadProfilePic#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#56323#56454#0" expanded="false" />
+            <element signature="e#56597#57380#0" expanded="false" />
+            <element signature="e#56939#57042#0" expanded="false" />
+            <element signature="e#56983#57041#1" expanded="false" />
+            <element signature="e#57057#57287#0" expanded="false" />
+            <element signature="e#57071#57286#1" expanded="false" />
+            <element signature="e#57298#57380#0" expanded="false" />
+            <element signature="n#getNotification#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#57620#57772#0" expanded="false" />
+            <element signature="n#showAllNotif#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#57825#57910#0" expanded="false" />
+            <element signature="e#57825#57987#0" expanded="false" />
+            <element signature="e#57932#57986#1" expanded="false" />
+            <element signature="e#58005#58135#0" expanded="false" />
+            <element signature="n#messages#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#58191#58349#0" expanded="false" />
+            <element signature="n#getMessages#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#58424#58539#0" expanded="false" />
+            <element signature="e#58424#58599#0" expanded="false" />
+            <element signature="e#58424#58822#0" expanded="false" />
+            <element signature="e#58629#58821#1" expanded="false" />
+            <element signature="e#58970#59112#0" expanded="false" />
+            <element signature="n#sendMsg#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#59211#59520#0" expanded="false" />
+            <element signature="e#59227#59519#1" expanded="false" />
+            <element signature="n#checkMsgThread#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#59625#59749#0" expanded="false" />
+            <element signature="e#59625#59806#0" expanded="false" />
+            <element signature="e#59625#59852#0" expanded="false" />
+            <element signature="e#59625#59904#0" expanded="false" />
+            <element signature="e#59625#60079#0" expanded="false" />
+            <element signature="e#59926#60078#1" expanded="false" />
+            <element signature="e#60097#60224#0" expanded="false" />
+            <element signature="e#60241#60343#0" expanded="false" />
+            <element signature="n#checkMsgs#0;n#HomeController#0;n#!!top" expanded="false" />
+            <element signature="e#60416#60540#0" expanded="false" />
+            <element signature="e#60416#60597#0" expanded="false" />
+            <element signature="e#60416#60643#0" expanded="false" />
+            <element signature="e#60670#60769#0" expanded="false" />
+            <element signature="n#checkMsgCount#0;n#HomeController#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ClientIndiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="35" selection-start="2198" selection-end="2198" vertical-scroll-proportion="-6.4" vertical-offset="0" max-vertical-offset="1984">
+          <folding>
+            <element signature="n#emailValidate#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="n#generateUniqueId#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#353#530#0" expanded="false" />
+            <element signature="e#424#520#0" expanded="false" />
+            <element signature="n#createTask#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#772#1647#0" expanded="false" />
+            <element signature="e#806#1048#0" expanded="false" />
+            <element signature="e#1063#1647#0" expanded="false" />
+            <element signature="e#1099#1341#0" expanded="false" />
+            <element signature="e#1356#1647#0" expanded="false" />
+            <element signature="e#1393#1637#0" expanded="false" />
+            <element signature="e#1664#1800#0" expanded="false" />
+            <element signature="e#1664#1870#0" expanded="false" />
+            <element signature="e#1664#1959#0" expanded="false" />
+            <element signature="e#1664#2154#0" expanded="false" />
+            <element signature="e#2271#3380#0" expanded="false" />
+            <element signature="e#2317#3370#0" expanded="false" />
+            <element signature="e#2351#3347#0" expanded="false" />
+            <element signature="e#2403#2852#0" expanded="false" />
+            <element signature="e#2445#2821#0" expanded="false" />
+            <element signature="e#2511#2794#0" expanded="false" />
+            <element signature="e#2873#3329#0" expanded="false" />
+            <element signature="e#2915#3298#0" expanded="false" />
+            <element signature="e#2982#3271#0" expanded="false" />
+            <element signature="e#3421#3659#0" expanded="false" />
+            <element signature="e#3694#3887#0" expanded="false" />
+            <element signature="e#3926#4131#0" expanded="false" />
+            <element signature="e#4171#4346#0" expanded="false" />
+            <element signature="e#4389#4598#0" expanded="false" />
+            <element signature="e#4638#4841#0" expanded="false" />
+            <element signature="e#4884#5226#0" expanded="false" />
+            <element signature="e#5067#5226#0" expanded="false" />
+            <element signature="e#5268#5470#0" expanded="false" />
+            <element signature="e#5504#5694#0" expanded="false" />
+            <element signature="e#5783#5961#0" expanded="false" />
+            <element signature="e#5999#6142#0" expanded="false" />
+            <element signature="e#6089#6142#0" expanded="false" />
+            <element signature="e#6181#6379#0" expanded="false" />
+            <element signature="e#6423#6594#0" expanded="false" />
+            <element signature="e#6654#7637#0" expanded="false" />
+            <element signature="e#6667#7636#1" expanded="false" />
+            <element signature="e#7764#8141#0" expanded="false" />
+            <element signature="e#7783#8140#1" expanded="false" />
+            <element signature="n#messages#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="n#editTask#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#8397#8772#0" expanded="false" />
+            <element signature="e#8839#8902#0" expanded="false" />
+            <element signature="e#8839#8972#0" expanded="false" />
+            <element signature="e#8839#9056#0" expanded="false" />
+            <element signature="e#8839#9145#0" expanded="false" />
+            <element signature="e#8839#9354#0" expanded="false" />
+            <element signature="n#doEditTask#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#9436#9674#0" expanded="false" />
+            <element signature="e#9709#9902#0" expanded="false" />
+            <element signature="e#9941#10146#0" expanded="false" />
+            <element signature="e#10186#10361#0" expanded="false" />
+            <element signature="e#10404#10613#0" expanded="false" />
+            <element signature="e#10653#10856#0" expanded="false" />
+            <element signature="e#10899#11241#0" expanded="false" />
+            <element signature="e#11082#11241#0" expanded="false" />
+            <element signature="e#11283#11485#0" expanded="false" />
+            <element signature="e#11574#11752#0" expanded="false" />
+            <element signature="e#11790#11933#0" expanded="false" />
+            <element signature="e#11880#11933#0" expanded="false" />
+            <element signature="e#11972#12170#0" expanded="false" />
+            <element signature="e#12214#12385#0" expanded="false" />
+            <element signature="e#12473#13434#0" expanded="false" />
+            <element signature="e#12521#13433#1" expanded="false" />
+            <element signature="e#13445#13804#0" expanded="false" />
+            <element signature="e#13464#13803#1" expanded="false" />
+            <element signature="n#deleteTask#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#14399#14496#0" expanded="false" />
+            <element signature="e#14446#14495#1" expanded="false" />
+            <element signature="e#14507#14910#0" expanded="false" />
+            <element signature="e#14526#14909#1" expanded="false" />
+            <element signature="n#tasks#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="n#taskDetails#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#15312#16303#0" expanded="false" />
+            <element signature="e#15359#15459#0" expanded="false" />
+            <element signature="e#15359#15538#0" expanded="false" />
+            <element signature="e#15554#16303#0" expanded="false" />
+            <element signature="e#15603#15706#0" expanded="false" />
+            <element signature="e#15603#15788#0" expanded="false" />
+            <element signature="e#15603#15872#0" expanded="false" />
+            <element signature="e#15888#16303#0" expanded="false" />
+            <element signature="e#15934#16037#0" expanded="false" />
+            <element signature="e#15934#16121#0" expanded="false" />
+            <element signature="e#15934#16203#0" expanded="false" />
+            <element signature="e#16214#16303#0" expanded="false" />
+            <element signature="n#hireTskmntr#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#16738#17518#0" expanded="false" />
+            <element signature="e#16789#17036#0" expanded="false" />
+            <element signature="e#17085#17518#0" expanded="false" />
+            <element signature="e#17136#17384#0" expanded="false" />
+            <element signature="e#17429#17518#0" expanded="false" />
+            <element signature="e#17866#18147#0" expanded="false" />
+            <element signature="e#17893#18146#1" expanded="false" />
+            <element signature="e#18158#18248#0" expanded="false" />
+            <element signature="e#18193#18247#1" expanded="false" />
+            <element signature="e#18389#18682#0" expanded="false" />
+            <element signature="e#18693#19025#0" expanded="false" />
+            <element signature="e#18714#19024#1" expanded="false" />
+            <element signature="e#19100#19487#0" expanded="false" />
+            <element signature="e#19119#19486#1" expanded="false" />
+            <element signature="e#19498#19853#0" expanded="false" />
+            <element signature="e#19517#19852#1" expanded="false" />
+            <element signature="n#tskmntrSearch#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#20077#20181#0" expanded="false" />
+            <element signature="e#20077#20320#0" expanded="false" />
+            <element signature="n#doTskmntrSearch#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#20573#20817#0" expanded="false" />
+            <element signature="e#20647#20807#0" expanded="false" />
+            <element signature="e#20827#21078#0" expanded="false" />
+            <element signature="e#20867#21068#0" expanded="false" />
+            <element signature="e#20988#21068#0" expanded="false" />
+            <element signature="e#21168#21245#0" expanded="false" />
+            <element signature="e#21168#21315#0" expanded="false" />
+            <element signature="e#21168#21454#0" expanded="false" />
+            <element signature="n#viewTaskminator#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="n#directHire#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#21774#21883#0" expanded="false" />
+            <element signature="e#22248#22327#0" expanded="false" />
+            <element signature="e#22248#22525#0" expanded="false" />
+            <element signature="n#doDirectHire#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#22775#23081#0" expanded="false" />
+            <element signature="e#22803#23080#1" expanded="false" />
+            <element signature="e#23092#23432#0" expanded="false" />
+            <element signature="e#23111#23431#1" expanded="false" />
+            <element signature="e#23443#23779#0" expanded="false" />
+            <element signature="e#23462#23778#1" expanded="false" />
+            <element signature="n#retractOffer#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="n#completeTask#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#24198#24349#0" expanded="false" />
+            <element signature="e#24198#24449#0" expanded="false" />
+            <element signature="e#24371#24448#1" expanded="false" />
+            <element signature="e#24474#24574#0" expanded="false" />
+            <element signature="e#24474#24614#0" expanded="false" />
+            <element signature="n#rateTaskminator#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#24870#25086#0" expanded="false" />
+            <element signature="e#24927#25085#1" expanded="false" />
+            <element signature="e#25097#25207#0" expanded="false" />
+            <element signature="e#25157#25206#1" expanded="false" />
+            <element signature="e#25218#25538#0" expanded="false" />
+            <element signature="e#25231#25537#1" expanded="false" />
+            <element signature="e#25549#25896#0" expanded="false" />
+            <element signature="e#25570#25895#1" expanded="false" />
+            <element signature="e#25936#26326#0" expanded="false" />
+            <element signature="e#25955#26325#1" expanded="false" />
+            <element signature="e#26337#26818#0" expanded="false" />
+            <element signature="e#26356#26817#1" expanded="false" />
+            <element signature="e#26829#27277#0" expanded="false" />
+            <element signature="e#26848#27276#1" expanded="false" />
+            <element signature="n#accomplishedTasks#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="n#cancelledTasks#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="n#automaticSearch#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#27971#28055#0" expanded="false" />
+            <element signature="e#28078#28267#0" expanded="false" />
+            <element signature="e#28078#28361#0" expanded="false" />
+            <element signature="e#28078#28554#0" expanded="false" />
+            <element signature="e#28395#28553#1" expanded="false" />
+            <element signature="e#28604#28683#0" expanded="false" />
+            <element signature="e#28604#28728#0" expanded="false" />
+            <element signature="n#automaticOffer#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#28980#29286#0" expanded="false" />
+            <element signature="e#29008#29285#1" expanded="false" />
+            <element signature="e#29297#29637#0" expanded="false" />
+            <element signature="e#29316#29636#1" expanded="false" />
+            <element signature="e#29648#29984#0" expanded="false" />
+            <element signature="e#29667#29983#1" expanded="false" />
+            <element signature="e#30002#30095#0" expanded="false" />
+            <element signature="n#cltEditPersonalInfo#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#30155#30357#0" expanded="false" />
+            <element signature="e#30293#30357#0" expanded="false" />
+            <element signature="e#30374#30452#0" expanded="false" />
+            <element signature="e#30374#30522#0" expanded="false" />
+            <element signature="e#30374#30637#0" expanded="false" />
+            <element signature="e#30374#30677#0" expanded="false" />
+            <element signature="n#doCltEditPersonalInfo#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#30774#30970#0" expanded="false" />
+            <element signature="e#31018#31225#0" expanded="false" />
+            <element signature="e#31278#31710#0" expanded="false" />
+            <element signature="e#31487#31710#0" expanded="false" />
+            <element signature="e#31750#32109#0" expanded="false" />
+            <element signature="e#31924#32109#0" expanded="false" />
+            <element signature="e#32146#32341#0" expanded="false" />
+            <element signature="e#32382#32585#0" expanded="false" />
+            <element signature="e#32595#33177#0" expanded="false" />
+            <element signature="e#32652#33176#1" expanded="false" />
+            <element signature="n#cltEditContactInfo#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#33343#33543#0" expanded="false" />
+            <element signature="e#33480#33543#0" expanded="false" />
+            <element signature="e#33559#33678#0" expanded="false" />
+            <element signature="e#33559#33720#0" expanded="false" />
+            <element signature="n#doCltEditContactInfo#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#33819#33968#0" expanded="false" />
+            <element signature="e#34014#34451#0" expanded="false" />
+            <element signature="e#34202#34451#0" expanded="false" />
+            <element signature="e#34489#34933#0" expanded="false" />
+            <element signature="e#34672#34933#0" expanded="false" />
+            <element signature="e#35006#35622#0" expanded="false" />
+            <element signature="e#35022#35621#1" expanded="false" />
+            <element signature="e#35041#35215#1" expanded="false" />
+            <element signature="e#35229#35411#1" expanded="false" />
+            <element signature="e#35425#35611#1" expanded="false" />
+            <element signature="n#cltEditAcctInfo#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="n#doCltEditPass#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#35868#36066#0" expanded="false" />
+            <element signature="e#36076#36227#0" expanded="false" />
+            <element signature="e#36268#36584#0" expanded="false" />
+            <element signature="e#36438#36584#0" expanded="false" />
+            <element signature="e#36594#36717#0" expanded="false" />
+            <element signature="e#36638#36716#1" expanded="false" />
+            <element signature="n#doCltIndiEditPersonalInfo#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#36903#37296#0" expanded="false" />
+            <element signature="e#37116#37296#0" expanded="false" />
+            <element signature="e#37340#37730#0" expanded="false" />
+            <element signature="e#37551#37730#0" expanded="false" />
+            <element signature="e#37772#38160#0" expanded="false" />
+            <element signature="e#37982#38160#0" expanded="false" />
+            <element signature="e#38200#38559#0" expanded="false" />
+            <element signature="e#38374#38559#0" expanded="false" />
+            <element signature="e#38596#38781#0" expanded="false" />
+            <element signature="e#38822#39015#0" expanded="false" />
+            <element signature="e#39025#39767#0" expanded="false" />
+            <element signature="e#39082#39766#1" expanded="false" />
+            <element signature="n#doCltEditIndiContactInfo#0;n#ClientIndiController#0;n#!!top" expanded="false" />
+            <element signature="e#39968#40405#0" expanded="false" />
+            <element signature="e#40156#40405#0" expanded="false" />
+            <element signature="e#40443#40887#0" expanded="false" />
+            <element signature="e#40626#40887#0" expanded="false" />
+            <element signature="e#40928#41123#0" expanded="false" />
+            <element signature="e#41164#41359#0" expanded="false" />
+            <element signature="e#41432#42236#0" expanded="false" />
+            <element signature="e#41448#42235#1" expanded="false" />
+            <element signature="e#41467#41641#1" expanded="false" />
+            <element signature="e#41655#41835#1" expanded="false" />
+            <element signature="e#41849#42029#1" expanded="false" />
+            <element signature="e#42043#42225#1" expanded="false" />
+            <marker date="1432382629724" expanded="false" signature="18401:18671" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/client/createTask.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="146" selection-start="7312" selection-end="7312" vertical-scroll-proportion="0.82865584" vertical-offset="1455" max-vertical-offset="3152">
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <marker date="1432383360761" expanded="true" signature="6034:6511" placeholder="..." />
+            <marker date="1432383360761" expanded="true" signature="6089:6511" placeholder="..." />
+            <marker date="1432383360761" expanded="true" signature="6150:6511" placeholder="..." />
+            <marker date="1432383360761" expanded="true" signature="6333:6511" placeholder="..." />
+            <marker date="1432383360761" expanded="true" signature="6836:7991" placeholder="..." />
+            <marker date="1432383360761" expanded="true" signature="6897:7991" placeholder="..." />
+            <marker date="1432383360761" expanded="true" signature="7096:7991" placeholder="..." />
+            <marker date="1432383360761" expanded="true" signature="8342:8744" placeholder="..." />
+            <marker date="1432383360761" expanded="true" signature="8397:8744" placeholder="..." />
+            <marker date="1432383360761" expanded="true" signature="8458:8744" placeholder="..." />
+            <marker date="1432383360761" expanded="true" signature="8666:8744" placeholder="..." />
+            <marker date="1432383360761" expanded="true" signature="9435:9569" placeholder="..." />
+            <marker date="1432383360761" expanded="true" signature="9829:10031" placeholder="..." />
+            <marker date="1432383360761" expanded="true" signature="9890:10031" placeholder="..." />
+            <marker date="1432383360761" expanded="true" signature="10267:11229" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
