@@ -18,18 +18,18 @@ class HomeController extends BaseController {
     }
 
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Default Home Controller
+    |--------------------------------------------------------------------------
+    |
+    | You may wish to use controllers instead of, or in addition to, Closure
+    | based routes. That's great! Here is an example controller method to
+    | get you started. To route to this controller, just add the route:
+    |
+    |   Route::get('/', 'HomeController@showWelcome');
+    |
+    */
 
     public function logout(){
         date_default_timezone_set("Asia/Manila");
@@ -258,6 +258,117 @@ class HomeController extends BaseController {
         return Redirect::to('/')->with('successMsg', 'Registration Success. You may now login.');
     }
 
+    public function checkCaptcha(){
+        // check captcha
+        $check = SimpleCaptcha::check($_POST['captcha']);
+
+        if(!$check) {
+            return false;
+        }
+    }
+
+    public function doRegisterIndi(){
+        $check = SimpleCaptcha::check($_POST['captcha']);
+
+        if(!$check) {
+            return false;
+        }
+
+        Input::merge(array_map('trim', Input::all()));
+        $rules = array(
+            'firstName' => "required|regex:/^[\p{L}\s'.-]+$/",
+            'midName'  => "required|regex:/^[\p{L}\s'.-]+$/",
+            'lastName' => "required|regex:/^[\p{L}\s'.-]+$/",
+            'gender' => 'required',
+            'occupation' => "required|regex:/^[\p{L}\s'()]+$/",
+            'month' => 'required',
+            'date' => 'required',
+            'year' => 'required',
+            'mobileNum' => 'required|numeric|min:11',
+            'tin1' => 'required|regex:/^[0-9]+$/|digits:3',
+            'tin2' => 'required|regex:/^[0-9]+$/|digits:3',
+            'tin3' => 'required|regex:/^[0-9]+$/|digits:3',
+            'email' => 'required|email',
+            'username' => 'required|unique:users,username',
+            'password' => 'required|min:8',
+            'confirmpass' => 'required|min:8|same:password',
+            'TOS' => 'required'
+        );
+
+        $messages = array(
+            'firstName.regex' => 'Name must be letters only',
+            'midName.regex' => 'Name must be letters only',
+            'lastName.regex' => 'Name must be letters only',
+            'occupation.regex' => 'Occupation should not have special characters',
+            'tin1.regex' => 'Wrong TIN number',
+            'tin2.regex' => 'Wrong TIN number',
+            'tin3.regex' => 'Wrong TIN number',
+            'tin1.required' => 'Fill up all fields for TIN number',
+            'tin2.required' => 'Fill up all fields for TIN number',
+            'tin3.required' => 'Fill up all fields for TIN number',
+        );
+
+        $validator = Validator::make(Input::all(), $rules, $messages);
+
+        if($validator->fails()){
+            return Redirect::back()->with('errorMsg', $validator->messages()->first())->withInput(Input::except('password'));
+        }
+
+        // if validation is successful
+        if(User::count() < 30){
+            $points = 100;
+        }else{
+            $points = 0;
+        }
+
+        $userId = User::insertGetId(array(
+            'username'      =>  Input::get('username'),
+            'password'      =>  Hash::make(Input::get('password')),
+            'firstName'     =>  Input::get('firstName'),
+            'midName'       =>  Input::get('midName'),
+            'lastName'      =>  Input::get('lastName'),
+            'fullName'      =>  Input::get('firstName').' '.Input::get('midName').' '.Input::get('lastName'),
+            'birthdate'     =>  Input::get('year').'-'.Input::get('month').'-'.Input::get('date'),
+            'tin'           =>  Input::get('tin1').'-'.Input::get('tin2').'-'.Input::get('tin3').'-000',
+            'gender'        =>  Input::get('gender'),
+            'status'        =>  'PRE_ACTIVATED',
+            'created_at'    =>  date("Y:m:d H:i:s"),
+            'updated_at'    =>  date("Y:m:d H:i:s"),
+            'points'        =>  $points,
+            'accountType'   =>  'BASIC',
+        ));
+
+        UserHasRole::insert(array(
+            'user_id'   =>  $userId,
+            'role_id'   =>  '3'
+        ));
+
+        Contact::insert(array(
+            array(
+                'user_id'       =>  $userId,
+                'ctype'       =>  'email',
+                'content'       =>  Input::get('email'),
+            ),
+            array(
+                'user_id'       =>  $userId,
+                'ctype'       =>  'mobileNum',
+                'content'       =>  Input::get('mobileNum'),
+            )
+        ));
+
+        AuditTrail::insert(array(
+            'user_id'   =>  $userId,
+            'content'   =>  'Created a Client Individual account at '.date('D, M j, Y \a\t g:ia'),
+            'created_at'    =>  date("Y:m:d H:i:s"),
+            'at_url'        =>  '/viewUserProfile/'.$userId
+//                'module'   =>  'Logged in at '.date('D, M j, Y \a\t g:ia'),
+        ));
+
+        Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')));
+        return Redirect::to('/')->with('successMsg', 'Registration Success. You may now login.');
+    }
+
+    /*
     public function doRegisterIndi(){
         // FIRSTNAME VALIDATION
         if(!ctype_alpha(str_replace(' ', '', trim(Input::get('firstName'))))){
@@ -427,6 +538,7 @@ class HomeController extends BaseController {
         Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')));
         return Redirect::to('/')->with('successMsg', 'Registration Success. You may now login.');
     }
+    */
 
     public function doRegisterTaskminator(){
 
@@ -1284,3 +1396,4 @@ class HomeController extends BaseController {
         return User::getMessages()->count();
     }
 }
+

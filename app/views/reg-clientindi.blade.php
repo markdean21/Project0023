@@ -6,44 +6,65 @@
 
 @section('head-contents')
     <script>
+        function enableSubmit(val){
+            var sbmt = document.getElementById("submitForm");
+            
+            if (val.checked){
+                sbmt.disabled = false;
+            }
+            else{
+                sbmt.disabled = true;
+            }
+        } 
+
+
+        $("#captcha").keyup(function (e) {
+            if (e.keyCode == 13) {
+                // Do something
+                /*
+                $.ajax({
+                type: "POST",
+                url: '/checkCaptcha',
+                data: 'captcha='+$('#captcha').val(),
+                success: function( data ) {
+                alert( data );
+                }
+                });
+                */
+                alert('here');
+            }
+        });
+
+        /*
         $(document).ready(function(){
             $('#submitForm').click(function(event){
                 event.preventDefault();
                 var inputs = $('.inputItem'),
                     missingInputs = '',
                     trigger = false;
-
                 for(var x=0; x < inputs.size(); x++){
                     if(inputs.eq(x).val() == ''){
                         trigger = true;
                         break;
                     }
                 }
-
                 if(trigger){
                     for(var i=0; i < inputs.size(); i++){
                         if(inputs.eq(i).val() == ''){
                             missingInputs += '- '+inputs.eq(i).attr('data-name')+'<br/>';
                         }
                     }
-
                     $('#confirmBtn').prop('disabled', true);
                     $('#emailConfirm').empty();
                     $('#confirmMsg').empty().append('Please fill up necessary information first<br/>'+missingInputs);
                 }else{
-                    $('#confirmBtn').prop('false', true);
+                    $('#confirmBtn').prop('disabled', false);
                     $('#confirmMsg').empty().append('Please confirm your email information before proceeding (This email will recieve necessary updates and notifications)');
                     $('#emailConfirm').empty().append('<i class="se7en-envelope"></i> '+$('#email').val());
                 }
-
                 $('#confirmModal').modal('show');
             });
-
-
-            locationChain($('#region'), $('#city'),$('#registrationForm'), '/chainRegion');
-            locationChain($('#region'), $('#province'),$('#registrationForm'), '/chainProvince');
-            locationChain($('#city'), $('#barangay'),$('#registrationForm'), '/chainCity');
-        });
+        });*/
     </script>
 @stop
 
@@ -54,154 +75,128 @@
             <div class="col-lg-12">
                 <div class="widget-container fluid-height clearfix">
                     <div class="heading" style="padding: 40px 60px">
-                        <i class="icon-reorder"></i>Personal Information
+                        Personal Information
                     </div>
                     <div class="widget-content padded" style="padding: 10px 60px 40px 60px;">
                         <div class="client-form-indi">
                             @if(Session::has('errorMsg'))
-                            <font color="red">{{ Session::get('errorMsg') }}</font>
+                                <font color="red">{{ Session::get('errorMsg') }}</font><br><br>
                             @endif
                             {{ Form::open(array('url' => '/doRegisterIndi', 'id' => 'registrationForm')) }}
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">First Name</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('firstName', Input::old('firstName'), array('data-name' => 'First Name', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter first name', 'required' => 'true')) }}
+                                
+                                <div class="form-group">
+                                    <label class="control-label row" style="margin-left: 5px;">Name</label>
+                                    <div class="row">
+                                        <div class="col-md-4" style="margin-bottom: 2px;">
+                                            {{ Form::text('firstName', Input::old('firstName'), array('data-name' => 'First Name', 'class' => 'inputItem form-control', 'placeholder' => 'First name', 'required' => 'true')) }}
+                                        </div>
+                                        <div class="col-md-3" style="margin-bottom: 2px;">
+                                            {{ Form::text('midName', Input::old('midName'), array('data-name' => 'Middle Name', 'class' => 'inputItem form-control', 'placeholder' => 'Middle name', 'required' => 'true')) }}
+                                        </div>
+                                        <div class="col-md-5">
+                                            {{ Form::text('lastName', Input::old('lastName'), array('data-name' => 'Last Name', 'class' => 'inputItem form-control', 'placeholder' => 'Last name', 'required' => 'true')) }}
+                                        </div>
                                     </div>
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Middle Name</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('midName', Input::old('midName'), array('data-name' => 'Middle Name', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter middle name', 'required' => 'true')) }}
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Last Name</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('lastName', Input::old('lastName'), array('data-name' => 'Last Name', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter last name', 'required' => 'true')) }}
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Address</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('address', Input::old('address'), array('data-name' => 'Address', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter address', 'required' => 'true')) }}
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Gender</label>
-                                    <div class="col-md-10">
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label" style="margin-left: 5px;">Gender</label>
                                         <select name="gender" required="required" class="form-control inputItem" data-name="Gender">
                                             <option value="MALE">Male</option>
                                             <option value="FEMALE">Female</option>
                                         </select>
                                     </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Mobile Number</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('mobileNum', Input::old('mobileNum'), array('data-name' => 'Mobile Number', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter mobile number', 'required' => 'true')) }}
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label" style="margin-left: 5px;">Occupation</label>
+                                        {{ Form::text('occupation', Input::old('occupation'), array('data-name' => 'Occupation', 'class' => 'inputItem form-control', 'placeholder' => 'Ex. Contractor', 'required' => 'true')) }}
                                     </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Email Address</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('email', Input::old('email'), array('data-name' => 'Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter email address', 'required' => 'true', 'id' => 'email')) }}
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Facebook</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('facebook', Input::old('facebook'), array('data-name' => 'Facebook', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter link to Facebook account', 'required' => 'true')) }}
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">LinkedIn</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('linkedin', Input::old('linkedin'), array('data-name' => 'LinkedIn', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter link to LinkedIn account', 'required' => 'true')) }}
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Region</label>
-                                    <div class="col-md-10">
-                                        <select name="region" id="region" class="form-control inputItem" data-name="Region">
-                                            @foreach($regions as $region)
-                                                <option data-regcode="{{ $region->regcode }}" value="{{ $region->regcode }}">{{ $region->regname }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div><br/>
-<!--                                <div class="row form-group">-->
-<!--                                    <label class="control-label col-md-2">Province</label>-->
-<!--                                    <div class="col-md-10">-->
-<!--                                        <select name="province" id="province" class="form-control">-->
-<!--                                        </select>-->
-<!--                                    </div>-->
-<!--                                </div><br/>-->
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">City</label>
-                                    <div class="col-md-10">
-                                        <select name="city" id="city" class="form-control inputItem" data-name="City">
-                                            @if(Input::old('region'))
-                                                @foreach(City::where('regcode', Input::old('region'))->orderBy('cityname', 'ASC')->get() as $city)
-                                                    <option value="{{ $city->citycode }}" <?php if(Input::old('city') == $city->citycode){ echo('selected'); } ?>>{{ $city->cityname }}</option>
-                                                @endforeach
-                                            @else
-                                                @foreach($cities as $city)
-                                                    <option value="{{ $city->citycode }}" <?php if(Input::old('city') == $city->citycode){ echo('selected'); } ?>>{{ $city->cityname }}</option>
-                                                @endforeach
-                                            @endif
-
-                                            @foreach($cities as $city)
-                                                <option value="{{ $city->citycode }}" <?php if(Input::old('city') == $city->citycode){ echo('selected'); } ?>>{{ $city->cityname }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Barangay</label>
-                                    <div class="col-md-10">
-                                        <select name="barangay" id="barangay" class="form-control inputItem" data-name="Barangay">
-                                            @if(Input::old('city'))
-                                                @foreach(Barangay::where('citycode', Input::old('city'))->orderBy('bgyname', 'ASC')->get() as $bgy)
-                                                    <option value="{{$bgy->bgycode}}" <?php  if(Input::old('barangay') == $bgy->bgycode){ echo('selected'); } ?>>{{ $bgy->bgyname }}</option>
-                                                @endforeach
-                                            @else
-                                                @foreach($barangays as $bgy)
-                                                    <option value="{{$bgy->bgycode}}" <?php  if(Input::old('barangay') == $bgy->bgycode){ echo('selected'); } ?>>{{ $bgy->bgyname }}</option>
-                                                @endforeach
-                                            @endif
-                                        </select>
-                                    </div>
-                                </div><br/>
-                                <hr/>
-                                <h6>Account Information</h6>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Username</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter username', 'required' => 'true')) }}
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Password</label>
-                                    <div class="col-md-6">
-                                        {{ Form::password('password', array('data-name' => 'Password', 'data-display' => 'strengthDisplay', 'id' => 'passwordInput', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter password', 'required' => 'true')) }}
-                                    </div>
-                                    <div class="col-md-4" id="strengthDisplay">
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Confirm Password</label>
-                                    <div class="col-md-10">
-                                        {{ Form::password('confirmpass', array('data-name' => 'Confirm Password', 'class' => 'inputItem form-control', 'placeholder' => 'Re-type password', 'required' => 'true')) }}
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Terms of Service</label>
-                                    <div class="col-md-10">
-                                        {{ Form::checkbox('TOS', '1', array('class' => 'form-control'));}}
-                                    </div>
-                                </div><br/>
+                                </div>
                                 <br/>
-                                <button class="btn btn-primary" type="submit" id="submitForm">Register</button>
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label">Birth Date</label>
+                                        <div class="row">
+                                            <div class="col-md-4" style="margin-bottom: 2px;">
+                                                {{ Form::selectMonth('month', Input::old('month'), array('data-name' => 'Month', 'class' => 'inputItem form-control', 'required' => 'true')) }}
+                                            </div>
+                                            <div class="col-md-2" style="margin-bottom: 2px;">
+                                                {{ Form::selectRange('date', 1, 31, Input::old('date'), array('data-name' => 'Date', 'class' => 'inputItem form-control', 'required' => 'true')) }}
+                                            </div>
+                                            <div class="col-md-3" style="margin-bottom: 2px;">
+                                                {{ Form::selectYear('year', 2015, 1955, Input::old('year'), array('data-name' => 'Year', 'class' => 'inputItem form-control', 'required' => 'true')) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label">Mobile Number</label>
+                                        {{ Form::text('mobileNum', Input::old('mobileNum'), array('data-name' => 'Mobile Number', 'class' => 'inputItem form-control', 'placeholder' => 'Mobile number', 'required' => 'true')) }}
+                                    </div>
+                                </div><br/>
+
+                                <div class="form-group">
+                                    <label class="control-label">TIN Number</label>
+                                    <div class="row">
+                                        <div class="col-md-1" style="margin-bottom: 2px;">
+                                            {{ Form::text('tin1', Input::old('tin1'), array('data-name' => 'TIN Number', 'class' => 'form-control inputItem', 'placeholder' => 'XXX', 'maxlength' => '3','required' => 'true')) }}
+                                        </div>
+                                        <div class="col-md-1" style="margin-bottom: 2px;">
+                                            {{ Form::text('tin2', Input::old('tin2'), array('data-name' => 'TIN Number', 'class' => 'form-control inputItem', 'placeholder' => 'XXX', 'maxlength' => '3','required' => 'true')) }}
+                                        </div>
+                                        <div class="col-md-1" style="margin-bottom: 2px;">
+                                            {{ Form::text('tin3', Input::old('tin3'), array('data-name' => 'TIN Number', 'class' => 'form-control inputItem', 'placeholder' => 'XXX', 'maxlength' => '3','required' => 'true')) }}
+                                        </div>
+                                        <label class="col-md-8" style="font-size: 16pt;">-&nbsp;000</label>
+                                    </div>
+                                </div><br/>
+
+                                <div class="form-group">
+                                    <label class="control-label">Email Address</label>
+                                    {{ Form::text('email', Input::old('email'), array('data-name' => 'Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Email address', 'required' => 'true', 'id' => 'email')) }}
+                                </div><br/>
+                                
+                                <hr/>
+                                
+                                <div class="form-group">
+                                    <label class="control-label">Username</label>
+                                    {{ Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'inputItem form-control', 'placeholder' => 'Username', 'required' => 'true')) }}
+                                </div><br/>
+
+                                <div class="form-group">
+                                    <label class="control-label">Password <h6>(minimum of 8 characters)</h6></label>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            {{ Form::password('password', array('data-name' => 'Password', 'data-display' => 'strengthDisplay', 'id' => 'passwordInput', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter password', 'required' => 'true')) }}
+                                        </div>
+                                        <div class="col-md-7" id="strengthDisplay"></div>
+                                    </div>
+                                </div><br/>
+
+
+                                <div class="form-group">
+                                    <label class="control-label">Confirm Password</label>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            {{ Form::password('confirmpass', array('data-name' => 'Confirm Password', 'class' => 'inputItem form-control', 'placeholder' => 'Re-type password', 'required' => 'true')) }}
+                                        </div>
+                                        <div class="col-md-7"></div>
+                                    </div>
+                                </div><br/>
+
+
+                                <p>
+                                    {{ HTML::image(URL::to('simplecaptcha'),'Captcha', array('class' => 'img-rounded')) }}<br><br>
+                                    <label>CAPTCHA</label>
+                                    {{ Form::text('captcha', '', array('data-name' => 'Captcha', 'class' => 'inputItem form-control', 'id' => 'captcha','placeholder' => 'Type code above', 'required' => 'true', 'style' => 'width: 130px;')) }}
+                                </p>
+
+                                <div class="form-group" style="margin-left: 5px;">
+                                    <input id="TOS" name="TOS" type="checkbox" value="1" onclick="enableSubmit(this)">
+                                    <label class="control-label" style="margin-left: 5px;">Terms of Service</label>
+                                </div>
+                                <button class="btn btn-primary" type="submit" id="submitForm" onclick="$('#registrationForm').submit();" disabled>Register</button>
+                                {{ Form::reset('Reset', array('class' => 'btn btn-default')) }}
                             {{ Form::close() }}
                         </div>
                     </div>
@@ -225,7 +220,7 @@
             </div>
             <div class="modal-footer" style="margin: 0; padding: 0.8em;">
                 <button data-dismiss="modal" class="btn btn-danger">Cancel</button>
-                <button onclick="$('#registrationForm').submit()" class="btn btn-primary" id="confirmBtn">Confirm</button>
+                <button class="btn btn-primary" id="confirmBtn" onclick="$('#registrationForm').submit();">Confirm</button>
             </div>
         </div>
     </div>
