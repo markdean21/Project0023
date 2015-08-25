@@ -6,15 +6,20 @@
 
 @section('head-contents')
     <script>
-        function enableSubmit(val){
+        function enableSubmit(){
+            var val = document.getElementById('TOS');
             var sbmt = document.getElementById("submitForm");
+            
             if (val.checked){
                 sbmt.disabled = false;
             }
             else{
                 sbmt.disabled = true;
             }
-        }
+        } 
+        $(document).ready(function(){
+            enableSubmit();
+        });
         /*
         $(document).ready(function(){
             $('#submitForm').click(function(event){
@@ -139,14 +144,12 @@
                                     <label class="control-label">Confirm Password</label>
                                     {{ Form::password('confirmpass', array('data-name' => 'Confirm Password', 'class' => 'form-control inputItem', 'placeholder' => 'Re-type password', 'required' => 'true')) }}
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Terms of Service</label>
-                                    <div class="col-md-10">
-                                        {{ Form::checkbox('TOS', '1', array('class' => 'form-control'));}}
-                                    </div>
-                                </div><br/>
-                                <br/>
-                                <button onclick="$('#registrationForm-comp').submit()" class="btn btn-primary" type="submit" id="submitForm">Register</button>
+                                <div class="form-group" style="margin-left: 5px;">
+                                    <input id="TOS" name="TOS" type="checkbox" value="1" onclick="enableSubmit()">
+                                    <label class="control-label" style="margin-left: 5px;">Terms of Service</label>
+                                </div>
+                                <button class="btn btn-primary" type="submit" id="submitForm" onclick="$('#registrationForm-comp').submit();" disabled>Register</button>
+                                {{ Form::reset('Reset', array('class' => 'btn btn-default')) }}
                             {{ Form::close() }}
                         </div>
                     </div>
