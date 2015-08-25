@@ -1,0 +1,14 @@
+<html>
+<head></head>
+<body>
+<center>
+    <h4>Thank you for using TASKminator!</h4><br/>
+    {{ $msg }}<br/>
+    {{ $url }}
+
+    <br/><span style="color : red; font-size: 0.8em;">
+        This is an automated message. Do not reply.
+    </span>
+</center>
+</body>
+</html>
