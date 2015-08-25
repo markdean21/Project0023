@@ -37,10 +37,6 @@ class CreateUsersTable extends Migration {
             $table->string('businessPermit')->nullable();
             $table->string('businessDescription')->nullable();
             $table->string('businessNature')->nullable();
-            $table->string('tin')->nullable();
-            $table->string('businessNum')->nullable();
-            $table->string('registrationNum')->nullable();
-            $table->integer('operationYears')->nullable();
             // FOR TASKMINATORS
             $table->string('educationalBackground')->nullable();
             $table->string('servicesOffered')->nullable();

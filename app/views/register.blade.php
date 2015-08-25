@@ -20,7 +20,7 @@
     <br/>
     <h3>Select account type</h3>
     <button type="button" class="client-btn btn btn-lg btn-primary btn-block clientTypeTrigger"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;&nbsp;Client</button>
-    <button type="button" class="taskminator-btn btn btn-lg btn-warning btn-block" onclick="location.href='/regTaskminator'"><span class="glyphicon glyphicon-wrench"></span>&nbsp;&nbsp;Taskminator</button>
+    <button type="button" class="taskminator-btn btn btn-lg btn-warning btn-block" onclick="location.href='/regTaskminator'"><span class="glyphicon glyphicon-wrench"></span>&nbsp;&nbsp;Seeker</button>
 </div>
 
 <div class="account-type-btns" id="clientTypes" style="margin-top: 25%; display: none;">

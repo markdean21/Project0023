@@ -2,6 +2,10 @@
 
 // PLACE NON PROTECTED ROUTES HERE -- START
 Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@home');
+Route::get('/howitworks', 'HomeController@howitworks');
+Route::get('/whychooseproveek', 'HomeController@whychooseproveek');
+Route::get('/pricing', 'HomeController@pricing');
 Route::get('/login', 'HomeController@login');
 Route::post('/doLogin', 'HomeController@doLogin');
 Route::get('/register', 'HomeController@register');
