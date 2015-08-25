@@ -6,7 +6,8 @@
 
 @section('head-contents')
     <script>
-        function enableSubmit(val){
+        function enableSubmit(){
+            var val = document.getElementById('TOS');
             var sbmt = document.getElementById("submitForm");
             
             if (val.checked){
@@ -16,23 +17,8 @@
                 sbmt.disabled = true;
             }
         } 
-
-
-        $("#captcha").keyup(function (e) {
-            if (e.keyCode == 13) {
-                // Do something
-                /*
-                $.ajax({
-                type: "POST",
-                url: '/checkCaptcha',
-                data: 'captcha='+$('#captcha').val(),
-                success: function( data ) {
-                alert( data );
-                }
-                });
-                */
-                alert('here');
-            }
+        $(document).ready(function(){
+            enableSubmit();
         });
 
         /*
@@ -75,7 +61,7 @@
             <div class="col-lg-12">
                 <div class="widget-container fluid-height clearfix">
                     <div class="heading" style="padding: 40px 60px">
-                        Personal Information
+                        <i class="icon-reorder"></i>Personal Information
                     </div>
                     <div class="widget-content padded" style="padding: 10px 60px 40px 60px;">
                         <div class="client-form-indi">
@@ -85,7 +71,7 @@
                             {{ Form::open(array('url' => '/doRegisterIndi', 'id' => 'registrationForm')) }}
                                 
                                 <div class="form-group">
-                                    <label class="control-label row" style="margin-left: 5px;">Name</label>
+                                    <label class="control-label">Name</label>
                                     <div class="row">
                                         <div class="col-md-4" style="margin-bottom: 2px;">
                                             {{ Form::text('firstName', Input::old('firstName'), array('data-name' => 'First Name', 'class' => 'inputItem form-control', 'placeholder' => 'First name', 'required' => 'true')) }}
@@ -101,14 +87,14 @@
 
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label class="control-label" style="margin-left: 5px;">Gender</label>
+                                        <label class="control-label">Gender</label>
                                         <select name="gender" required="required" class="form-control inputItem" data-name="Gender">
                                             <option value="MALE">Male</option>
                                             <option value="FEMALE">Female</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="control-label" style="margin-left: 5px;">Occupation</label>
+                                        <label class="control-label">Occupation</label>
                                         {{ Form::text('occupation', Input::old('occupation'), array('data-name' => 'Occupation', 'class' => 'inputItem form-control', 'placeholder' => 'Ex. Contractor', 'required' => 'true')) }}
                                     </div>
                                 </div>
@@ -147,7 +133,7 @@
                                         <div class="col-md-1" style="margin-bottom: 2px;">
                                             {{ Form::text('tin3', Input::old('tin3'), array('data-name' => 'TIN Number', 'class' => 'form-control inputItem', 'placeholder' => 'XXX', 'maxlength' => '3','required' => 'true')) }}
                                         </div>
-                                        <label class="col-md-8" style="font-size: 16pt;">-&nbsp;000</label>
+                                        <label class="col-md-8" style="font-size: 16pt;">000</label>
                                     </div>
                                 </div><br/>
 
@@ -157,7 +143,7 @@
                                 </div><br/>
                                 
                                 <hr/>
-                                
+                                <h5>Account Information</h5>
                                 <div class="form-group">
                                     <label class="control-label">Username</label>
                                     {{ Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'inputItem form-control', 'placeholder' => 'Username', 'required' => 'true')) }}
@@ -192,7 +178,7 @@
                                 </p>
 
                                 <div class="form-group" style="margin-left: 5px;">
-                                    <input id="TOS" name="TOS" type="checkbox" value="1" onclick="enableSubmit(this)">
+                                    <input id="TOS" name="TOS" type="checkbox" value="1" onclick="enableSubmit()">
                                     <label class="control-label" style="margin-left: 5px;">Terms of Service</label>
                                 </div>
                                 <button class="btn btn-primary" type="submit" id="submitForm" onclick="$('#registrationForm').submit();" disabled>Register</button>

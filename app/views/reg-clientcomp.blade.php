@@ -1,11 +1,21 @@
 @extends('layouts.registration')
 
 @section('head')
-    Register as Client (Individual)
+    Register as Client (Company)
 @stop
 
 @section('head-contents')
     <script>
+        function enableSubmit(val){
+            var sbmt = document.getElementById("submitForm");
+            if (val.checked){
+                sbmt.disabled = false;
+            }
+            else{
+                sbmt.disabled = true;
+            }
+        }
+        /*
         $(document).ready(function(){
             $('#submitForm').click(function(event){
                 event.preventDefault();
@@ -46,6 +56,7 @@
     //        locationChain($('#region'), $('#province'),$('#registrationForm'), '/chainProvince');
     //        locationChain($('#city'), $('#barangay'),$('#registrationForm'), '/chainCity');
         });
+        */
     </script>
 @stop
 
@@ -64,162 +75,69 @@
                                 <font color="red">{{ Session::get('errorMsg') }}</font>
                             @endif
                             {{ Form::open(array('url' => '/doRegisterComp', 'id' => 'registrationForm-comp')) }}
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Company Name</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('companyName', Input::old('companyName'), array('data-name' => 'Company Name', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter company name', 'required' => 'true')) }}
+                                <div class="form-group">
+                                    <label class="control-label">Company Name</label>
+                                    {{ Form::text('companyName', Input::old('companyName'), array('data-name' => 'Company Name', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter company name', 'required' => 'true')) }}
+                                </div><br/>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label">Nature of Business</label>
+                                        {{ Form::text('businessNature', Input::old('businessNature'), array('data-name' => 'Business Nature', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter nature of business', 'required' => 'true')) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label">Years in Operation</label>
+                                        {{Form::number('operationYears', Input::old('operationYears'), array('data-name' => 'Years in Operation', 'class' => 'inputItem form-control', 'placeholder' => 'Please input years in operation', 'min' => '0', 'required' => 'true'))}}
                                     </div>
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Company Address</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('address', Input::old('address'), array('data-name' => 'Company Address', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter company address', 'required' => 'true')) }}
-                                    </div>
+                                <div class="form-group">
+                                    <label class="control-label">Business Description</label>
+                                    {{ Form::text('businessDescription', Input::old('businessDescription'), array('data-name' => 'Business Description', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business description', 'required' => 'true')) }}
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Mobile Number</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('mobileNum', Input::old('mobileNum'), array('data-name' => 'Mobile Number', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter mobile number', 'required' => 'true')) }}
-                                    </div>
+                                <div class="form-group">
+                                    <label class="control-label">Business Address</label>
+                                    {{ Form::text('address', Input::old('address'), array('data-name' => 'Company Address', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter company address', 'required' => 'true')) }}
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Email Address</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('email', Input::old('email'), array('id' => 'email', 'data-name' => 'Email', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter email address', 'required' => 'true')) }}
-                                    </div>
+                                <div class="form-group">
+                                    <label class="control-label">Business Number</label>
+                                    {{ Form::text('businessNum', Input::old('businessNum'), array('data-name' => 'Business Number', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business number', 'required' => 'true')) }}
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Business Number</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('businessNum', Input::old('businessNum'), array('data-name' => 'Business Number', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business name', 'required' => 'true')) }}
+                                <div class="form-group">
+                                    <label class="control-label">Key Contact Person</label>
+                                    <div class="row">
+                                        <div class="col-md-7" style="margin-bottom: 2px;">
+                                            {{ Form::text('firstName-keyperson', Input::old('firstName-keyperson'), array('data-name' => 'Point Person First Name', 'class' => 'form-control inputItem', 'placeholder' => 'First name', 'required' => 'true')) }}
+                                        </div>
+                                        <div class="col-md-5">
+                                            {{ Form::text('lastName-keyperson', Input::old('lastName-keyperson'), array('data-name' => 'Point Person Last Name', 'class' => 'form-control inputItem', 'placeholder' => 'Last name', 'required' => 'true')) }}
+                                        </div>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Position</label>
+                                    {{ Form::text('position-keyperson', Input::old('position-keyperson'), array('data-name' => 'Point Person Position', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter position', 'required' => 'true')) }}
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Business Nature</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('businessNature', Input::old('businessNature'), array('data-name' => 'Business Nature', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business nature', 'required' => 'true')) }}
-                                    </div>
+                                <div class="form-group">
+                                    <label class="control-label">SEC/DTI Registration Number</label>
+                                    {{ Form::text('regNum', Input::old('regNum'), array('data-name' => 'Registration Number', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter SEC/DTI Registration Number', 'required' => 'true')) }}
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Business Description</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('businessDescription', Input::old('businessDescription'), array('data-name' => 'Business Description', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business description', 'required' => 'true')) }}
-                                    </div>
+                                <div class="form-group">
+                                    <label class="control-label">Email Address</label>
+                                    {{ Form::text('email', Input::old('email'), array('id' => 'email', 'data-name' => 'Email', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter email address', 'required' => 'true')) }}
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Business Permit</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('businessPermit', Input::old('businessPermit'), array('data-name' => 'Business Permit', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter DTI/SEC Business Permit No.', 'required' => 'true')) }}
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Region</label>
-                                    <div class="col-md-10">
-                                        <select name="region-comp" id="region-comp" class="form-control inputItem" required="required" data-name="Region">
-                                            @foreach($regions as $region)
-                                                <option data-regcode="{{ $region->regcode }}" value="{{ $region->regcode }}" <?php if(Input::old('region-comp') == $region->regcode){ echo('selected'); } ?>> {{ $region->regname }} </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div><br/>
-<!--                                <div class="row form-group">-->
-<!--                                    <label class="control-label col-md-2">Province</label>-->
-<!--                                    <div class="col-md-10">-->
-<!--                                        <select name="province-comp" id="province-comp" class="form-control">-->
-<!--                                        </select>-->
-<!--                                    </div>-->
-<!--                                </div><br/>-->
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">City</label>
-                                    <div class="col-md-10">
-                                        <select name="city-comp" id="city-comp" class="form-control inputItem" required="required" data-name="City">
-                                            @if(Input::old('region-comp'))
-                                                @foreach(City::where('regcode', Input::old('region-comp'))->orderBy('cityname', 'ASC')->get() as $city)
-                                                    <option value="{{ $city->citycode }}" <?php if(Input::old('city-comp') == $city->citycode){ echo('selected'); } ?>>{{ $city->cityname }}</option>
-                                                @endforeach
-                                            @else
-                                                @foreach($cities as $city)
-                                                    <option value="{{ $city->citycode }}" <?php if(Input::old('city-comp') == $city->citycode){ echo('selected'); } ?>>{{ $city->cityname }}</option>
-                                                @endforeach
-                                            @endif
-                                        </select>
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Barangay</label>
-                                    <div class="col-md-10">
-                                        <select name="barangay-comp" id="barangay-comp" class="form-control inputItem" required="required" data-name="Barangay">
-                                            @if(Input::old('city-comp'))
-                                                @foreach(Barangay::where('citycode', Input::old('city-comp'))->orderBy('bgyname', 'ASC')->get() as $bgy)
-                                                    <option value="{{$bgy->bgycode}}" <?php  if(Input::old('barangay-comp') == $bgy->bgycode){ echo('selected'); } ?>>{{ $bgy->bgyname }}</option>
-                                                @endforeach
-                                            @else
-                                                @foreach($barangays as $bgy)
-                                                    <option value="{{$bgy->bgycode}}" <?php  if(Input::old('barangay-comp') == $bgy->bgycode){ echo('selected'); } ?>>{{ $bgy->bgyname }}</option>
-                                                @endforeach
-                                            @endif
-                                        </select>
-                                    </div>
-                                </div><br/>
-                                <hr/>
-                                <h5>Key Person Info</h5>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">First Name</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('firstName-keyperson', Input::old('firstName-keyperson'), array('data-name' => 'Point Person First Name', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter first name', 'required' => 'true')) }}
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Middle Name</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('midName-keyperson', Input::old('midName-keyperson'), array('data-name' => 'Point Person Middle Name', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter middle name', 'required' => 'true')) }}
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Last Name</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('lastName-keyperson', Input::old('lastName-keyperson'), array('data-name' => 'Point Person Last Name', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter last name', 'required' => 'true')) }}
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Email Address</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('email-keyperson', Input::old('email-keyperson'), array('data-name' => 'Point Person Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter email address', 'required' => 'true')) }}
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Mobile Number</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('mobileNum-keyperson', Input::old('mobileNum-keyperson'), array('data-name' => 'Point Person Mobile Number', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter mobile number', 'required' => 'true')) }}
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Position</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('position-keyperson', Input::old('position-keyperson'), array('data-name' => 'Point Person Position', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter position', 'required' => 'true')) }}
-                                    </div>
-                                </div><br/>
-                                <hr/>
+                                <hr>
                                 <h5>Account Information</h5>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Username</label>
-                                    <div class="col-md-10">
-                                        {{ Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter username', 'required' => 'true')) }}
-                                    </div>
+                                <div class="form-group">
+                                    <label class="control-label">Username</label>
+                                    {{ Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter username', 'required' => 'true')) }}
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Password</label>
-                                    <div class="col-md-6">
-                                        {{ Form::password('password', array('data-name' => 'Password', 'data-display' => 'strengthDisplay', 'id' => 'passwordInput', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter password', 'required' => 'true')) }}
-                                    </div>
-                                    <div class="col-md-4" id="strengthDisplay">
-                                    </div>
+                                <div class="form-group">
+                                    <label class="control-label">Password</label>
+                                    {{ Form::password('password', array('data-name' => 'Password', 'data-display' => 'strengthDisplay', 'id' => 'passwordInput', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter password', 'required' => 'true')) }}
+                                    <div class="col-md-4" id="strengthDisplay"></div>
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Confirm Password</label>
-                                    <div class="col-md-10">
-                                        {{ Form::password('confirmpass', array('data-name' => 'Confirm Password', 'class' => 'form-control inputItem', 'placeholder' => 'Re-type password', 'required' => 'true')) }}
-                                    </div>
+                                <div class="form-group">
+                                    <label class="control-label">Confirm Password</label>
+                                    {{ Form::password('confirmpass', array('data-name' => 'Confirm Password', 'class' => 'form-control inputItem', 'placeholder' => 'Re-type password', 'required' => 'true')) }}
                                 </div><br/>
                                 <div class="row form-group">
                                     <label class="control-label col-md-2">Terms of Service</label>
@@ -228,7 +146,7 @@
                                     </div>
                                 </div><br/>
                                 <br/>
-                                <button class="btn btn-primary" type="submit" id="submitForm">Register</button>
+                                <button onclick="$('#registrationForm-comp').submit()" class="btn btn-primary" type="submit" id="submitForm">Register</button>
                             {{ Form::close() }}
                         </div>
                     </div>

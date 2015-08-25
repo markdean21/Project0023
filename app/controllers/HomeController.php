@@ -48,6 +48,109 @@ class HomeController extends BaseController {
     }
 
     public function doRegisterComp(){
+        Input::merge(array_map('trim', Input::all()));
+        $rules = array(
+            'companyName' => 'required',
+            'businessNature' => 'required',
+            'operationYears' => 'required|numeric',
+            'businessDescription' => 'required|min:50',
+            'address' => 'required',//strip tags
+            'businessNum' => 'required|numeric',
+            'firstName-keyperson' => "required|regex:/^[\p{L}\s'.-]+$/",
+            'lastName-keyperson' => "required|regex:/^[\p{L}\s'.-]+$/",
+            'position-keyperson' => 'required',
+            'regNum' => 'required|numeric',
+            'email' => 'required|email',
+            'username' => 'required|unique:users,username',
+            'password' => 'required|min:8',
+            'confirmpass' => 'required|min:8|same:password',
+            'TOS' => 'required'
+        );
+
+        $messages = array(
+            'firstName-keyperson.regex' => 'Name must be letters only',
+            'lastName-keyperson.regex' => 'Name must be letters only',
+        );
+
+
+        $validator = Validator::make(Input::all(), $rules, $messages);
+
+        if($validator->fails()){
+            return Redirect::back()->with('errorMsg', $validator->messages()->first())->withInput(Input::except('password', 'captcha'));
+        }
+
+        if(User::count() < 30){
+            $points = 100;
+        }else{
+            $points = 0;
+        }
+
+        date_default_timezone_set("Asia/Manila");
+        $userId = User::insertGetId(array(
+            'companyName'           =>  Input::get('companyName'),
+            'fullName'              =>  Input::get('companyName'),
+            'address'               =>  strip_tags(Input::get('address')),
+            'businessNature'        =>  Input::get('businessNature'),
+            'businessDescription'   =>  Input::get('businessDescription'),
+            'businessNum'           =>  Input::get('businessNum'),
+            'operationYears'        =>  Input::get('operationYears'),
+            'registrationNum'       =>  Input::get('regNum'),
+            'username'              =>  Input::get('username'),
+            'password'              =>  Hash::make(Input::get('password')),
+            'confirmationCode'      =>  $this->generateConfirmationCode(),
+            'status'                =>  'PRE_ACTIVATED',
+            'country'               =>  'PHILIPPINES',
+            'created_at'            =>  date("Y:m:d H:i:s"),
+            'updated_at'            =>  date("Y:m:d H:i:s"),
+            'points'                =>  $points,
+            'accountType'           =>  'BASIC',
+        ));
+
+        UserHasRole::insert(array(
+            'user_id'   =>  $userId,
+            'role_id'   =>  '4'
+        ));
+
+        ContactPerson::insert(array(
+            'user_id'   => $userId,
+            'firstName'   => Input::get('firstName-keyperson'),
+            'lastName'   => Input::get('lastName-keyperson'),
+            'position'   => Input::get('position-keyperson'),
+            'country'   => 'PHILIPPINES'
+        ));
+
+        Contact::insert(array(
+            array(
+                'user_id'       =>  $userId,
+                'ctype'       =>  'email',
+                'content'       =>  Input::get('email'),
+            ),
+            array(
+                'user_id'       =>  $userId,
+                'ctype'       =>  'mobileNum',
+                'content'       =>  Input::get('mobileNum'),
+            ),
+            array(
+                'user_id'       =>  $userId,
+                'ctype'       =>  'businessNum',
+                'content'       =>  Input::get('businessNum'),
+            )
+        ));
+
+        AuditTrail::insert(array(
+            'user_id'   =>  $userId,
+            'content'   =>  'Created a Client Company account at '.date('D, M j, Y \a\t g:ia'),
+            'created_at'    =>  date("Y:m:d H:i:s"),
+            'at_url'        =>  '/viewUserProfile/'.$userId
+//                'module'   =>  'Logged in at '.date('D, M j, Y \a\t g:ia'),
+        ));
+
+        Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')));
+        return Redirect::to('/')->with('successMsg', 'Registration Success. You may now login.');
+    }
+
+    /*
+    public function doRegisterComp(){
         // COMPANY NAME VALIDATION
         if(strlen(trim(strip_tags(Input::get('companyName')))) == 0){
             return Redirect::back()->with('errorMsg', 'Company name cannot be empty')->withInput(Input::except('password'));
@@ -257,21 +360,13 @@ class HomeController extends BaseController {
         Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')));
         return Redirect::to('/')->with('successMsg', 'Registration Success. You may now login.');
     }
-
-    public function checkCaptcha(){
-        // check captcha
-        $check = SimpleCaptcha::check($_POST['captcha']);
-
-        if(!$check) {
-            return false;
-        }
-    }
+    */
 
     public function doRegisterIndi(){
         $check = SimpleCaptcha::check($_POST['captcha']);
 
         if(!$check) {
-            return false;
+            return Redirect::back()->with('errorMsg', 'Captcha does not match. Please retry.')->withInput(Input::except('password', 'captcha'));;
         }
 
         Input::merge(array_map('trim', Input::all()));
@@ -285,9 +380,9 @@ class HomeController extends BaseController {
             'date' => 'required',
             'year' => 'required',
             'mobileNum' => 'required|numeric|min:11',
-            'tin1' => 'required|regex:/^[0-9]+$/|digits:3',
-            'tin2' => 'required|regex:/^[0-9]+$/|digits:3',
-            'tin3' => 'required|regex:/^[0-9]+$/|digits:3',
+            'tin1' => 'required|numeric|digits:3',
+            'tin2' => 'required|numeric|digits:3',
+            'tin3' => 'required|numeric|digits:3',
             'email' => 'required|email',
             'username' => 'required|unique:users,username',
             'password' => 'required|min:8',
@@ -300,9 +395,6 @@ class HomeController extends BaseController {
             'midName.regex' => 'Name must be letters only',
             'lastName.regex' => 'Name must be letters only',
             'occupation.regex' => 'Occupation should not have special characters',
-            'tin1.regex' => 'Wrong TIN number',
-            'tin2.regex' => 'Wrong TIN number',
-            'tin3.regex' => 'Wrong TIN number',
             'tin1.required' => 'Fill up all fields for TIN number',
             'tin2.required' => 'Fill up all fields for TIN number',
             'tin3.required' => 'Fill up all fields for TIN number',
@@ -311,7 +403,7 @@ class HomeController extends BaseController {
         $validator = Validator::make(Input::all(), $rules, $messages);
 
         if($validator->fails()){
-            return Redirect::back()->with('errorMsg', $validator->messages()->first())->withInput(Input::except('password'));
+            return Redirect::back()->with('errorMsg', $validator->messages()->first())->withInput(Input::except('password', 'captcha'));
         }
 
         // if validation is successful
@@ -367,178 +459,6 @@ class HomeController extends BaseController {
         Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')));
         return Redirect::to('/')->with('successMsg', 'Registration Success. You may now login.');
     }
-
-    /*
-    public function doRegisterIndi(){
-        // FIRSTNAME VALIDATION
-        if(!ctype_alpha(str_replace(' ', '', trim(Input::get('firstName'))))){
-            return Redirect::back()->with('errorMsg', 'First name must be letters only')->withInput(Input::except('password'));
-        }else if(strlen(trim(Input::get('firstName'))) == 0){
-            return Redirect::back()->with('errorMsg', 'First name cannot be empty')->withInput(Input::except('password'));
-        }
-
-        // MIDDLE NAME VALIDATION
-        if(!ctype_alpha(str_replace(' ', '',trim(Input::get('midName'))))){
-            return Redirect::back()->with('errorMsg', 'Middle name must be letters only')->withInput(Input::except('password'));
-        }else if(strlen(trim(Input::get('midName'))) == 0){
-            return Redirect::back()->with('errorMsg', 'Middle name cannot be empty')->withInput(Input::except('password'));
-        }
-
-        // LAST NAME VALIDATION
-        if(!ctype_alpha(str_replace(' ', '',trim(Input::get('lastName'))))){
-            return Redirect::back()->with('errorMsg', 'Last name must be letters only')->withInput(Input::except('password'));
-        }else if(strlen(trim(Input::get('lastName'))) == 0){
-            return Redirect::back()->with('errorMsg', 'Last name cannot be empty')->withInput(Input::except('password'));
-        }
-
-        // ADDRESS VALIDATION
-        if(strlen(Input::get('address')) == 0){
-            return Redirect::back()->with('errorMsg', 'Address cannot be empty')->withInput(Input::except('password'));
-        }else if(strlen(strip_tags(Input::get('address'))) == 0){
-            return Redirect::back()->with('errorMsg', 'Address cannot contain tags')->withInput(Input::except('password'));
-        }
-
-        // MOBILE NUMBER VALIDATION
-        if(!ctype_digit(Input::get('mobileNum'))){
-            return Redirect::back()->with('errorMsg', 'Mobile number must be letters only')->withInput(Input::except('password'));
-        }else if(strlen(Input::get('mobileNum')) == 0 || strlen(Input::get('mobileNum')) < 11){
-            return Redirect::back()->with('errorMsg', 'Mobile number cannot be empty and must be more than 11 digits')->withInput(Input::except('password'));
-        }
-
-        // EMAIL VALIDATION
-        if(!$this->emailValidate(Input::get('email'))){
-            return Redirect::back()->with('errorMsg', 'Please enter valid email')->withInput(Input::except('password'));
-        }else if(Contact::where('content', Input::get('email'))->where('ctype', 'email')->count() > 0){
-            return Redirect::back()->with('errorMsg', 'Email is already taken')->withInput(Input::except('password'));
-        }
-
-        // REGION VALIDATION
-        if(Input::get('region') == null || Input::get('region') == 0){
-            return Redirect::back()->with('errorMsg', 'Region cannot be empty');
-        }
-
-        // CITY VALIDATION
-        if(Input::get('city') == null || Input::get('city') == 0){
-            return Redirect::back()->with('errorMsg', 'City cannot be empty')->withInput(Input::except('password'));
-        }
-
-        // BARANGAY VALIDATION
-        if(Input::get('barangay') == null || Input::get('barangay') == 0){
-            return Redirect::back()->with('errorMsg', 'City cannot be empty')->withInput(Input::except('password'));
-        }
-
-//        // PROVINCE VALIDATION
-//        if(Input::get('province') == null || Input::get('province') == 0){
-//            return Redirect::back()->with('errorMsg', 'City cannot be empty');
-//        }
-
-        // USERNAME VALIDATION
-        if(Input::get('username') == '' || Input::get('username') == null){
-            return Redirect::back()->with('errorMsg', 'Username cannot be empty 1')->withInput(Input::except('password'));
-        }else if(strlen(trim(Input::get('username'))) == 0){
-            return Redirect::back()->with('errorMsg', 'Username cannot be empty')->withInput(Input::except('password'));
-        }else if(!ctype_alnum(Input::get('username'))){
-            return Redirect::back()->with('errorMsg', 'Username is alphanumeric (numbers and letters) only')->withInput(Input::except('password'));
-        }else if(strlen(Input::get('username')) < 8){
-            return Redirect::back()->with('errorMsg', 'Username must be more than 8 characters')->withInput(Input::except('password'));
-        }else if(User::where('username', Input::get('username'))->count() > 0){
-            return Redirect::back()->with('errorMsg', 'Username is already taken')->withInput(Input::except('password'));
-        }
-
-        // PASSWORD VALIDATION
-        if(!ctype_alnum(Input::get('password'))){
-            return Redirect::back()->with('errorMsg', 'Password is alphanumeric (numbers and letters) only')->withInput(Input::except('password'));
-        }else if(strlen(Input::get('password')) < 8){
-            return Redirect::back()->with('errorMsg', 'Password must be more than 8 characters')->withInput(Input::except('password'));
-        }else if(Input::get('password') != Input::get('confirmpass')){
-            return Redirect::back()->with('errorMsg', 'Passwords does not match')->withInput(Input::except('password'));
-        }
-
-        // FACEBOOK VALIDATION
-        if(strlen(trim(strip_tags(Input::get('facebook')))) == 0){
-            return Redirect::back()->with('errorMsg', 'Facebook field cannot be empty')->withInput(Input::except('password'));
-        }
-
-        // LINKEDIN VALIDATION
-        if(strlen(trim(strip_tags(Input::get('linkedin')))) == 0){
-            return Redirect::back()->with('errorMsg', 'LinkedIn field cannot be empty')->withInput(Input::except('password'));
-        }
-
-        // TOS VALIDATION
-        if(!Input::get('TOS')){
-            return Redirect::back()->with('errorMsg', 'You must agree to TASKminator Terms of Agreements (TOS)')->withInput(Input::except('password'));
-        }
-
-        if(User::count() < 30){
-            $points = 100;
-        }else{
-            $points = 0;
-        }
-
-        date_default_timezone_set("Asia/Manila");
-        User::insert(array(
-            'username'      =>  Input::get('username'),
-            'password'      =>  Hash::make(Input::get('password')),
-            'firstName'     =>  Input::get('firstName'),
-            'midName'       =>  Input::get('midName'),
-            'lastName'      =>  Input::get('lastName'),
-            'fullName'      =>  Input::get('firstName').' '.Input::get('midName').' '.Input::get('lastName'),
-            'address'       =>  strip_tags(Input::get('address')),
-            'gender'        =>  Input::get('gender'),
-            'region'       =>  Input::get('region'),
-            'city'          =>  Input::get('city'),
-            'barangay'      =>  Input::get('barangay'),
-            'confirmationCode'      =>  $this->generateConfirmationCode(),
-            'status'        =>  'PRE_ACTIVATED',
-//            'status'        =>  'ACTIVATED',
-            'created_at'    =>  date("Y:m:d H:i:s"),
-            'updated_at'    =>  date("Y:m:d H:i:s"),
-            'points'                =>  $points,
-            'accountType'           =>  'BASIC',
-        ));
-
-        $userId = User::where('username', Input::get('username'))->pluck('id');
-
-        UserHasRole::insert(array(
-            'user_id'   =>  $userId,
-            'role_id'   =>  '3'
-        ));
-
-        Contact::insert(array(
-            array(
-                'user_id'       =>  $userId,
-                'ctype'       =>  'email',
-                'content'       =>  Input::get('email'),
-            ),
-            array(
-                'user_id'       =>  $userId,
-                'ctype'       =>  'facebook',
-                'content'       =>  Input::get('facebook'),
-            ),
-            array(
-                'user_id'       =>  $userId,
-                'ctype'       =>  'linkedin',
-                'content'       =>  Input::get('linkedin'),
-            ),
-            array(
-                'user_id'       =>  $userId,
-                'ctype'       =>  'mobileNum',
-                'content'       =>  Input::get('mobileNum'),
-            )
-        ));
-
-        AuditTrail::insert(array(
-            'user_id'   =>  $userId,
-            'content'   =>  'Created a Client Individual account at '.date('D, M j, Y \a\t g:ia'),
-            'created_at'    =>  date("Y:m:d H:i:s"),
-            'at_url'        =>  '/viewUserProfile/'.$userId
-//                'module'   =>  'Logged in at '.date('D, M j, Y \a\t g:ia'),
-        ));
-
-        Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')));
-        return Redirect::to('/')->with('successMsg', 'Registration Success. You may now login.');
-    }
-    */
 
     public function doRegisterTaskminator(){
 
