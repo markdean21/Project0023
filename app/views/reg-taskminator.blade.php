@@ -16,10 +16,19 @@
             else{
                 sbmt.disabled = true;
             }
-        } 
+        }
+
         $(document).ready(function(){
             enableSubmit();
         });
+
+        function passConfirm(){
+            if(document.getElementById('passwordInput').value == document.getElementById('confirmpassId').value){
+                document.getElementById('confirmedPass').className = 'form-group has-success has-feedback';
+            }else{
+                document.getElementById('confirmedPass').className = 'form-group has-error has-feedback';
+            }
+        }
 
         function removeSkill(data){
             var dataId = $(data).attr('data-removeId');
@@ -29,6 +38,11 @@
         }
 
         $(document).ready(function(){
+            $('#reset').click(function(event){
+                document.getElementById('submitForm').disabled = true;
+            });
+            $("#confirmpassId").keyup(passConfirm);
+
             $('#submitForm').click(function(event){
                 event.preventDefault();
                 var inputs = $('.inputItem'),
@@ -49,11 +63,10 @@
                         }
                     }
 
-                    $('#confirmBtn').prop('disabled', true);
+                    $('#confirmButton').attr('disabled','disabled');
                     $('#emailConfirm').empty();
                     $('#confirmMsg').empty().append('Please fill up necessary information first<br/>'+missingInputs);
                 }else{
-                    $('#confirmBtn').prop('false', true);
                     $('#confirmMsg').empty().append('Please confirm your email information before proceeding (This email will recieve necessary updates and notifications)');
                     $('#emailConfirm').empty().append('<i class="se7en-envelope"></i> '+$('#tskmntrEmail').val());
                 }
@@ -116,7 +129,7 @@
 <!--TASKMINATOR REGISTRATION FORM-->
 <!--<div class="taskminator-form" style="display: none;">-->
 <div class="taskminator-form">
-    <h3 style="text-align:center">Seeker Information</h3>
+    <h3 style="text-align:center">Worker Information</h3>
     <div class="row">
         <div class="col-lg-12">
             <div class="widget-container fluid-height clearfix">
@@ -128,7 +141,7 @@
                 @endif
 
                 <div class="heading" style="padding: 40px 60px">
-                    <i class="icon-reorder"></i>Personal Information
+                    Personal Information
                 </div>
                 <div class="widget-content padded" style="padding: 10px 60px 40px 60px;">
 
@@ -175,7 +188,8 @@
                                         {{ Form::selectRange('date', 1, 31, Input::old('date'), array('data-name' => 'Date', 'class' => 'inputItem form-control', 'required' => 'true')) }}
                                     </div>
                                     <div class="col-md-3" style="margin-bottom: 2px;">
-                                        {{ Form::selectYear('year', 2015, 1955, Input::old('year'), array('data-name' => 'Year', 'class' => 'inputItem form-control', 'required' => 'true')) }}
+                                        <?php $year = date("Y"); $year -= 18; ?>
+                                        {{ Form::selectYear('year', $year, 1955, Input::old('year'), array('data-name' => 'Year', 'class' => 'inputItem form-control', 'required' => 'true')) }}
                                     </div>
                                 </div>
                             </div>
@@ -193,70 +207,100 @@
 
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label class="control-label" style="margin-left: 5px;">Experience</label>
-                                 {{ Form::text('experience', Input::old('experience'), array('data-name' => 'Experience', 'class' => 'form-control inputItem', 'placeholder' => 'Years of experience', 'required' => 'true')) }}
-                            
+                                <label class="control-label" style="margin-left: 5px;">Years of Experience</label>
+                                {{ Form::select('experience', array('0-1 years' => '0-1 years', '2-3 years' => '2-3 years', '3-5 years' => '3-5 years', '5-10 years' => '5-10 years', 'more than 10 years' => 'more than 10 years'), Input::old('experience'), array('data-name' => 'Years of Experience', 'class' => 'inputItem form-control', 'required' => 'true')) }}
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="control-label" style="margin-left: 5px;">Rate</label>
-                                {{ Form::text('rate', Input::old('nationality'), array('data-name' => 'Nationality', 'class' => 'inputItem form-control', 'placeholder' => 'Rate', 'required' => 'true')) }}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <select class="inputItem form-control" name="minRate">
+                                            <option selected disabled>Select minimum rate</option>
+                                            <?php
+                                                for ($i=400; $i <= 1000; $i+=50) { 
+                                                    echo "<option value=".$i.">".$i."</option>";
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select class="inputItem form-control" name="maxRate">
+                                            <option selected disabled>Select maximum rate</option>
+                                            <?php
+                                                for ($i=1000; $i <= 5000; $i+=100) { 
+                                                    echo "<option value=".$i.">".$i."</option>";
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <br/>
 
                         <div class="form-group">
-                            <label class="control-label">Email Address</label>
-                            {{ Form::text('email', Input::old('email'), array('data-name' => 'Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Email address', 'required' => 'true', 'id' => 'email')) }}
-                        </div><br/>
-                                
-                        <hr/>
-                                
-                        <div class="form-group">
-                            <label class="control-label">Username</label>
-                            {{ Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'inputItem form-control', 'placeholder' => 'Username', 'required' => 'true')) }}
-                        </div><br/>
-                        
-                        <div class="form-group">
-                                    <label class="control-label">Password <h6>(minimum of 8 characters)</h6></label>
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            {{ Form::password('password', array('data-name' => 'Password', 'data-display' => 'strengthDisplay', 'id' => 'passwordInput', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter password', 'required' => 'true')) }}
-                                        </div>
-                                        <div class="col-md-7" id="strengthDisplay"></div>
-                                    </div>
-                                </div><br/>
-
-                        <div class="form-group">
-                            <label class="control-label">Confirm Password</label>
                             <div class="row">
-                                <div class="col-md-5">
-                                    {{ Form::password('confirmpass', array('data-name' => 'Confirm Password', 'class' => 'inputItem form-control', 'placeholder' => 'Re-type password', 'required' => 'true')) }}
+                                <div class="col-md-6">
+                                    <label class="control-label">Email Address</label>
+                                {{ Form::text('email', Input::old('email'), array('data-name' => 'Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Email address', 'required' => 'true', 'id' => 'email', 'style' => 'max-width: 400px;')) }}
                                 </div>
-                                <div class="col-md-7"></div>
+                                <div class="col-md-6">
+                                    <label class="control-label">TIN Number</label>
+                                    <div class="row">
+                                        <div class="col-md-2" style="margin-bottom: 2px;">
+                                            {{ Form::text('tin1', Input::old('tin1'), array('data-name' => 'TIN Number', 'class' => 'form-control inputItem', 'placeholder' => 'XXX', 'maxlength' => '3')) }}
+                                        </div>
+                                        <div class="col-md-2" style="margin-bottom: 2px;">
+                                            {{ Form::text('tin2', Input::old('tin2'), array('data-name' => 'TIN Number', 'class' => 'form-control inputItem', 'placeholder' => 'XXX', 'maxlength' => '3')) }}
+                                        </div>
+                                        <div class="col-md-2" style="margin-bottom: 2px;">
+                                            {{ Form::text('tin3', Input::old('tin3'), array('data-name' => 'TIN Number', 'class' => 'form-control inputItem', 'placeholder' => 'XXX', 'maxlength' => '3')) }}
+                                        </div>
+                                        <label class="col-md-2" style="font-size: 16pt;">-&nbsp;000</label>
+                                    </div>
+                                </div>
                             </div>
                         </div><br/>
 
 
-                                <p>
-                                    {{ HTML::image(URL::to('simplecaptcha'),'Captcha', array('class' => 'img-rounded')) }}<br><br>
-                                    <label>CAPTCHA</label>
-                                    {{ Form::text('captcha', '', array('data-name' => 'Captcha', 'class' => 'inputItem form-control', 'id' => 'captcha','placeholder' => 'Type code above', 'required' => 'true', 'style' => 'width: 130px;')) }}
-                                </p>
+                        <hr/>
+                                
+                        <div class="form-group">
+                            <label class="control-label">Username</label>
+                            {{ Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'inputItem form-control', 'placeholder' => 'Username', 'required' => 'true', 'style' => 'max-width: 400px;')) }}
+                        </div><br/>
+                        
+                        <div class="form-group">
+                            <label class="control-label">Password <h6>(minimum of 8 characters)</h6></label>
+                            {{ Form::password('password', array('data-name' => 'Password', 'data-display' => 'strengthDisplay', 'id' => 'passwordInput', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter password', 'required' => 'true', 'style' => 'max-width: 400px;')) }}
+                            <h5 id="strengthDisplay"></h5>
+                        </div><br/>
+
+                        <div class="form-group" id="confirmedPass">
+                            <label class="control-label" for="confirmpassId">Confirm Password</label>
+                            {{ Form::password('confirmpass', array('data-name' => 'Confirm Password', 'id' => 'confirmpassId', 'class' => 'inputItem form-control', 'placeholder' => 'Re-type password', 'style' => 'max-width: 400px;', 'required' => 'true')) }}
+                        </div><br/>
+
+                        <p>
+                            {{ HTML::image(URL::to('simplecaptcha'),'Captcha', array('class' => 'img-rounded')) }}<br><br>
+                            <label>CAPTCHA</label>
+                            {{ Form::text('captcha', '', array('data-name' => 'Captcha', 'class' => 'inputItem form-control', 'id' => 'captcha','placeholder' => 'Type code above', 'required' => 'true', 'style' => 'width: 130px;')) }}
+                        </p>
 
                         <div class="row form-group" style="margin-left: 5px;">
-                            <input id="TOS" name="TOS" type="checkbox" value="1" onclick="enableSubmit(this)" style="display: -moz-box;">
-                            <label class="control-label" style="margin-left: 5px;">Terms of Service</label>
+                            <input id="TOS" name="TOS" type="checkbox" value="1" onclick="enableSubmit()" style="display: -moz-box;">
+                            <label class="control-label" style="margin-left: 5px;">Accept Terms of Service and Privacy Policy</label>
                         </div>
                         
-                            <button class="btn btn-primary" type="submit" id="submitForm" onclick="$('#registrationForm-task').submit();" disabled>Register</button>
-                            {{ Form::reset('Reset', array('class' => 'btn btn-default')) }}
+                            <button class="btn btn-primary" type="submit" id="submitForm" disabled>Register</button>
+                            {{ Form::reset('Reset', array('class' => 'btn btn-default', 'id' => 'reset')) }}
                         {{ Form::close() }}
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!--
+
 <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -272,10 +316,10 @@
             </div>
             <div class="modal-footer" style="margin: 0; padding: 0.8em;">
                 <button data-dismiss="modal" class="btn btn-danger">Cancel</button>
-                <button onclick="$('#registrationForm-task').submit()" class="btn btn-primary">Confirm</button>
+                <button onclick="$('#registrationForm-task').submit()" class="btn btn-primary" id="confirmButton">Confirm</button>
             </div>
         </div>
     </div>
 </div>
--->
+
 @stop

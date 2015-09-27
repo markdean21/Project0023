@@ -368,12 +368,14 @@ class HomeController extends BaseController {
         return Redirect::to('/')->with('successMsg', 'Registration Success. You may now login.');
     }
     public function  doRegisterTaskminator(){
+        /*
         $check = SimpleCaptcha::check($_POST['captcha']);
 
         if(!$check) {
             return Redirect::back()->with('errorMsg', 'Captcha does not match. Please retry.')->withInput(Input::except('password', 'captcha'));
         }
-
+        */
+        
         Input::merge(array_map('trim', Input::all()));
         $rules = array(
             'firstName'         => "required|regex:/^[\p{L}\s'.-]+$/",
@@ -386,8 +388,12 @@ class HomeController extends BaseController {
             'mobileNum'         => 'required|numeric|min:11',
             'nationality'       => 'required',
             'preferredJob'      => 'required',
-            'experience' => 'required|numeric',
-            'rate'              => 'required',
+            'experience'        => 'required',
+            'minRate'           => 'required',
+            'maxRate'           => 'required',
+            'tin1'              => 'required_with_all: tin2, tin3|regex:/^[0-9]+$/|digits:3',
+            'tin2'              => 'required_with_all: tin1, tin3|regex:/^[0-9]+$/|digits:3',
+            'tin3'              => 'required_with_all: tin1, tin2|regex:/^[0-9]+$/|digits:3',
             'username'          => 'required|unique:users,username',
             'password'          => 'required|min:8',
             'confirmpass'       => 'required|min:8|same:password',
@@ -398,6 +404,9 @@ class HomeController extends BaseController {
             'firstName.regex' => 'Name must be letters only',
             'midName.regex' => 'Name must be letters only',
             'lastName.regex' => 'Name must be letters only',
+            'tin1.regex' => 'Wrong TIN number',
+            'tin2.regex' => 'Wrong TIN number',
+            'tin3.regex' => 'Wrong TIN number',
         );
 
         $validator = Validator::make(Input::all(), $rules, $messages);
@@ -418,10 +427,12 @@ class HomeController extends BaseController {
             'birthdate'             =>  Input::get('year').'-'.Input::get('month').'-'.Input::get('date'),
             //'nationality'           =>  Input::get('nationality'),
             'yearsOfExperience'     =>  Input::get('experience'),
+            'tin'                   =>  Input::get('tin1').'-'.Input::get('tin2').'-'.Input::get('tin3').'-000',
             'confirmationCode'      =>  $this->generateConfirmationCode(),
             'status'                =>  'PRE_ACTIVATED',
-            'skills'                 =>  Input::get('preferredJob'),
-            'minRate'               =>  Input::get('rate'),
+            'skills'                =>  Input::get('preferredJob'),
+            'minRate'               =>  Input::get('minRate'),
+            'maxRate'               =>  Input::get('maxRate'),
             'created_at'            =>  date("Y:m:d H:i:s"),
             'updated_at'            =>  date("Y:m:d H:i:s"),
         ));
