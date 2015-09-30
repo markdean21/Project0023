@@ -5,6 +5,14 @@
 @stop
 
 @section('head-contents')
+    <style type="text/css">
+        span#confirmpassId2 {
+            top: -60px;
+            left: 125px;
+            content: "\2713";
+            color: green;
+        }
+    </style>
     <script>
         function enableSubmit(){
             var val = document.getElementById('TOS');
@@ -25,8 +33,10 @@
         function passConfirm(){
             if(document.getElementById('passwordInput').value == document.getElementById('confirmpassId').value){
                 document.getElementById('confirmedPass').className = 'form-group has-success has-feedback';
+                document.getElementById('confirmpassId2').style.display = 'block';
             }else{
                 document.getElementById('confirmedPass').className = 'form-group has-error has-feedback';
+                document.getElementById('confirmpassId2').style.display = 'none';
             }
         }
 
@@ -279,6 +289,7 @@
                         <div class="form-group" id="confirmedPass">
                             <label class="control-label" for="confirmpassId">Confirm Password</label>
                             {{ Form::password('confirmpass', array('data-name' => 'Confirm Password', 'id' => 'confirmpassId', 'class' => 'inputItem form-control', 'placeholder' => 'Re-type password', 'style' => 'max-width: 400px;', 'required' => 'true')) }}
+                            <span class="glyphicon glyphicon-ok form-control-feedback" style="display: none;" id="confirmpassId2"></span>
                         </div><br/>
 
                         <p>
@@ -292,7 +303,7 @@
                             <label class="control-label" style="margin-left: 5px;">Accept Terms of Service and Privacy Policy</label>
                         </div>
                         
-                            <button class="btn btn-primary" type="submit" id="submitForm" disabled>Register</button>
+                            <button class="btn btn-primary" type="submit" id="submitForm" onclick="$('#registrationForm-task').submit();" disabled>Register</button>
                             {{ Form::reset('Reset', array('class' => 'btn btn-default', 'id' => 'reset')) }}
                         {{ Form::close() }}
                 </div>
@@ -300,7 +311,7 @@
         </div>
     </div>
 </div>
-
+<!--
 <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -316,10 +327,10 @@
             </div>
             <div class="modal-footer" style="margin: 0; padding: 0.8em;">
                 <button data-dismiss="modal" class="btn btn-danger">Cancel</button>
-                <button onclick="$('#registrationForm-task').submit()" class="btn btn-primary" id="confirmButton">Confirm</button>
+                <button onclick="$('#registrationForm-task').submit()" class="btn btn-primary">Confirm</button>
             </div>
         </div>
     </div>
 </div>
-
+-->
 @stop

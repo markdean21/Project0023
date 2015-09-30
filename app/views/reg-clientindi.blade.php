@@ -1,7 +1,7 @@
 @extends('layouts.registration')
 
 @section('head')
-    Register as Client (Individual)
+    Register as Employer (Individual)
 @stop
 
 @section('head-contents')
@@ -70,7 +70,7 @@
 
 @section('content')
     <div class="taskminator-form">
-        <h3 style="text-align:center">Client Registration (Individual)</h3>
+        <h3 style="text-align:center">Employer Registration (Individual)</h3>
         <div class="row">
             <div class="col-lg-12">
                 <div class="widget-container fluid-height clearfix">

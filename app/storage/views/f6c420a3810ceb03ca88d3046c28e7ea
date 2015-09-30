@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Food is required">
+    <meta name="author" content="EjLambo">
+
+    <title>Proveek | Home</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="frontend/css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="frontend/font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="frontend/css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="frontend/css/creative.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="frontend/css/vegas.css">
+    <link rel="stylesheet" href="frontend/css/lightslider.css" type="text/css">
+    <link rel="stylesheet" href="frontend/css/custom.css" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" type="image/x-icon" href="frontend/img/favicon.ico">
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <a class="navbar-brand page-scroll" href="#page-top"><i class="fa fa-wrench"></i>  Proveek</a> 
+               
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                       <!--  <a class="" href="HowItWorks.html">How It Works</a> -->
+                        <?php echo HTML::link('/howitworks', 'How It Works'); ?>
+
+
+                    </li>
+
+                    <li>
+                     <!--   <a class="" href="WhyProveek.html">Why Choose Proveek</a> -->
+                         <?php echo HTML::link('/whychooseproveek', 'Why Choose Proveek'); ?>
+
+
+                    </li>
+                    <li>
+                        <!-- <a class="" href="Pricing.html">Pricing</a> -->
+                        <?php echo HTML::link('/pricing', 'Pricing'); ?>
+
+                    </li>
+                    <li>
+                        <!--<a class="" href="#">Login / Sign Up</span></a> -->
+                        <?php echo HTML::link('/login', 'Login / Sign Up'); ?>
+
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+            <!--<div class="collapse navbar-collapse" style="background-color:rgba(255,255,255,.30); height: 25px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="page-scroll" href="#about" style="padding-top: 0;padding-bottom: 0">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services" style="padding-top: 0;padding-bottom: 0">Services</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact" style="padding-top: 0;padding-bottom: 0">Contact</span></a>
+                    </li>
+                </ul>
+            </div>-->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- HEADER SEARCH SECTION -->
+    <header>
+        <div class="vegas.overlay" style="height:100%; width:100%; background-color: rgba(0,0,0,.5);">
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>We pooled the blue-collars for you!</h1>
+                <hr>
+                <p>Proveek is an online Philippine directory platform of skilled workers which allows an individual to hire or outsource tasks from certified blue-collar workers in their locality.</p>
+
+                <!-- SEARCH BOX -->
+                <div class="col-xs-2"><!--used to center the textbox --></div>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                      <span class="input-group-addon" id="sizing-addon1"><span class=" glyphicon glyphicon-search"></span></span>
+                      <input type="text" class="form-control" placeholder="Tell us what you need..." aria-describedby="basic-addon1" style="text-align:center;">
+                    </div>
+                </div>
+                <div class="col-xs-2"><!-- used to center the textbox --></div>       
+                <!-- END OF SEARCH BOX -->
+
+                <!-- SEARCH BUTTONS -->
+                <div class="btn" style="padding-top: 20px;">
+                  <button type="button" class="btn btn-primary btn-md" style="width: 180px; border-top-right-radius: 1em; border-bottom-right-radius: 1em;">Job Provider</button>
+                  <button type="button" class="btn btn-primary btn-md" style="width: 180px; border-top-left-radius: 1em; border-bottom-left-radius: 1em;">Job Seeker</button>
+                </div>
+                <!-- END OF SEARCH BUTTONS -->
+
+                <!--<a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>-->
+            </div>
+        </div>
+        </div>
+    </header>
+    <!-- END OF -->
+
+
+<!-- SKILLS AND SERVICES -->
+    <section id="services" style="padding-top:40px; padding-bottom:40px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                	<i class="fa fa-5x fa-users wow bounceIn text-primary"></i>
+                    <h2 class="section-heading">Skills and Services Offered</h2>
+                    <hr class="primary">
+                    <p>Please select from the catergories</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                    	<i class="fa fa-5x fa-building-o wow bounceIn text-primary" style="padding-top:50px;"></i>
+                    	<h3>Construction / Factory Workers</h3>
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Construction / Factory Workers
+                                </div>
+                                <div class="project-name">
+                                    123,456 resumes
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                        <!-- <img src="#" class="img-responsive" alt=""> -->
+                        <i class="fa fa-5x fa-cogs wow bounceIn text-primary" style="padding-top:50px;" data-wow-delay=".1s"></i>
+                        <h3>Automotive / Electronics</h3>
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Automotive / Electronics
+                                </div>
+                                <div class="project-name">
+                                    3,987,543 resumes
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                        <i class="fa fa-5x fa-dollar wow bounceIn text-primary" style="padding-top:50px;" data-wow-delay=".2s"></i>
+                        <h3>Sales Agents / Salesclerk</h3>
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Sales Agents / Salesclerk
+                                </div>
+                                <div class="project-name">
+                                   9,123,456 resumes
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                        <i class="fa fa-5x fa-user-md wow bounceIn text-primary" style="padding-top:50px;" data-wow-delay=".3s"></i>
+                        <h3>House Helpers / Caregivers</h3>
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    House Helpers / Caregivers
+                                </div>
+                                <div class="project-name">
+                                    546,152 resumes
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                        <i class="fa fa-5x fa-wrench wow bounceIn text-primary" style="padding-top:50px;" data-wow-delay=".4s"></i>
+                        <h3>Repair &amp Maintenance Services</h3>
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Repair &amp Maintenance Services
+                                </div>
+                                <div class="project-name">
+                                    9,436 resumes
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                        <i class="fa fa-5x fa-stethoscope wow bounceIn text-primary" style="padding-top:50px;" data-wow-delay=".5s"></i>
+                        <h3>Personal Care &amp Wellness</h3>
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Personal Care &amp Wellness
+                                </div>
+                                <div class="project-name">
+                                    5,859 resumes
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                        <i class="fa fa-5x fa-cutlery wow bounceIn text-primary" style="padding-top:50px;" data-wow-delay=".6s"></i>
+                        <h3>Hotel &amp Restaurant Crew</h3>
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Hotel &amp Restaurant Crew
+                                </div>
+                                <div class="project-name">
+                                    1,285,956 resumes
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                        <i class="fa fa-5x fa-ellipsis-h wow bounceIn text-primary" style="padding-top:50px;" data-wow-delay=".7s"></i>
+                        <h3>More</h3>
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    More
+                                </div>
+                                <div class="project-name">
+                                    <span class="glyphicon glyphicon-option-horizontal text-default"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- END OF SKILLS AND SERVICES -->
+
+<!-- POST A JOB -->
+	<section class="bg-primary" style="background-image: url(img/header.jpg); background-position: center; background-attachment: fixed; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; border-top: 1px solid #222; border-bottom: 1px solid #222; padding-top: 40px; padding-bottom: 40px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                	<i class="fa fa-5x fa-plus wow bounceIn text-primary"></i>
+                    <h2 class="section-heading">Can't find what you're looking for?</h2><br>
+                    <a href="#" class="btn btn-default btn-lg" style="border-radius: 4em; width: 250px">Post a Job</a>
+                    <!--<a href="#" class="btn btn-default btn-xl">Get Started!</a>-->
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- END OF POST A JOB -->
+
+<!-- TESTIMONIAL SLIDER -->
+    <section style="background-color: white; background-position: top; background-attachment: fixed; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; padding-top: 40px; padding-bottom: 40px">
+		<div class="item">
+			<div class="container-fluid">
+				<div class="row">
+			        <div class="col-lg-1"></div>
+			        <div class="col-lg-10">
+				        <div style="width:100%; color:#222" class="text-center">
+					        <i class="fa fa-5x fa-comments-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+					        <h2>Testimonials</h2>
+				        </div>
+			        	<hr class="default" style="">
+				        <ul id="lightSlider" class="content-slider" style="color: #222;">
+				            <li>
+				            	<div class="row">
+				            		<div class="col-md-1"></div>
+				            			<div class="col-md-10">
+						                    <h3 style="font-style:oblique">"Best Blue-collar job listing site in the Philippines. Period."</h3>
+						                    <div style="text-align:right;" class="text-default">
+						                    <p>-AQUEOUS Inc.</p>
+						                    </div>
+					                    </div>
+				                    <div class="col-md-1"></div>
+				                </div>
+				            </li>
+				            <li>
+				                <div class="row">
+				            		<div class="col-md-1"></div>
+				            			<div class="col-md-10">
+						                    <h3 style="font-style:oblique">"Proveek means Providers and Seekers, Great Idea!"</h3>
+						                    <div style="text-align:right;" class="text-default">
+						                    <p>-PewDiePie</p>
+						                    </div>
+					                    </div>
+				                    <div class="col-md-1"></div>
+				                </div>
+				            </li>
+				            <li>
+				                <div class="row">
+				            		<div class="col-md-1"></div>
+				            			<div class="col-md-10">
+						                    <h3 style="font-style:oblique">"15 million ducks out of 10."</h3>
+						                    <div style="text-align:right;" class="text-default">
+						                    <p>-Entrio Productions</p>
+						                    </div>
+					                    </div>
+				                    <div class="col-md-1"></div>
+				                </div>
+				            </li>
+				            <li>
+				                <div class="row">
+				            		<div class="col-md-1"></div>
+				            			<div class="col-md-10">
+						                    <h3 style="font-style:oblique">"Made with love."</h3>
+						                    <div style="text-align:right;" class="text-default">
+						                    <p>-BootPly.com</p>
+						                    </div>
+					                    </div>
+				                    <div class="col-md-1"></div>
+				                </div>
+				            </li>
+				            <li>
+				                <div class="row">
+				            		<div class="col-md-1"></div>
+				            			<div class="col-md-10">
+						                    <h3 style="font-style:oblique">"Perfect place for blue-collar job seekers!"</h3>
+						                    <div style="text-align:right;" class="text-default">
+						                    <p>-Awwwards.com</p>
+						                    </div>
+					                    </div>
+				                    <div class="col-md-1"></div>
+				                </div>
+				            </li>
+				            <li>
+				                <div class="row">
+				            		<div class="col-md-1"></div>
+				            			<div class="col-md-10">
+						                    <h3 style="font-style:oblique">"Made with Bootstrap 3, images from Unsplash.com, and powered by PHP."</h3>
+						                    <div style="text-align:right;" class="text-default">
+						                    <p>-Proveek</p>
+						                    </div>
+					                    </div>
+				                    <div class="col-md-1"></div>
+				                </div>
+				            </li>
+				        </ul>
+			        </div>
+			        <div class="col-lg-1"></div>
+			    </div>
+		    </div>
+	    </div>
+    </section>
+<!-- END OF TESTIMONIAL SLIDER -->
+
+<!-- PARTNERSHIP SLIDER -->
+    <section class="bg-primary" style="background-image: url(img/fog_Bg.jpg); background-position: top; background-attachment: fixed; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; border-top: 1px solid #222; border-bottom: 1px solid #222; padding-top:40px; padding-bottom: 40px">
+		<div class="item">
+			<div class="container-fluid">
+				<div class="row">
+			        <div class="col-lg-1"></div>
+			        <div class="col-lg-10">
+				        <div style="width:100%; color:#222" class="text-center">
+					        <i class="fa fa-5x fa-chain wow bounceIn text-primary" data-wow-delay=".2s"></i>
+					        <h2>Partnership</h2>
+				        </div>
+			        	<hr class="default" style="">
+				        <ul id="lightSlider0" class="content-slider" style="color: #222;">
+				            <li>
+				            	<div class="row">
+				            		<div class="col-md-1"></div>
+				            			<div class="col-md-10 text-center">
+						                    <img src="frontend/img/logo_tesda.png">
+					                    </div>
+				                    <div class="col-md-1"></div>
+				                </div>
+				            </li>
+				            <li>
+				                <div class="row">
+				            		<div class="col-md-1"></div>
+				            			<div class="col-md-10 text-center">
+						                    <img src="frontend/img/logo_tspi.png">
+					                    </div>
+				                    <div class="col-md-1"></div>
+				                </div>
+				            </li>
+				            <li>
+				                <div class="row">
+				            		<div class="col-md-1"></div>
+				            			<div class="col-md-10 text-center">
+						                    <img src="frontend/img/logo_gwk.png">
+					                    </div>
+				                    <div class="col-md-1"></div>
+				                </div>
+				            </li>
+				        </ul>
+			        </div>
+			        <div class="col-lg-1"></div>
+			    </div>
+		    </div>
+	    </div>
+    </section>
+<!-- END OF PARTNERSHIP SLIDER -->
+
+<!-- FOOTER -->
+    <section id="footer" style="padding-top:40px; padding-bottom:40px;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 text-center">
+                    <div class="col-lg-4">
+                        <div class="col-md-12 text-left div_footer">
+                            <h2><i class="fa fa-wrench"></i>  Proveek</h2>
+                            <ul>
+                                <li><a href="#page-top" class="page-scroll">Home</a></li>
+                                <li><a href="HowItWorks.html">How It Works</a></li>
+                                <li><a href="WhyProveek.html">Why Choose Proveek</a></li>
+                                <li><a href="Pricing.html">Pricing</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="#page-top">Login / Sign Up</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 text-left feedback_footer">
+                        <h2>Feedback</h2>
+                        <p>We are like Jon Snow, we know nothing, so please send a feedback. Every feedback saves Emo Alpacas.</p>
+                        <div class="col-lg-12" style="padding:0;">
+                            <input type="email" placeholder="Email">
+                        </div>
+                        <div class="col-lg-12" style="padding:15px 0 0 0 ;">
+                            <input type="text" placeholder="Message">
+                        </div>
+                        <div class="col-lg-12 text-right" style="padding:15px 0 0 0 ;">
+                            <button type="button" class="btn btn-primary btn-md" style="width: 120px;border-radius: 4px;">Send</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center" style="">
+                    <h2 class="section-heading">Contact Us</h2>
+                    <hr class="primary">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <div class="div_footer">
+                        <a href="#"><i class="fa fa-facebook-square fa-3x wow bounceIn" data-wow-delay=".2s"></i></a>
+                        <a href="#"><i class="fa fa-twitter-square fa-3x wow bounceIn" data-wow-delay=".3s"></i></a>
+                        <a href="#"><i class="fa fa-instagram fa-3x wow bounceIn" data-wow-delay=".4s"></i></a>
+                        <a href="#"><i class="fa fa-google-plus-square fa-3x wow bounceIn" data-wow-delay=".5s"></i></a>
+                        <a href="#"><i class="fa fa-envelope-square fa-3x wow bounceIn" data-wow-delay=".6s"></i></a>
+                    </div>
+                    <p>2015  <i class="fa fa-copyright"></i>  Proveek Inc.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- END OF FOOTER -->
+
+<!-- All scripts and plugin should be placed here so the page can load -->
+<!-- jQuery -->
+    <script src="frontend/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+    <script src="frontend/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+    <script src="frontend/js/jquery.easing.min.js"></script>
+    <script src="frontend/js/jquery.fittext.js"></script>
+    <script src="frontend/js/wow.min.js"></script>
+    <script src="frontend/js/vegas.js"></script>
+    <script src="frontend/js/lightslider.js"></script>
+<!-- Custom Theme JavaScript -->
+    <script src="frontend/js/creative.js"></script>
+
+    <script src="frontend/js/jquery.nicescroll.js"></script>
+
+<!-- HTML SMOOTH MOUSEWHEEL SCROLLING -->
+    <script>
+    $(document).ready(
+
+      function() { 
+
+        $("html").niceScroll();
+
+      }
+    );
+    </script>
+<!-- END OF SMOOTH MOUSEWHEEL SCROLLING -->
+
+<!-- FOR HEADER SLIDER -->
+    <script>
+        $('header').vegas({
+          overlay: true,
+          preload: true,
+          preloadImage: true,
+          transition: 'fade', 
+          overlay: true,
+          transitionDuration: 4000,
+          delay: 10000,
+          animation: 'random',
+          shuffle: true,
+          timer:false,
+          animationDuration: 20000,
+          slides: [
+            { src: 'frontend/img/slideshow/01.jpg' },
+            { src: 'frontend/img/slideshow/03.jpg' },
+            { src: 'frontend/img/slideshow/05.jpg' },
+            { src: 'frontend/img/slideshow/07.jpg' },
+            { src: 'frontend/img/slideshow/02.jpg' },
+            { src: 'frontend/img/slideshow/04.jpg' },
+            { src: 'frontend/img/slideshow/06.jpg' },
+          ]
+        });
+    </script>
+<!-- END OF HEADER SLIDER -->
+
+<!-- SLIDER PUBLIC SETTING -->
+<!-- NOTE: For one slider only -->
+	<script>
+// SLIDER PROPERTIES FOR COMMENTS/FEEDBACK SLIDERS
+	$(document).ready(function() {
+	    $("#lightSlider").lightSlider({
+	        item: 3,
+	        autoWidth: false,
+	        slideMove: 1, // slidemove will be 1 if loop is true
+	        slideMargin: 100,
+	 
+	        addClass: '',
+	        mode: "slide",
+	        useCSS: true,
+	        cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+	        easing: 'linear', //'for jquery animation',////
+	 
+	        speed: 600, //ms'
+	        auto: true,
+	        loop: true,
+	        slideEndAnimation: true,
+	        pause: 6000,
+	 
+	        keyPress: false,
+	        controls: false,
+	        prevHtml: '',
+	        nextHtml: '',
+	 
+	        rtl:false,
+	        adaptiveHeight:false,
+	 
+	        vertical:false,
+	        verticalHeight:500,
+	        vThumbWidth:100,
+	 
+	        thumbItem:10,
+	        pager: true,
+	        gallery: false,
+	        galleryMargin: 5,
+	        thumbMargin: 5,
+	        currentPagerPosition: 'middle',
+	 
+	        enableTouch:true,
+	        enableDrag:true,
+	        freeMove:true,
+	        swipeThreshold: 40,
+	 
+	        responsive : [],
+	 
+	        onBeforeStart: function (el) {},
+	        onSliderLoad: function (el) {},
+	        onBeforeSlide: function (el) {},
+	        onAfterSlide: function (el) {},
+	        onBeforeNextSlide: function (el) {},
+	        onBeforePrevSlide: function (el) {}
+	    });
+	});
+
+// SLIDER PROPERTIES FOR PARTNERSHIP SLIDER
+	$(document).ready(function() {
+	    $("#lightSlider0").lightSlider({
+	        item: 3,
+	        autoWidth: false,
+	        slideMove: 1, // slidemove will be 1 if loop is true
+	        slideMargin: 100,
+	 
+	        addClass: '',
+	        mode: "slide",
+	        useCSS: true,
+	        cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+	        easing: 'linear', //'for jquery animation',////
+	 
+	        speed: 600, //ms'
+	        auto: true,
+	        loop: true,
+	        slideEndAnimation: true,
+	        pause: 6000,
+	 
+	        keyPress: false,
+	        controls: false,
+	        prevHtml: '',
+	        nextHtml: '',
+	 
+	        rtl:false,
+	        adaptiveHeight:false,
+	 
+	        vertical:false,
+	        verticalHeight:500,
+	        vThumbWidth:100,
+	 
+	        thumbItem:10,
+	        pager: true,
+	        gallery: false,
+	        galleryMargin: 5,
+	        thumbMargin: 5,
+	        currentPagerPosition: 'middle',
+	 
+	        enableTouch:true,
+	        enableDrag:true,
+	        freeMove:true,
+	        swipeThreshold: 40,
+	 
+	        responsive : [],
+	 
+	        onBeforeStart: function (el) {},
+	        onSliderLoad: function (el) {},
+	        onBeforeSlide: function (el) {},
+	        onAfterSlide: function (el) {},
+	        onBeforeNextSlide: function (el) {},
+	        onBeforePrevSlide: function (el) {}
+	    });
+	});
+	</script>
+<!-- END OF SLIDER PUBLIC SETTING -->
+
+</body>
+
+</html>
