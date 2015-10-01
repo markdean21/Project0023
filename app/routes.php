@@ -128,6 +128,10 @@ Route::group(array('before' => 'TASKMINATOR-ONLY'), function(){
     Route::get('/removeSkill={taskitemId}', 'TaskminatorController@removeSkill');
     Route::get('/editPass', 'TaskminatorController@editPass');
     Route::post('/doEditPass', 'TaskminatorController@doEditPass');
+
+    // sms verification
+    Route::get('/doVerifyMobileNumber', 'TaskminatorController@doVerifyMobileNumber');
+    Route::post('/verifyPin', 'TaskminatorController@verifyPin');
 });
 
 Route::group(array('before' => 'CLIENT-ONLY'), function(){

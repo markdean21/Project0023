@@ -271,13 +271,13 @@ class HomeController extends BaseController {
     }
 
     public function doRegisterIndi(){
+        Input::merge(array_map('trim', Input::all()));
         $check = SimpleCaptcha::check($_POST['captcha']);
 
         if(!$check) {
             return Redirect::back()->with('errorMsg', 'Captcha does not match. Please retry.')->withInput(Input::except('password', 'captcha'));
         }
 
-        Input::merge(array_map('trim', Input::all()));
         $rules = array(
             'firstName' => "required|regex:/^[\p{L}\s'.-]+$/",
             'midName'  => "required|regex:/^[\p{L}\s'.-]+$/",
@@ -477,7 +477,8 @@ class HomeController extends BaseController {
         ));
 
         Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')));
-        return Redirect::to('/')->with('successMsg', 'Registration Success. You may now login.');
+
+        return Redirect::to('/doVerifyMobileNumber');
 
     }
 

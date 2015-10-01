@@ -669,4 +669,99 @@ class TaskminatorController extends \BaseController {
 
         return Redirect::back()->with('successMsg', 'Password successfully changed');
     }
+
+
+    public function doVerifyMobileNumber(){
+        // pincode already verified
+        if(Contact::where('user_id', Auth::user()->id)->pluck('pincode') == 'verified'){
+            //return View::make('editProfile_tskmntr')->with('user', User::where('id', Auth::user()->id)->first());       
+            return View::make('verifysuccess');
+        }
+
+        //Generate PIN CODE
+        $letters = '01234ABCDEFGHIJKLM56789NOPQRSTUVWXYZ';
+        $key = '';
+        for($i = 1; $i <= 5; $i++)
+        {
+         $key .= $letters[mt_rand(0, strlen($letters) - 1)];
+        }
+        //END OF Generate PIN CODE
+
+        //INSERT PINCODE TO DB
+         DB::table('contacts')
+                ->where('user_id', Auth::user()->id)
+                ->update(['pincode' => $key]);
+
+        //GET Mobile Number
+        $mobileNum = Contact::where('user_id', Auth::user()->id )->where('ctype', 'mobileNum')->pluck('content');
+
+        //Send PIN to Mobile Number via SMS
+        $arr_post_body = array(
+            "message_type" => "SEND",
+            "mobile_number" =>  $mobileNum,
+            "shortcode" => "292906377",
+            "message_id" => "12345678901234567890123456789012",
+          //  "message" => urlencode("Hello World this is from proveek testing app. Pogi ni sir dean!"),
+            "message" => $key." .Use this to verify your mobile number in Proveek.", 
+            "client_id" => "6df7472869b1ae7542fedd1244bc588aa4215564a0ad064a08a2001f8701fdb2",
+            "secret_key" => "6389e577850a038b66a1274c789e7b8c13493efcfeda56a15b4e57f171d216b0"
+        );
+
+        $query_string = "";
+        foreach($arr_post_body as $key => $frow)
+            {
+                $query_string .= '&'.$key.'='.$frow;
+            }
+
+        $URL = "https://post.chikka.com/smsapi/request";
+
+        $curl_handler = curl_init();
+        curl_setopt($curl_handler, CURLOPT_URL, $URL);
+        curl_setopt($curl_handler, CURLOPT_POST, count($arr_post_body));
+        curl_setopt($curl_handler, CURLOPT_POSTFIELDS, $query_string);
+        curl_setopt($curl_handler, CURLOPT_RETURNTRANSFER, TRUE);
+        $response = curl_exec($curl_handler);
+        curl_close($curl_handler);
+    
+        return View::make('taskminator.doVerifyMobileNumber')
+           ->with('contacts', Contact::where('user_id', Auth::user()->id)->get());
+    }
+
+    public function verifyPIN(){
+        // pincode already verified
+        if(Contact::where('user_id', Auth::user()->id)->pluck('pincode') == 'verified'){
+            //return View::make('editProfile_tskmntr')->with('user', User::where('id', Auth::user()->id)->first());       
+            return View::make('verifysuccess');
+        }
+
+        //GET MOBILE NUMBER
+        $mobileNum = Contact::where('user_id', Auth::user()->id )->where('ctype', 'mobileNum')->pluck('content');
+
+        //GET PIN FROM DB
+        $pin = DB::table('contacts')->where('user_id',  Auth::user()->id)->pluck('pincode');
+
+        //VALIDATE USER INPUT
+        if(Input::get('inputpin') == null ){
+            return Redirect::back()->with('errorMsg', 'Pin Code cannot be empty')->withInput(Input::except('inputpin'));
+        }
+        if(Input::get('inputpin') != $pin ){
+            return Redirect::back()->with('errorMsg', 'Wrong Pin Code')->withInput(Input::except('inputpin'));
+        }
+
+        // check if matched
+        if(Input::get('inputpin') == $pin){
+
+            //UPDATE TEH CONTACT STATUS OF MOBILE NUMBER
+             DB::table('contacts')
+                ->where('user_id', Auth::user()->id)
+                ->where('ctype', 'mobileNum' )
+                ->update(['pincode' => 'verified']);          
+
+            //return View::make('editProfile_tskmntr')->with('user', User::where('id', Auth::user()->id)->first());       
+            return View::make('verifysuccess');
+        }
+
+
+        
+    }
 }

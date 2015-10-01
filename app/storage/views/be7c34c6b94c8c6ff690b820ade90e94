@@ -1,0 +1,18 @@
+<?php $__env->startSection('head'); ?>
+    Account Verified
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('head-contents'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+<a href="/"><img src="../images/proveek-logo-300.png" /></a>
+<br>
+
+<h3>Your account has been verified.<br>Thank you for using <b>Proveek</b>!</h3>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
