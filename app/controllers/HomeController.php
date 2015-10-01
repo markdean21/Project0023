@@ -371,13 +371,14 @@ class HomeController extends BaseController {
         return Redirect::to('/')->with('successMsg', 'Registration Success. You may now login.');
     }
     public function  doRegisterTaskminator(){
+        Input::merge(array_map('trim', Input::all()));
+        
         $check = SimpleCaptcha::check($_POST['captcha']);
 
         if(!$check) {
             return Redirect::back()->with('errorMsg', 'Captcha does not match. Please retry.')->withInput(Input::except('password', 'captcha'));
         }
         
-        Input::merge(array_map('trim', Input::all()));
         $rules = array(
             'firstName'         => "required|regex:/^[\p{L}\s'.-]+$/",
             'midName'           => "required|regex:/^[\p{L}\s'.-]+$/",

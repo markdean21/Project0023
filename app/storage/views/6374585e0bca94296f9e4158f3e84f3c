@@ -1,0 +1,37 @@
+
+
+<?php $__env->startSection('head'); ?>
+    Test SMS
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('head-contents'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <!--<a href="/"><h1 style="margin: 40px 0px 30px 0px;">TASK<span style="color: rgb(102, 102, 102)">minator</span></h1></a>-->
+   
+
+    <?php echo Form::open(array('url' => '/verify')); ?>
+
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="icon-envelope"></i></span>
+                <?php echo Form::text('mobilenumber', Input::old('mobilenumber'), array('class' => 'form-control', 'placeholder' => 'Enter your number here')); ?>
+
+            </div>
+        </div>
+       
+
+        <?php echo Form::submit('Verify', array('class' => 'btn btn-lg btn-primary btn-block')); ?>
+
+    <?php echo Form::close(); ?>
+
+
+
+
+<hr/>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.login', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
