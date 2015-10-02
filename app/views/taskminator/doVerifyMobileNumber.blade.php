@@ -37,7 +37,7 @@
         @if(Session::has('errorMsg'))
             <div class="col-sm-12">
                 <div class="alert alert-danger">
-                    {{ @Session::has('errorMsg') }}
+                    {{ @Session::get('errorMsg') }}
                 </div>
             </div>
         @endif
@@ -56,6 +56,7 @@
                         @foreach($contacts as $contact)
 
                             @if($contact->ctype == 'mobileNum')
+                                <div class="row">
                                     <div class="col-md-3">
                                         Mobile Number : 
                                     </div>
@@ -64,28 +65,26 @@
                                         <p>{{$contact->content}}</p>
                                         <br/>
                                     </div>
+                                </div>
                             @endif
                         @endforeach
 
 
 
-                    {{ Form::open(array('url' => '/verifyPin')) }}
-                        
-
-
-                    
-                            
-                                    <div class="col-md-3">
-                                        Pin Code : 
-                                    </div>
-                                    <div class="col-md-9">
-                                     
-                                     {{ Form::text('inputpin', Input::old('inputpin'), array('class' => 'form-control', 'placeholder' => 'Enter Pin Code Here')) }}
-                                        <br/>
-                                    </div>
-                            
+                    {{ Form::open(array('url' => '/verifyPin', 'id' => 'doVerifyMobileNumber')) }}
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Pin Code : 
+                                </div>
+                                <div class="col-md-9">
+                                 
+                                 {{ Form::text('pinCode', Input::old('pinCode'), array('class' => 'form-control', 'placeholder' => 'Enter Pin Code Here')) }}
+                                    <br/>
+                                </div>
+                            </div>
                        
-                        <button type="submit" class="btn btn-primary" style="margin-eft: 10px;">Submit</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-default" onclick="window.location='{{URL::to('sendVerificationCode')}}'">Resend Code</button>
                    <!-- </form> -->
                     {{ Form::close() }}
                 </div>

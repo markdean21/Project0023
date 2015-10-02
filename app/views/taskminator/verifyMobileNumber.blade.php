@@ -6,7 +6,6 @@
 
 @section('head-contents')
         {{ HTML::script('js/jquery-1.11.0.min.js') }}
-        {{ HTML::script('js/taskminator.js') }}
 @stop
 
 @section('user-name')
@@ -35,16 +34,10 @@
         </div>
 
         @if(Session::has('errorMsg'))
-            <div class="col-sm-12">
+            <div class="col-sm-8">
                 <div class="alert alert-danger">
-                    {{ @Session::has('errorMsg') }}
-                </div>
-            </div>
-        @endif
-        @if(Session::has('successMsg'))
-            <div class="col-sm-12">
-                <div class="alert alert-success">
-                    {{ @Session::has('successMsg') }}
+                    <!--{{ Session::get('errorMsg') }} -->
+                    <?php echo $errors->first('pincode'); ?>
                 </div>
             </div>
         @endif
@@ -52,10 +45,8 @@
         <div class="col-md-8">
             <div class="widget-container" style="min-height: 150px; padding-bottom: 5px; padding-top: 20px;">
                 <div class="widget-content padded">
-                    <form method="POST" action="/doVerifyMobileNumber" id="doVerifyMobileNumber">
+                    {{ Form::open(array('url' => '/verifyPin', 'id' => 'doVerifyMobileNumber')) }}
                         @foreach($contacts as $contact)
-
-
                     
                             @if($contact->ctype == 'mobileNum')
                                     <div class="col-md-3">
@@ -66,8 +57,8 @@
                                     </div>
                             @endif
                         @endforeach
-                        <button type="submit" class="btn btn-primary" style="margin-eft: 10px;">Send Verification Code</button>
-                    </form>
+                        <button type="submit" class="btn btn-primary" style="margin-left: 10px;">Send Verification Code</button>
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>

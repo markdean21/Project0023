@@ -670,14 +670,7 @@ class TaskminatorController extends \BaseController {
         return Redirect::back()->with('successMsg', 'Password successfully changed');
     }
 
-
-    public function doVerifyMobileNumber(){
-        // pincode already verified
-        if(Contact::where('user_id', Auth::user()->id)->pluck('pincode') == 'verified'){
-            //return View::make('editProfile_tskmntr')->with('user', User::where('id', Auth::user()->id)->first());       
-            return View::make('verifysuccess');
-        }
-
+    public function sendVerificationCode(){
         //Generate PIN CODE
         $letters = '01234ABCDEFGHIJKLM56789NOPQRSTUVWXYZ';
         $key = '';
@@ -686,6 +679,7 @@ class TaskminatorController extends \BaseController {
          $key .= $letters[mt_rand(0, strlen($letters) - 1)];
         }
         //END OF Generate PIN CODE
+
 
         //INSERT PINCODE TO DB
          DB::table('contacts')
@@ -722,34 +716,53 @@ class TaskminatorController extends \BaseController {
         curl_setopt($curl_handler, CURLOPT_RETURNTRANSFER, TRUE);
         $response = curl_exec($curl_handler);
         curl_close($curl_handler);
+
+        return View::make('taskminator.doVerifyMobileNumber')
+           ->with('contacts', Contact::where('user_id', Auth::user()->id)->get());
+    }    
+
+    public function doVerifyMobileNumber(){
+        // pincode already verified
+        $pincode = Contact::where('user_id', Auth::user()->id)->pluck('pincode');
+        if($pincode == 'verified'){
+            //return View::make('editProfile_tskmntr')->with('user', User::where('id', Auth::user()->id)->first());       
+            return View::make('verifysuccess');
+        }
+        if($pincode == null){
+            $this->sendVerificationCode();    
+        }
     
         return View::make('taskminator.doVerifyMobileNumber')
            ->with('contacts', Contact::where('user_id', Auth::user()->id)->get());
     }
 
     public function verifyPIN(){
+        // trim white space
+        Input::merge(array_map('trim', Input::all()));
+
+        //GET PIN FROM DB
+        $pin = Contact::where('user_id',  Auth::user()->id)->pluck('pincode');
+
         // pincode already verified
-        if(Contact::where('user_id', Auth::user()->id)->pluck('pincode') == 'verified'){
+        if($pin == 'verified'){
             //return View::make('editProfile_tskmntr')->with('user', User::where('id', Auth::user()->id)->first());       
             return View::make('verifysuccess');
         }
 
-        //GET MOBILE NUMBER
-        $mobileNum = Contact::where('user_id', Auth::user()->id )->where('ctype', 'mobileNum')->pluck('content');
-
-        //GET PIN FROM DB
-        $pin = DB::table('contacts')->where('user_id',  Auth::user()->id)->pluck('pincode');
-
         //VALIDATE USER INPUT
-        if(Input::get('inputpin') == null ){
-            return Redirect::back()->with('errorMsg', 'Pin Code cannot be empty')->withInput(Input::except('inputpin'));
-        }
-        if(Input::get('inputpin') != $pin ){
-            return Redirect::back()->with('errorMsg', 'Wrong Pin Code')->withInput(Input::except('inputpin'));
+        $rules = array(
+            'pinCode' => "required"
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if($validator->fails()){
+            //echo $validator->messages()->first();
+            return Redirect::back()->with('errorMsg', $validator->messages()->first());
         }
 
         // check if matched
-        if(Input::get('inputpin') == $pin){
+        if(Input::get('pinCode') == $pin){
 
             //UPDATE TEH CONTACT STATUS OF MOBILE NUMBER
              DB::table('contacts')
@@ -760,8 +773,8 @@ class TaskminatorController extends \BaseController {
             //return View::make('editProfile_tskmntr')->with('user', User::where('id', Auth::user()->id)->first());       
             return View::make('verifysuccess');
         }
-
-
-        
+        else{
+            return Redirect::back()->with('errorMsg', 'Wrong Pin Code')->withInput(Input::except('inputpin'));
+        }
     }
 }

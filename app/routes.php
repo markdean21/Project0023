@@ -132,6 +132,7 @@ Route::group(array('before' => 'TASKMINATOR-ONLY'), function(){
     // sms verification
     Route::get('/doVerifyMobileNumber', 'TaskminatorController@doVerifyMobileNumber');
     Route::post('/verifyPin', 'TaskminatorController@verifyPin');
+    Route::get('/sendVerificationCode', 'TaskminatorController@sendVerificationCode');
 });
 
 Route::group(array('before' => 'CLIENT-ONLY'), function(){

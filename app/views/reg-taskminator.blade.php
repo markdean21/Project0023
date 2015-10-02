@@ -26,10 +26,6 @@
             }
         }
 
-        $(document).ready(function(){
-            enableSubmit();
-        });
-
         function passConfirm(){
             if(document.getElementById('passwordInput').value == document.getElementById('confirmpassId').value){
                 document.getElementById('confirmedPass').className = 'form-group has-success has-feedback';
@@ -48,6 +44,9 @@
         }
 
         $(document).ready(function(){
+            
+            enableSubmit();
+
             $('#reset').click(function(event){
                 document.getElementById('submitForm').disabled = true;
             });
@@ -224,7 +223,7 @@
                                 <label class="control-label" style="margin-left: 5px;">Rate</label>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select class="inputItem form-control" name="minRate">
+                                        <select class="inputItem form-control" name="minRate" id="minRate">
                                             <option selected disabled>Select minimum rate</option>
                                             <?php
                                                 for ($i=400; $i <= 1000; $i+=50) { 
