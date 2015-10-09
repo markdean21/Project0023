@@ -77,7 +77,9 @@
 
                     </li>
                     <li>
-                        <a class="" href="#">Login / Sign Up</span></a>
+                        <!--<a class="" href="#">Login / Sign Up</span></a> -->
+                        <?php echo HTML::link('/login', 'Login / Sign Up'); ?>
+
                     </li>
                 </ul>
             </div>
@@ -274,10 +276,10 @@
                                 Stay connected to keep up with the latest news, promos and updates.
                             </p>
                             <div class="div_footer">
-                                <a href="#"><i class="fa fa-facebook-square fa-3x wow bounceIn" data-wow-delay=".2s"></i></a>
-                                <a href="#"><i class="fa fa-twitter-square fa-3x wow bounceIn" data-wow-delay=".3s"></i></a>
+                                <a href="https://www.facebook.com/proveek"><i class="fa fa-facebook-square fa-3x wow bounceIn" data-wow-delay=".2s"></i></a>
+                                <a href="https://twitter.com/Proveek"><i class="fa fa-twitter-square fa-3x wow bounceIn" data-wow-delay=".3s"></i></a>
                                 <a href="#"><i class="fa fa-instagram fa-3x wow bounceIn" data-wow-delay=".4s"></i></a>
-                                <a href="#"><i class="fa fa-google-plus-square fa-3x wow bounceIn" data-wow-delay=".5s"></i></a>
+                                <a href="https://plus.google.com/108796854139900682022/posts"><i class="fa fa-google-plus-square fa-3x wow bounceIn" data-wow-delay=".5s"></i></a>
                                 <a href="#"><i class="fa fa-envelope-square fa-3x wow bounceIn" data-wow-delay=".6s"></i></a>
                             </div>
                             <p>2015  <i class="fa fa-copyright"></i>  Proveek Inc.</p>

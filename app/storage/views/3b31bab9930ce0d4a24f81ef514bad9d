@@ -78,7 +78,9 @@
 
                     </li>
                     <li>
-                        <a class="" href="#">Login / Sign Up</span></a>
+                        <!--<a class="" href="#">Login / Sign Up</span></a> -->
+                        <?php echo HTML::link('/login', 'Login / Sign Up'); ?>
+
                     </li>
                 </ul>
             </div>
@@ -107,7 +109,7 @@
                 <div class="header-content-inner wow fadeIn" style="background-color:rgba(0,0,0,.5); padding-top: 35px; padding-bottom:15px; border-radius: 8px;">
                     <h1>Proveek</h1>
                     <hr>
-                    <p style="text-align:justify">Proveek, formerly called TASKminator, is an online system that aims to connect Job providers (Employers) to Job Seekers (Workers) specifically skilled and manual laborers. The system seeks to empower the skilled and manual laborers by providing them an avenue to highlight their skills in an online profile for the whole wide world to see which may in turn increase their chance of getting a job as well as having additional source of income by doing part-time jobs. Also, the platform serves as an avenue for Job providers or employers to easily look for workers fitted for the job. Proveek is one of the finalists of Ideaspace Foundation Inc. incubation for the year 2015.</p>
+                    <p style="text-align:center">Proveek, formerly called TASKminator, is an online system that aims to connect Job providers (Employers) to Job Seekers (Workers) specifically skilled and manual laborers. The system seeks to empower the skilled and manual laborers by providing them an avenue to highlight their skills in an online profile for the whole wide world to see which may in turn increase their chance of getting a job as well as having additional source of income by doing part-time jobs. Also, the platform serves as an avenue for Job providers or employers to easily look for workers fitted for the job. Proveek is one of the finalists of Ideaspace Foundation Inc. incubation for the year 2015.</p>
                     <div class="text-center div_header">
                     <a href="#next" class="page-scroll">
                         <i class="fa fa-4x fa-angle-down"></i>
@@ -237,10 +239,10 @@
                                 Stay connected to keep up with the latest news, promos and updates.
                             </p>
                             <div class="div_footer">
-                                <a href="#"><i class="fa fa-facebook-square fa-3x wow bounceIn" data-wow-delay=".2s"></i></a>
-                                <a href="#"><i class="fa fa-twitter-square fa-3x wow bounceIn" data-wow-delay=".3s"></i></a>
+                                <a href="https://www.facebook.com/proveek"><i class="fa fa-facebook-square fa-3x wow bounceIn" data-wow-delay=".2s"></i></a>
+                                <a href="https://twitter.com/Proveek"><i class="fa fa-twitter-square fa-3x wow bounceIn" data-wow-delay=".3s"></i></a>
                                 <a href="#"><i class="fa fa-instagram fa-3x wow bounceIn" data-wow-delay=".4s"></i></a>
-                                <a href="#"><i class="fa fa-google-plus-square fa-3x wow bounceIn" data-wow-delay=".5s"></i></a>
+                                <a href="https://plus.google.com/108796854139900682022/posts"><i class="fa fa-google-plus-square fa-3x wow bounceIn" data-wow-delay=".5s"></i></a>
                                 <a href="#"><i class="fa fa-envelope-square fa-3x wow bounceIn" data-wow-delay=".6s"></i></a>
                             </div>
                             <p>2015  <i class="fa fa-copyright"></i>  Proveek Inc.</p>

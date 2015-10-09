@@ -51,138 +51,39 @@ class HomeController extends BaseController {
     }
 
     public function doRegisterComp(){
-        // COMPANY NAME VALIDATION
-        if(strlen(trim(strip_tags(Input::get('companyName')))) == 0){
-            return Redirect::back()->with('errorMsg', 'Company name cannot be empty')->withInput(Input::except('password'));
+        Input::merge(array_map('trim', Input::all()));
+
+        $check = SimpleCaptcha::check($_POST['captcha']);
+
+        if(!$check) {
+            return Redirect::back()->with('errorMsg', 'Captcha does not match. Please retry.')->withInput(Input::except('password', 'captcha'));
         }
 
-        // MOBILE NUMBER VALIDATION
-        if(!ctype_digit(Input::get('mobileNum'))){
-            return Redirect::back()->with('errorMsg', 'Mobile number must be numbers only')->withInput(Input::except('password'));
-        }else if(strlen(Input::get('mobileNum')) == 0 || strlen(Input::get('mobileNum')) < 11){
-            return Redirect::back()->with('errorMsg', 'Mobile number cannot be empty and must be more than 11 digits')->withInput(Input::except('password'));
+        $rules = array(
+            'companyName'           => 'required',
+            'businessNature'        => 'required',
+            'experience'            => 'required',
+            'businessDescription'   => 'required',
+            'address'               => 'required',
+            'businessNum'           => 'required|numeric',
+            'firstName-keyperson'   => 'required',
+            'midName-keyperson'    => 'required',
+            'lastName-keyperson'    => 'required',
+            'position-keyperson'    => 'required',
+            'regNum'                => 'required',
+            'email'                 => 'required|email',
+            'username'          => 'required|unique:users,username',
+            'password'          => 'required|min:8',
+            'confirmpass'       => 'required|min:8|same:password',
+            'TOS'               => 'required'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if($validator->fails()){
+            return Redirect::back()->with('errorMsg', $validator->messages()->first())->withInput(Input::except('password', 'captcha'));
         }
-
-        // EMAIL VALIDATION
-        if(!$this->emailValidate(Input::get('email'))){
-            return Redirect::back()->with('errorMsg', 'Please enter valid email')->withInput(Input::except('password'));
-        }else if(Contact::where('content', Input::get('email'))->where('ctype', 'email')->count() > 0){
-            return Redirect::back()->with('errorMsg', 'Email is already taken')->withInput(Input::except('password'));
-        }
-
-        // BUSINESS NUMBER VALIDATION
-        if(!ctype_digit(Input::get('businessNum'))){
-            return Redirect::back()->with('errorMsg', 'Business number must be numbers only')->withInput(Input::except('password'));
-        }
-
-        // BUSINESS NATURE VALIDATION
-        if(strlen(trim(strip_tags(Input::get('businessNature')))) == 0){
-            return Redirect::back()->with('errorMsg', 'Business nature name cannot be empty')->withInput(Input::except('password'));
-        }
-
-        // BUSINESS DESCRIPTION VALIDATION
-        if(strlen(trim(strip_tags(Input::get('businessDescription')))) == 0){
-            return Redirect::back()->with('errorMsg', 'Company name cannot be empty')->withInput(Input::except('password'));
-        }else if(strlen(Input::get('businessDescription')) > 50){
-            return Redirect::back()->with('errorMsg', 'Business description  must be at least or more than 50 characters')->withInput(Input::except('password'));
-        }
-
-        // BUSINESS PERMIT VALIDATION
-        if(strlen(trim(strip_tags(Input::get('businessPermit')))) == 0){
-            return Redirect::back()->with('errorMsg', 'Company name cannot be empty')->withInput(Input::except('password'));
-        }
-
-        // ADDRESS VALIDATION
-        if(strlen(Input::get('address')) == 0){
-            return Redirect::back()->with('errorMsg', 'Address cannot be empty')->withInput(Input::except('password'));
-        }else if(strlen(strip_tags(Input::get('address'))) == 0){
-            return Redirect::back()->with('errorMsg', 'Address cannot contain tags')->withInput(Input::except('password'));
-        }
-
-        // REGION VALIDATION
-        if(Input::get('region-comp') == null || Input::get('region-comp') == 0){
-            return Redirect::back()->with('errorMsg', 'Region cannot be empty');
-        }
-
-        // CITY VALIDATION
-        if(Input::get('city-comp') == null || Input::get('city-comp') == 0){
-            return Redirect::back()->with('errorMsg', 'City cannot be empty')->withInput(Input::except('password'));
-        }
-
-        // BARANGAY VALIDATION
-        if(Input::get('barangay-comp') == null || Input::get('barangay-comp') == 0){
-            return Redirect::back()->with('errorMsg', 'City cannot be empty')->withInput(Input::except('password'));
-        }
-
-//        // PROVINCE VALIDATION
-//        if(Input::get('province-comp') == null || Input::get('province-comp') == 0){
-//            return Redirect::back()->with('errorMsg', 'City cannot be empty');
-//        }
-
-        // KEY PERSON VALIDATION -- START
-            // FIRSTNAME VALIDATION
-            if(!ctype_alpha(str_replace(' ', '',trim(Input::get('firstName-keyperson'))))){
-                return Redirect::back()->with('errorMsg', 'Key person first name must be letters only')->withInput(Input::except('password'));
-            }else if(strlen(trim(Input::get('firstName-keyperson'))) == 0){
-                return Redirect::back()->with('errorMsg', 'Key person first name cannot be empty')->withInput(Input::except('password'));
-            }
-
-            // MIDDLE NAME VALIDATION
-            if(!ctype_alpha(str_replace(' ', '', trim(Input::get('midName-keyperson'))))){
-                return Redirect::back()->with('errorMsg', 'Key person middle name must be letters only')->withInput(Input::except('password'));
-            }else if(strlen(trim(Input::get('midName-keyperson'))) == 0){
-                return Redirect::back()->with('errorMsg', 'Key person middle name cannot be empty')->withInput(Input::except('password'));
-            }
-
-            // LAST NAME VALIDATION
-            if(!ctype_alpha(str_replace(' ', '', trim(Input::get('lastName-keyperson'))))){
-                return Redirect::back()->with('errorMsg', 'Key person last name must be letters only')->withInput(Input::except('password'));
-            }else if(strlen(trim(Input::get('lastName-keyperson'))) == 0){
-                return Redirect::back()->with('errorMsg', 'Key person last name cannot be empty')->withInput(Input::except('password'));
-            }
-
-            // POSITION VALIDATION
-            if(Input::get('position-keyperson') == null || strlen(trim(Input::get('position-keyperson'))) == 0){
-                return Redirect::back()->with('errorMsg', 'Key person position cannot be empty')->withInput(Input::except('password'));
-            }
-
-            // MOBILE NUMBER VALIDATION
-            if(!ctype_digit(Input::get('mobileNum-keyperson'))){
-                return Redirect::back()->with('errorMsg', 'Key person mobile number must be numbers only')->withInput(Input::except('password'));
-            }
-
-            // EMAIL VALIDATION
-            if(!$this->emailValidate(Input::get('email-keyperson'))){
-                return Redirect::back()->with('errorMsg', 'Key person email must be valid')->withInput(Input::except('password'));
-            }
-        // KEY PERSON VALIDATION -- END
-
-        // USERNAME VALIDATION
-        if(Input::get('username') == '' || Input::get('username') == null){
-            return Redirect::back()->with('errorMsg', 'Username cannot be empty 1')->withInput(Input::except('password'));
-        }else if(strlen(trim(Input::get('username'))) == 0){
-            return Redirect::back()->with('errorMsg', 'Username cannot be empty')->withInput(Input::except('password'));
-        }else if(!ctype_alnum(Input::get('username'))){
-            return Redirect::back()->with('errorMsg', 'Username is alphanumeric (numbers and letters) only')->withInput(Input::except('password'));
-        }else if(strlen(Input::get('username')) < 8){
-            return Redirect::back()->with('errorMsg', 'Username must be more than 8 characters')->withInput(Input::except('password'));
-        }else if(User::where('username', Input::get('username'))->count() > 0){
-            return Redirect::back()->with('errorMsg', 'Username is already taken')->withInput(Input::except('password'));
-        }
-
-        // PASSWORD VALIDATION
-        if(!ctype_alnum(Input::get('password'))){
-            return Redirect::back()->with('errorMsg', 'Password is alphanumeric (numbers and letters) only')->withInput(Input::except('password'));
-        }else if(strlen(Input::get('password')) < 8){
-            return Redirect::back()->with('errorMsg', 'Password must be more than 8 characters')->withInput(Input::except('password'));
-        }else if(Input::get('password') != Input::get('confirmpass')){
-            return Redirect::back()->with('errorMsg', 'Passwords does not match')->withInput(Input::except('password'));
-        }
-
-        // TOS VALIDATION
-        if(!Input::get('TOS')){
-            return Redirect::back()->with('errorMsg', 'You must agree to TASKminator Terms of Agreements (TOS)')->withInput(Input::except('password'));
-        }
+        // else validation successful
 
         if(User::count() < 30){
             $points = 100;
@@ -191,21 +92,18 @@ class HomeController extends BaseController {
         }
 
         date_default_timezone_set("Asia/Manila");
-        User::insert(array(
+        $userId = User::insertGetId(array(
             'companyName'           =>  Input::get('companyName'),
             'fullName'              =>  Input::get('companyName'),
             'address'               =>  strip_tags(Input::get('address')),
             'businessNature'        =>  Input::get('businessNature'),
             'businessDescription'   =>  Input::get('businessDescription'),
-            'businessPermit'        =>  Input::get('businessPermit'),
-            'region'                =>  Input::get('region-comp'),
-            'city'                  =>  Input::get('city-comp'),
-            'barangay'              =>  Input::get('barangay-comp'),
+            'businessPermit'        =>  Input::get('regNum'),
             'username'              =>  Input::get('username'),
             'password'              =>  Hash::make(Input::get('password')),
             'confirmationCode'      =>  $this->generateConfirmationCode(),
+            'yearsOfExperience'     =>  Input::get('experience'),
             'status'                =>  'PRE_ACTIVATED',
-//            'status'                =>  'ACTIVATED',
             'country'               =>  'PHILIPPINES',
             'created_at'            =>  date("Y:m:d H:i:s"),
             'updated_at'            =>  date("Y:m:d H:i:s"),
@@ -213,38 +111,30 @@ class HomeController extends BaseController {
             'accountType'           =>  'BASIC',
         ));
 
-        $userId = User::where('username', Input::get('username'))->pluck('id');
-
         UserHasRole::insert(array(
             'user_id'   =>  $userId,
             'role_id'   =>  '4'
         ));
 
         ContactPerson::insert(array(
-            'user_id'   => $userId,
-            'firstName'   => Input::get('firstName-keyperson'),
-            'midName'   => Input::get('midName-keyperson'),
-            'lastName'   => Input::get('lastName-keyperson'),
-            'contactNum'   => Input::get('mobileNum-keyperson'),
-            'email'   => Input::get('email-keyperson'),
-            'position'   => Input::get('position-keyperson'),
-            'country'   => 'PHILIPPINES'
+            'user_id'       => $userId,
+            'firstName'     => Input::get('firstName-keyperson'),
+            'midName'       => Input::get('midName-keyperson'),
+            'lastName'      => Input::get('lastName-keyperson'),
+            'contactNum'    => Input::get('mobileNum-keyperson'),
+            'position'      => Input::get('position-keyperson'),
+            'country'       => 'PHILIPPINES'
         ));
 
         Contact::insert(array(
             array(
                 'user_id'       =>  $userId,
-                'ctype'       =>  'email',
+                'ctype'         =>  'email',
                 'content'       =>  Input::get('email'),
             ),
             array(
                 'user_id'       =>  $userId,
-                'ctype'       =>  'mobileNum',
-                'content'       =>  Input::get('mobileNum'),
-            ),
-            array(
-                'user_id'       =>  $userId,
-                'ctype'       =>  'businessNum',
+                'ctype'         =>  'businessNum',
                 'content'       =>  Input::get('businessNum'),
             )
         ));
@@ -512,6 +402,10 @@ class HomeController extends BaseController {
 
     public function index(){
         if(Auth::check()){
+            if(Auth::user()->id!=19) {
+                Auth::logout();
+                return View::make('welcome');
+            }
             switch(Auth::user()->status){
                 case 'DEACTIVATED'      :
                 case 'SELF_DEACTIVATED' :
@@ -866,7 +760,10 @@ class HomeController extends BaseController {
             case '1'    :
                 return View::make('editProfile_admin')->with('user', User::where('id', Auth::user()->id)->first());
             case '2'    :
-                return View::make('editProfile_tskmntr')->with('user', User::where('id', Auth::user()->id)->first());
+                $pincode = Contact::where('user_id',  Auth::user()->id)->pluck('pincode');
+                return View::make('editProfile_tskmntr')
+                            ->with('user', User::where('id', Auth::user()->id)->first())
+                            ->with('pincode', $pincode);
             case '3'    :
             case '4'    :
                 return View::make('editProfile_client')

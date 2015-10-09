@@ -7,6 +7,11 @@
 @section('head-contents')
         {{ HTML::script('js/jquery-1.11.0.min.js') }}
         {{ HTML::script('js/taskminator.js') }}
+	<script type="text/javascript">
+        	function disable(){
+            		document.getElementById('resend').disabled=true;
+        	}
+	</script>
 @stop
 
 @section('user-name')
@@ -70,7 +75,6 @@
                         @endforeach
 
 
-
                     {{ Form::open(array('url' => '/verifyPin', 'id' => 'doVerifyMobileNumber')) }}
                             <div class="row">
                                 <div class="col-md-3">
@@ -84,9 +88,10 @@
                             </div>
                        
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="submit" class="btn btn-default" onclick="window.location='{{URL::to('sendVerificationCode')}}'">Resend Code</button>
-                   <!-- </form> -->
+			<a class="btn btn-default" href="{{URL::to('sendVerificationCode')}}" onclick="disable();">Resend Code</a>
                     {{ Form::close() }}
+
+                    
                 </div>
             </div>
         </div>

@@ -169,7 +169,15 @@
                                 <?php else: ?> <?php echo $con->ctype; ?> <?php endif; ?>
                             </span>
                              :
-                            <span style="margin-left: 5px"><?php echo $con->content; ?></span><br/>
+                            <span style="margin-left: 5px"><?php echo $con->content; ?></span>
+                            <?php if($con->ctype == "mobileNum"): ?>
+                                <?php if(Contact::where('user_id',  Auth::user()->id)->pluck('pincode')!='verified'): ?>
+                                    <button class="btn btn-xs btn-primary" onclick="location.href='/doVerifyMobileNumber'" style=" margin: 5px;">Verify!</button>
+                                <?php else: ?>
+                                    <span class="btn btn-xs btn-default" style=" margin: 5px;">Verified</span>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                            <br/>
                             <?php endforeach; ?>
                         </div>
                         <hr/>

@@ -159,31 +159,28 @@
                         </div>
                         <hr/>
                         <div class="heading">
-                            <i class="glyphicon glyphicon-phone-alt"></i>Contact Information 
-                             <button class="btn btn-xs btn-default" onclick="location.href='/doVerifyMobileNumber'" style=" margin: 5px;">Verify Mobile Number</button>
-                            <button class="btn btn-xs btn-default" onclick="location.href='/editContactInfo'" style=" margin: 5px;">Edit</button>
+                            <i class="glyphicon glyphicon-phone-alt"></i>Contact Information <button class="btn btn-xs btn-default" onclick="location.href='/editContactInfo'" style=" margin: 5px;">Edit</button>
                         </div>
                         <div style="padding: 0 12px;">
                             <?php foreach(Contact::where('user_id', $user->id)->get() as $con): ?>
                             <span style="text-transform: capitalize; color: rgb(72, 157, 179); margin-right: 5px;">
-                                <?php if($con->ctype == "mobileNum"): ?> Mobile No. 
+                                <?php if($con->ctype == "mobileNum"): ?> Mobile No.
                                 <?php elseif($con->ctype == "businessNum"): ?> Business No.
                                 <?php else: ?> <?php echo $con->ctype; ?> <?php endif; ?>
                             </span>
                              :
-                            <span style="margin-left: 5px"><?php echo $con->content; ?> </span><br/>
+                            <span style="margin-left: 5px"><?php echo $con->content; ?></span>
+                            <?php if($con->ctype == "mobileNum"): ?>
+                                <?php if(Contact::where('user_id',  Auth::user()->id)->pluck('pincode')!='verified'): ?>
+                                    <button class="btn btn-xs btn-primary" onclick="location.href='/doVerifyMobileNumber'" style=" margin: 5px;">Verify!</button>
+                                <?php else: ?>
+                                    <span class="btn btn-xs btn-default" style=" margin: 5px;">Verified</span>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                            <br/>
                             <?php endforeach; ?>
-                            
-                           
-                        
-
-                           
-                       
-                                    
-                                
-
                         </div>
-                        <hr/> 
+                        <hr/>
                         <div class="heading">
                             <i class="glyphicon glyphicon-star"></i>Skills <button class="btn btn-xs btn-default" style=" margin: 5px;" onclick="location.href='/editSkillInfo'">Edit</button>
                         </div>

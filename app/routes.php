@@ -18,6 +18,11 @@ Route::get('/chainProvince', 'HomeController@chainProvince');
 Route::get('/regTaskminator', 'HomeController@regTaskminator');
 Route::get('/regClientIndi', 'HomeController@regClientIndi');
 Route::get('/regClientComp', 'HomeController@regClientComp');
+
+Route::get('/regClient', function() {
+    return View::make('reg-client');
+});
+
 Route::get('/logout', 'HomeController@logout');
 Route::get('/changePassword', 'HomeController@changePassword');
 Route::post('/forgotPassword', 'HomeController@changePassword');

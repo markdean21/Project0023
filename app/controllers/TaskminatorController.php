@@ -671,6 +671,11 @@ class TaskminatorController extends \BaseController {
     }
 
     public function sendVerificationCode(){
+        // pincode already verified
+        if(Contact::where('user_id', Auth::user()->id)->pluck('pincode') == 'verified'){
+            //return View::make('editProfile_tskmntr')->with('user', User::where('id', Auth::user()->id)->first());       
+            return View::make('verifysuccess');
+        }
         //Generate PIN CODE
         $letters = '01234ABCDEFGHIJKLM56789NOPQRSTUVWXYZ';
         $key = '';
@@ -688,24 +693,22 @@ class TaskminatorController extends \BaseController {
 
         //GET Mobile Number
         $mobileNum = Contact::where('user_id', Auth::user()->id )->where('ctype', 'mobileNum')->pluck('content');
-
+	$mobileNum = "63".substr($mobileNum,1);
         //Send PIN to Mobile Number via SMS
         $arr_post_body = array(
             "message_type" => "SEND",
             "mobile_number" =>  $mobileNum,
             "shortcode" => "292906377",
-            "message_id" => "12345678901234567890123456789012",
-          //  "message" => urlencode("Hello World this is from proveek testing app. Pogi ni sir dean!"),
-            "message" => $key." .Use this to verify your mobile number in Proveek.", 
+            "message_id" => str_random(32),
+            "message" => $key.". Use this to verify your mobile number in Proveek.", 
             "client_id" => "6df7472869b1ae7542fedd1244bc588aa4215564a0ad064a08a2001f8701fdb2",
             "secret_key" => "6389e577850a038b66a1274c789e7b8c13493efcfeda56a15b4e57f171d216b0"
         );
 
         $query_string = "";
-        foreach($arr_post_body as $key => $frow)
-            {
-                $query_string .= '&'.$key.'='.$frow;
-            }
+        foreach($arr_post_body as $key => $frow){
+            $query_string .= '&'.$key.'='.$frow;
+        }
 
         $URL = "https://post.chikka.com/smsapi/request";
 
@@ -722,12 +725,13 @@ class TaskminatorController extends \BaseController {
     }    
 
     public function doVerifyMobileNumber(){
-        // pincode already verified
         $pincode = Contact::where('user_id', Auth::user()->id)->pluck('pincode');
+        // pincode already verified
         if($pincode == 'verified'){
             //return View::make('editProfile_tskmntr')->with('user', User::where('id', Auth::user()->id)->first());       
             return View::make('verifysuccess');
         }
+        // no pincode
         if($pincode == null){
             $this->sendVerificationCode();    
         }
@@ -764,12 +768,13 @@ class TaskminatorController extends \BaseController {
         // check if matched
         if(Input::get('pinCode') == $pin){
 
-            //UPDATE TEH CONTACT STATUS OF MOBILE NUMBER
+            //UPDATE THE CONTACT STATUS OF MOBILE NUMBER
              DB::table('contacts')
                 ->where('user_id', Auth::user()->id)
                 ->where('ctype', 'mobileNum' )
                 ->update(['pincode' => 'verified']);          
 
+	    Auth::logout();
             //return View::make('editProfile_tskmntr')->with('user', User::where('id', Auth::user()->id)->first());       
             return View::make('verifysuccess');
         }

@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('head'); ?>
     Edit Contact Information
 <?php $__env->stopSection(); ?>
@@ -40,7 +38,7 @@
         <?php if(Session::has('errorMsg')): ?>
             <div class="col-sm-12">
                 <div class="alert alert-danger">
-                    <?php echo @Session::has('errorMsg'); ?>
+                    <?php echo @Session::get('errorMsg'); ?>
 
                 </div>
             </div>
@@ -61,6 +59,7 @@
                         <?php foreach($contacts as $contact): ?>
 
                             <?php if($contact->ctype == 'mobileNum'): ?>
+                                <div class="row">
                                     <div class="col-md-3">
                                         Mobile Number : 
                                     </div>
@@ -69,33 +68,30 @@
                                         <p><?php echo $contact->content; ?></p>
                                         <br/>
                                     </div>
+                                </div>
                             <?php endif; ?>
                         <?php endforeach; ?>
 
 
+                    <?php echo Form::open(array('url' => '/verifyPin', 'id' => 'doVerifyMobileNumber')); ?>
 
-                    <?php echo Form::open(array('url' => '/verifyPin')); ?>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    Pin Code : 
+                                </div>
+                                <div class="col-md-9">
+                                 
+                                 <?php echo Form::text('pinCode', Input::old('pinCode'), array('class' => 'form-control', 'placeholder' => 'Enter Pin Code Here')); ?>
 
-                        
-
-
-                    
-                            
-                                    <div class="col-md-3">
-                                        Pin Code : 
-                                    </div>
-                                    <div class="col-md-9">
-                                     
-                                     <?php echo Form::text('inputpin', Input::old('inputpin'), array('class' => 'form-control', 'placeholder' => 'Enter Pin Code Here')); ?>
-
-                                        <br/>
-                                    </div>
-                            
+                                    <br/>
+                                </div>
+                            </div>
                        
-                        <button type="submit" class="btn btn-primary" style="margin-eft: 10px;">Submit</button>
-                   <!-- </form> -->
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     <?php echo Form::close(); ?>
 
+
+                    <button class="btn btn-default" onclick="window.location='<?php echo URL::to('sendVerificationCode'); ?>'" style="margin-left: 75px; margin-top: -67px;">Resend Code</button>
                 </div>
             </div>
         </div>

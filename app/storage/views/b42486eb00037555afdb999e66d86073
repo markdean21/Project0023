@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('head'); ?>
     Account Verified
 <?php $__env->stopSection(); ?>

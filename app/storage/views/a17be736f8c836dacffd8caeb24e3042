@@ -7,6 +7,11 @@
 
         <?php echo HTML::script('js/taskminator.js'); ?>
 
+	<script type="text/javascript">
+        	function disable(){
+            		document.getElementById('resend').disabled=true;
+        	}
+	</script>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('user-name'); ?>
@@ -73,7 +78,6 @@
                         <?php endforeach; ?>
 
 
-
                     <?php echo Form::open(array('url' => '/verifyPin', 'id' => 'doVerifyMobileNumber')); ?>
 
                             <div class="row">
@@ -89,10 +93,11 @@
                             </div>
                        
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="submit" class="btn btn-default" onclick="window.location='<?php echo URL::to('sendVerificationCode'); ?>'">Resend Code</button>
-                   <!-- </form> -->
+			<a class="btn btn-default" href="<?php echo URL::to('sendVerificationCode'); ?>" onclick="disable();">Resend Code</a>
                     <?php echo Form::close(); ?>
 
+
+                    
                 </div>
             </div>
         </div>

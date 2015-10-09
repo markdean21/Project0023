@@ -36,12 +36,21 @@
             }
         }
 
+        function validateMobile(){
+            value = document.getElementById('mobileNum').value;
+            if(value.match(/[^0-9]/i))
+                document.getElementById('mobileNum').value = value.replace(/[^0-9]/g, '');
+
+        }
+
+/*
         function removeSkill(data){
             var dataId = $(data).attr('data-removeId');
 //            alert($(data).attr('data-removeId'));
             $('#div_'+dataId).remove();
             $('#input_'+dataId).remove();
         }
+*/
 
         $(document).ready(function(){
             
@@ -50,7 +59,11 @@
             $('#reset').click(function(event){
                 document.getElementById('submitForm').disabled = true;
             });
+            // validate password
             $("#confirmpassId").keyup(passConfirm);
+            // prevent alpha input on mobileNum
+            $("#mobileNum").keyup(validateMobile);
+/*
 
             $('#submitForm').click(function(event){
                 event.preventDefault();
@@ -81,7 +94,9 @@
                 }
 
                 $('#confirmModal').modal('show');
+*/
             });
+/*
 //            $('#submitForm').click(function(event){
 //                event.preventDefault();
 //
@@ -131,12 +146,12 @@
                 }
             })
         });
+*/
     </script>
 @stop
 
 @section('content')
 <!--TASKMINATOR REGISTRATION FORM-->
-<!--<div class="taskminator-form" style="display: none;">-->
 <div class="taskminator-form">
     <h3 style="text-align:center">Worker Information</h3>
     <div class="row">
@@ -156,7 +171,7 @@
 
                     {{ Form::open(array('url' => '/doRegisterTaskminator', 'id' => 'registrationForm-task')) }}
                         <div class="form-group">
-                            <label class="control-label row" style="margin-left: 5px;">Name</label>
+                            <label class="control-label row" style="margin-left: 2px;">Name</label>
                             <div class="row">
                                 <div class="col-md-4" style="margin-bottom: 2px;">
                                     {{ Form::text('firstName', Input::old('firstName'), array('data-name' => 'First Name', 'class' => 'inputItem form-control', 'placeholder' => 'First name', 'required' => 'true')) }}
@@ -173,14 +188,14 @@
 
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label class="control-label" style="margin-left: 5px;">Gender</label>
+                                <label class="control-label">Gender</label>
                                 <select name="gender" required="required" class="form-control inputItem" data-name="Gender">
                                     <option value="MALE">Male</option>
                                     <option value="FEMALE">Female</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="control-label" style="margin-left: 5px;">Nationality</label>
+                                <label class="control-label" style="margin-left: 2px;">Nationality</label>
                                 {{ Form::text('nationality', Input::old('nationality'), array('data-name' => 'Nationality', 'class' => 'inputItem form-control', 'placeholder' => 'Ex. Filipino', 'required' => 'true')) }}
                             </div>
                         </div>
@@ -204,7 +219,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="control-label">Mobile Number</label>
-                                {{ Form::text('mobileNum', Input::old('mobileNum'), array('data-name' => 'Mobile Number', 'class' => 'inputItem form-control', 'placeholder' => 'Mobile number', 'required' => 'true')) }}
+                                {{ Form::text('mobileNum', Input::old('mobileNum'), array('data-name' => 'Mobile Number', 'class' => 'inputItem form-control', 'id' => 'mobileNum', 'placeholder' => 'Mobile number', 'required' => 'true')) }}
                             </div>
                         </div><br/>
 
@@ -216,28 +231,29 @@
 
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label class="control-label" style="margin-left: 5px;">Years of Experience</label>
-                                {{ Form::select('experience', array('0-1 years' => '0-1 years', '2-3 years' => '2-3 years', '3-5 years' => '3-5 years', '5-10 years' => '5-10 years', 'more than 10 years' => 'more than 10 years'), Input::old('experience'), array('data-name' => 'Years of Experience', 'class' => 'inputItem form-control', 'required' => 'true')) }}
+                                <label class="control-label" style="margin-left: 2px;">Years of Experience</label>
+                                {{ Form::select('experience', array('0-1 years' => '0-1 years', '2-3 years' => '2-3 years', '3-5 years' => '3-5 years', '5-10 years' => '5-10 years', 'more than 10 years' => 'more than 10 years'), Input::old('experience'), array('data-name' => 'Years of Experience', 'class' => 'inputItem form-control', 'required' => 'true'), Input::old('experience')) }}
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="control-label" style="margin-left: 5px;">Rate</label>
+                                <label class="control-label" style="margin-left: 2px;">Rate</label>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <select class="inputItem form-control" name="minRate" id="minRate">
                                             <option selected disabled>Select minimum rate</option>
                                             <?php
-                                                for ($i=400; $i <= 1000; $i+=50) { 
-                                                    echo "<option value=".$i.">".$i."</option>";
+                                                for ($i=400; $i <= 1000; $i+=50) {
+                                                    echo "<option value=".$i." ".(Input::old("minRate") == $i ? "selected":"").">".$i."</option>";
                                                 }
                                             ?>
                                         </select>
+
                                     </div>
                                     <div class="col-md-6">
                                         <select class="inputItem form-control" name="maxRate">
                                             <option selected disabled>Select maximum rate</option>
                                             <?php
                                                 for ($i=1000; $i <= 5000; $i+=100) { 
-                                                    echo "<option value=".$i.">".$i."</option>";
+                                                    echo "<option value=".$i." ".(Input::old("maxRate") == $i ? "selected":"").">".$i."</option>";
                                                 }
                                             ?>
                                         </select>
@@ -251,7 +267,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label class="control-label">Email Address</label>
-                                {{ Form::text('email', Input::old('email'), array('data-name' => 'Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Email address', 'required' => 'true', 'id' => 'email', 'style' => 'max-width: 400px;')) }}
+                                    {{ Form::text('email', Input::old('email'), array('data-name' => 'Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Email address', 'required' => 'true', 'id' => 'email', 'style' => 'max-width: 400px;')) }}
                                 </div>
                                 <div class="col-md-6">
                                     <label class="control-label">TIN Number</label>
@@ -302,7 +318,7 @@
                             <label class="control-label" style="margin-left: 5px;">Accept Terms of Service and Privacy Policy</label>
                         </div>
                         
-                            <button class="btn btn-primary" type="submit" id="submitForm" onclick="$('#registrationForm-task').submit();" disabled>Register</button>
+                            <button class="btn btn-primary" type="submit" id="submitForm" disabled>Register</button>
                             {{ Form::reset('Reset', array('class' => 'btn btn-default', 'id' => 'reset')) }}
                         {{ Form::close() }}
                 </div>

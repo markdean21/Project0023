@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Food is required">
-    <meta name="author" content="EjLambo">
+    <meta name="description" content="Proveek is an online platform that allows an individual or company to hire or outsource jobs from skilled or manual laborers near their area.">
+    <meta name="author" content="Proveek Inc.">
 
     <title>Proveek | Home</title>
 
@@ -18,7 +18,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="frontend/font-awesome/css/font-awesome.min.css" type="text/css">
-
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="frontend/css/animate.min.css" type="text/css">
 
@@ -38,7 +38,11 @@
 </head>
 
 <body id="page-top">
-
+    <div class="toTop">
+        <a class="page-scroll text-primary" href="#page-top" style="text-decoration:none; outline:none;">
+            <i class="fa fa-chevron-circle-up"></i>   Back to top
+        </a>
+    </div>
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -104,9 +108,9 @@
         <div class="vegas.overlay" style="height:100%; width:100%; background-color: rgba(0,0,0,.5);">
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>We pooled the blue-collars for you!</h1>
+                <h1>Find Jobs that Matched Your Skills</h1>
                 <hr>
-                <p>Proveek is an online Philippine directory platform of skilled workers which allows an individual to hire or outsource tasks from certified blue-collar workers in their locality.</p>
+                <p style="color:#ECF0F1">Proveek is an online platform that allows an individual or company to outsource jobs or hire skilled or manual laborers near their area.</p>
 
                 <!-- SEARCH BOX -->
                 <div class="col-xs-2"><!--used to center the textbox --></div>
@@ -120,12 +124,20 @@
                 <!-- END OF SEARCH BOX -->
 
                 <!-- SEARCH BUTTONS -->
+		
                 <div class="btn" style="padding-top: 20px;">
-                  <button type="button" class="btn btn-primary btn-md" style="width: 180px; border-top-right-radius: 1em; border-bottom-right-radius: 1em;">Job Provider</button>
-                  <button type="button" class="btn btn-primary btn-md" style="width: 180px; border-top-left-radius: 1em; border-bottom-left-radius: 1em;">Job Seeker</button>
-                </div>
+             	 <a href="#GlobalModal" data-toggle="modal"  style="text-decoration:none;">
+   		 <button type="button" class="btn btn-primary btn-md" style="width: 180px; border-top-right-radius: 1em; border-bottom-right-radius: 1em;">Job Provider</button>
+                 <button type="button" class="btn btn-primary btn-md" style="width: 180px; border-top-left-radius: 1em; border-bottom-left-radius: 1em;">Job Seeker</button>
+              	 </a>
+		 </div>
+		
                 <!-- END OF SEARCH BUTTONS -->
-
+                <div class="text-center div_header">
+                  <a href="#services" class="page-scroll">
+                       <i class="fa fa-4x fa-angle-down"></i>
+                  </a>
+                </div>
                 <!--<a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>-->
             </div>
         </div>
@@ -151,7 +163,7 @@
         <div class="container-fluid">
             <div class="row no-gutter">
                 <div class="col-lg-3 col-sm-6">
-                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                    <a href="#GlobalModal" data-toggle="modal" class="portfolio-box text-center" style="text-decoration:none;">
                     	<i class="fa fa-5x fa-building-o wow bounceIn text-primary" style="padding-top:50px;"></i>
                     	<h3>Construction / Factory Workers</h3>
                         <div class="portfolio-box-caption">
@@ -160,14 +172,14 @@
                                     Construction / Factory Workers
                                 </div>
                                 <div class="project-name">
-                                    123,456 resumes
+                                    <!-- 123,456 resumes -->
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-3 col-sm-6">
-                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                    <a href="#GlobalModal" data-toggle="modal" class="portfolio-box text-center" style="text-decoration:none;">
                         <!-- <img src="#" class="img-responsive" alt=""> -->
                         <i class="fa fa-5x fa-cogs wow bounceIn text-primary" style="padding-top:50px;" data-wow-delay=".1s"></i>
                         <h3>Automotive / Electronics</h3>
@@ -177,14 +189,14 @@
                                     Automotive / Electronics
                                 </div>
                                 <div class="project-name">
-                                    3,987,543 resumes
+                                    <!-- 3,987,543 resumes -->
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-3 col-sm-6">
-                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                    <a href="#GlobalModal" data-toggle="modal" class="portfolio-box text-center" style="text-decoration:none;">
                         <i class="fa fa-5x fa-dollar wow bounceIn text-primary" style="padding-top:50px;" data-wow-delay=".2s"></i>
                         <h3>Sales Agents / Salesclerk</h3>
                         <div class="portfolio-box-caption">
@@ -193,14 +205,14 @@
                                     Sales Agents / Salesclerk
                                 </div>
                                 <div class="project-name">
-                                   9,123,456 resumes
+                                   <!-- 9,123,456 resumes -->
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-3 col-sm-6">
-                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                    <a href="#GlobalModal" data-toggle="modal" class="portfolio-box text-center" style="text-decoration:none;">
                         <i class="fa fa-5x fa-user-md wow bounceIn text-primary" style="padding-top:50px;" data-wow-delay=".3s"></i>
                         <h3>House Helpers / Caregivers</h3>
                         <div class="portfolio-box-caption">
@@ -209,14 +221,14 @@
                                     House Helpers / Caregivers
                                 </div>
                                 <div class="project-name">
-                                    546,152 resumes
+                                    <!-- 546,152 resumes -->
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-3 col-sm-6">
-                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                    <a href="#GlobalModal" data-toggle="modal" class="portfolio-box text-center" style="text-decoration:none;">
                         <i class="fa fa-5x fa-wrench wow bounceIn text-primary" style="padding-top:50px;" data-wow-delay=".4s"></i>
                         <h3>Repair &amp Maintenance Services</h3>
                         <div class="portfolio-box-caption">
@@ -225,14 +237,14 @@
                                     Repair &amp Maintenance Services
                                 </div>
                                 <div class="project-name">
-                                    9,436 resumes
+                                    <!-- 9,436 resumes -->
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-3 col-sm-6">
-                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                    <a href="#GlobalModal" data-toggle="modal" class="portfolio-box text-center" style="text-decoration:none;">
                         <i class="fa fa-5x fa-stethoscope wow bounceIn text-primary" style="padding-top:50px;" data-wow-delay=".5s"></i>
                         <h3>Personal Care &amp Wellness</h3>
                         <div class="portfolio-box-caption">
@@ -241,14 +253,14 @@
                                     Personal Care &amp Wellness
                                 </div>
                                 <div class="project-name">
-                                    5,859 resumes
+                                    <!-- 5,859 resumes -->
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-3 col-sm-6">
-                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                    <a href="#GlobalModal" data-toggle="modal" class="portfolio-box text-center" style="text-decoration:none;">
                         <i class="fa fa-5x fa-cutlery wow bounceIn text-primary" style="padding-top:50px;" data-wow-delay=".6s"></i>
                         <h3>Hotel &amp Restaurant Crew</h3>
                         <div class="portfolio-box-caption">
@@ -257,14 +269,14 @@
                                     Hotel &amp Restaurant Crew
                                 </div>
                                 <div class="project-name">
-                                    1,285,956 resumes
+                                    <!-- 1,285,956 resumes -->
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-3 col-sm-6">
-                    <a href="#" class="portfolio-box text-center" style="text-decoration:none;">
+                    <a href="#GlobalModal" data-toggle="modal" class="portfolio-box text-center" style="text-decoration:none;">
                         <i class="fa fa-5x fa-ellipsis-h wow bounceIn text-primary" style="padding-top:50px;" data-wow-delay=".7s"></i>
                         <h3>More</h3>
                         <div class="portfolio-box-caption">
@@ -285,13 +297,13 @@
 <!-- END OF SKILLS AND SERVICES -->
 
 <!-- POST A JOB -->
-	<section class="bg-primary" style="background-image: url(img/header.jpg); background-position: center; background-attachment: fixed; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; border-top: 1px solid #222; border-bottom: 1px solid #222; padding-top: 40px; padding-bottom: 40px;">
+	<section class="bg-primary" style="background-image: url(frontend/img/header.jpg); background-position: center; background-attachment: fixed; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; padding-top: 40px; padding-bottom: 40px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                	<i class="fa fa-5x fa-plus wow bounceIn text-primary"></i>
+                	<i class="fa fa-5x fa-search wow bounceIn text-primary"></i>
                     <h2 class="section-heading">Can't find what you're looking for?</h2><br>
-                    <a href="#" class="btn btn-default btn-lg" style="border-radius: 4em; width: 250px">Post a Job</a>
+                    <a href="#GlobalModal" data-toggle="modal" class="btn btn-default btn-lg" style="border-radius: 4em; width: 250px; outline:none;">Post a Job</a>
                     <!--<a href="#" class="btn btn-default btn-xl">Get Started!</a>-->
                 </div>
             </div>
@@ -300,7 +312,7 @@
 <!-- END OF POST A JOB -->
 
 <!-- TESTIMONIAL SLIDER -->
-    <section style="background-color: white; background-position: top; background-attachment: fixed; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; padding-top: 40px; padding-bottom: 40px">
+   <!--  <section style="background-color: white; background-position: top; background-attachment: fixed; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; padding-top: 40px; padding-bottom: 40px">
 		<div class="item">
 			<div class="container-fluid">
 				<div class="row">
@@ -390,11 +402,11 @@
 			    </div>
 		    </div>
 	    </div>
-    </section>
+    </section> -->
 <!-- END OF TESTIMONIAL SLIDER -->
 
 <!-- PARTNERSHIP SLIDER -->
-    <section class="bg-primary" style="background-image: url(img/fog_Bg.jpg); background-position: top; background-attachment: fixed; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; border-top: 1px solid #222; border-bottom: 1px solid #222; padding-top:40px; padding-bottom: 40px">
+    <section class="bg-primary" style="background-image: url(frontend/img/blur_03.jpg); background-position: top; background-attachment: fixed; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; padding-top:40px; padding-bottom: 40px">
 		<div class="item">
 			<div class="container-fluid">
 				<div class="row">
@@ -402,7 +414,7 @@
 			        <div class="col-lg-10">
 				        <div style="width:100%; color:#222" class="text-center">
 					        <i class="fa fa-5x fa-chain wow bounceIn text-primary" data-wow-delay=".2s"></i>
-					        <h2>Partnership</h2>
+					        <h2 style="">Featured On</h2>
 				        </div>
 			        	<hr class="default" style="">
 				        <ul id="lightSlider0" class="content-slider" style="color: #222;">
@@ -410,7 +422,7 @@
 				            	<div class="row">
 				            		<div class="col-md-1"></div>
 				            			<div class="col-md-10 text-center">
-						                    <img src="frontend/img/logo_tesda.png">
+						                    <img class="img-responsive" src="frontend/img/featuredOn/logo_tia.png">
 					                    </div>
 				                    <div class="col-md-1"></div>
 				                </div>
@@ -419,7 +431,7 @@
 				                <div class="row">
 				            		<div class="col-md-1"></div>
 				            			<div class="col-md-10 text-center">
-						                    <img src="frontend/img/logo_tspi.png">
+						                    <img class="img-responsive" src="frontend/img/featuredOn/logo_mst.png">
 					                    </div>
 				                    <div class="col-md-1"></div>
 				                </div>
@@ -428,7 +440,25 @@
 				                <div class="row">
 				            		<div class="col-md-1"></div>
 				            			<div class="col-md-10 text-center">
-						                    <img src="frontend/img/logo_gwk.png">
+						                    <img class="img-responsive" src="frontend/img/featuredOn/logo_philStar.png">
+					                    </div>
+				                    <div class="col-md-1"></div>
+				                </div>
+				            </li>
+				            <li>
+				                <div class="row">
+				            		<div class="col-md-1"></div>
+				            			<div class="col-md-10 text-center">
+						                    <img class="img-responsive" src="frontend/img/featuredOn/logo_bloomBusi.png">
+					                    </div>
+				                    <div class="col-md-1"></div>
+				                </div>
+				            </li>
+				            <li>
+				                <div class="row">
+				            		<div class="col-md-1"></div>
+				            			<div class="col-md-10 text-center">
+						                    <img class="img-responsive" src="frontend/img/featuredOn/logo_dealStreet.png">
 					                    </div>
 				                    <div class="col-md-1"></div>
 				                </div>
@@ -443,56 +473,87 @@
 <!-- END OF PARTNERSHIP SLIDER -->
 
 <!-- FOOTER -->
-    <section id="footer" style="padding-top:40px; padding-bottom:40px;">
+    <section id="footer" class="divFooterDark" style="padding-top:40px; padding-bottom:60px;">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-8 text-center">
-                    <div class="col-lg-4">
-                        <div class="col-md-12 text-left div_footer">
-                            <h2><i class="fa fa-wrench"></i>  Proveek</h2>
-                            <ul>
-                                <li><a href="#page-top" class="page-scroll">Home</a></li>
-                                <li><a href="HowItWorks.html">How It Works</a></li>
-                                <li><a href="WhyProveek.html">Why Choose Proveek</a></li>
-                                <li><a href="Pricing.html">Pricing</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="#page-top">Login / Sign Up</a></li>
-                            </ul>
+                <div class="col-lg-12">
+                    <div class="col-lg-8 text-center">
+                        <div class="col-lg-4">
+                            <div class="col-lg-12 text-left div_footer">
+                                <h2>Proveek</h2>
+                                <ul style="padding-left:0">
+                                    <li><a href="#page-top" class="page-scroll">Home</a></li>
+                                    <li><?php echo HTML::link('/howitworks', 'How It Works'); ?></li>
+                                    <li>  <?php echo HTML::link('/whychooseproveek', 'Why Choose Proveek'); ?></li>
+                                    <li>  <?php echo HTML::link('/pricing', 'Pricing'); ?></li>
+                                   <li><a href="faq.html">FAQ</a></li>
+                                    <li>    <?php echo HTML::link('/login', 'Login / Sign Up'); ?></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 text-left feedback_footer">
+                            <h2>Contact Us</h2>
+                            <p>We love to hear from you. Please drop us a message.</p>
+                            <div class="col-lg-12" style="padding:0;">
+                                <input type="text" placeholder="Name">
+                            </div>
+                            <div class="col-lg-12" style="padding:15px 0 0 0 ;">
+                                <input type="email" placeholder="Email">
+                            </div>
+                            <div class="col-lg-12" style="padding:15px 0 0 0 ;">
+                                <input type="text" placeholder="Message">
+                            </div>
+                            <div class="col-lg-12 text-right" style="padding:15px 0 0 0 ;">
+                                <button type="button" class="btn btn-primary btn-md" style="width: 120px;border-radius: 4px;">Send</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-8 text-left feedback_footer">
-                        <h2>Feedback</h2>
-                        <p>We are like Jon Snow, we know nothing, so please send a feedback. Every feedback saves Emo Alpacas.</p>
-                        <div class="col-lg-12" style="padding:0;">
-                            <input type="email" placeholder="Email">
-                        </div>
-                        <div class="col-lg-12" style="padding:15px 0 0 0 ;">
-                            <input type="text" placeholder="Message">
-                        </div>
-                        <div class="col-lg-12 text-right" style="padding:15px 0 0 0 ;">
-                            <button type="button" class="btn btn-primary btn-md" style="width: 120px;border-radius: 4px;">Send</button>
+                    <div class="col-lg-4 text-center">
+                         <div class="col-lg-12 text-center div_footer">
+                            <h2>Find Us On</h2>
+                            <hr class="primary">
+                            <p>
+                                Stay connected to keep up with the latest news, promos and updates.
+                            </p>
+                            <div class="div_footer">
+                                <a href="https://www.facebook.com/proveek"><i class="fa fa-facebook-square fa-3x wow bounceIn" data-wow-delay=".2s"></i></a>
+                                <a href="https://twitter.com/Proveek"><i class="fa fa-twitter-square fa-3x wow bounceIn" data-wow-delay=".3s"></i></a>
+                                <a href="#"><i class="fa fa-instagram fa-3x wow bounceIn" data-wow-delay=".4s"></i></a>
+                                <a href="https://plus.google.com/108796854139900682022/posts"><i class="fa fa-google-plus-square fa-3x wow bounceIn" data-wow-delay=".5s"></i></a>
+                                <a href="#"><i class="fa fa-envelope-square fa-3x wow bounceIn" data-wow-delay=".6s"></i></a>
+                            </div>
+                            <p>2015  <i class="fa fa-copyright"></i>  Proveek Inc.</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 text-center" style="">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <hr class="primary">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                    <div class="div_footer">
-                        <a href="#"><i class="fa fa-facebook-square fa-3x wow bounceIn" data-wow-delay=".2s"></i></a>
-                        <a href="#"><i class="fa fa-twitter-square fa-3x wow bounceIn" data-wow-delay=".3s"></i></a>
-                        <a href="#"><i class="fa fa-instagram fa-3x wow bounceIn" data-wow-delay=".4s"></i></a>
-                        <a href="#"><i class="fa fa-google-plus-square fa-3x wow bounceIn" data-wow-delay=".5s"></i></a>
-                        <a href="#"><i class="fa fa-envelope-square fa-3x wow bounceIn" data-wow-delay=".6s"></i></a>
-                    </div>
-                    <p>2015  <i class="fa fa-copyright"></i>  Proveek Inc.</p>
                 </div>
             </div>
         </div>
     </section>
 <!-- END OF FOOTER -->
+
+
+
+<!-- MODALS -->
+    <div class="modal modal-vcenter fade" id="GlobalModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-image: url(frontend/img/modalBg.jpg)">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <i class="fa fa-user-plus fa-5x text-primary"></i>
+                    <h2 style="text-transform:uppercase;">Find Jobs That Matched Your Skills</h2>
+                </div>
+                <div class="modal-body text-center" style="padding-bottom:0">
+                    <p>We are currently signing up our first set of workers.<br> If you are a skilled or manual laborer and want to put your profile for employers to easily find you, sign up now and start getting job notifications!</p>
+                </div>
+                <div class="modal-footer text-center" style="text-align:center; padding-bottom:20px;">
+                    <a href="/login" class="btn btn-primary btn-md" style="font-size:15pt; padding:15px 30px 15px 30px;border-radius: 4px;">SIGN UP</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- END OF MODAL -->
+
+
 
 <!-- All scripts and plugin should be placed here so the page can load -->
 <!-- jQuery -->
@@ -511,7 +572,7 @@
     <script src="frontend/js/creative.js"></script>
 
     <script src="frontend/js/jquery.nicescroll.js"></script>
-
+    <script src="frontend/js/custom.js"></script>
 <!-- HTML SMOOTH MOUSEWHEEL SCROLLING -->
     <script>
     $(document).ready(
@@ -666,6 +727,34 @@
 	});
 	</script>
 <!-- END OF SLIDER PUBLIC SETTING -->
+
+<!-- SCRIPT TO VERTICALLY CENTER MODAL -->
+    <script>
+        /* center modal */
+        function centerModals($element) {
+          var $modals;
+          if ($element.length) {
+            $modals = $element;
+          } else {
+            $modals = $('.modal-vcenter:visible');
+          }
+          $modals.each( function(i) {
+            var $clone = $(this).clone().css('display', 'block').appendTo('body');
+            var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
+            top = top > 0 ? top : 0;
+            $clone.remove();
+            $(this).find('.modal-content').css("margin-top", top);
+          });
+        }
+        $('.modal-vcenter').on('show.bs.modal', function(e) {
+          centerModals($(this));
+        });
+        $(window).on('resize', centerModals);
+    </script>
+<!-- END OF -->
+
+
+
 
 </body>
 

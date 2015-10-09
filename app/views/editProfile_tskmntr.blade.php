@@ -164,7 +164,15 @@
                                 @else {{ $con->ctype }} @endif
                             </span>
                              :
-                            <span style="margin-left: 5px">{{ $con->content }}</span><br/>
+                            <span style="margin-left: 5px">{{ $con->content }}</span>
+                            @if($con->ctype == "mobileNum")
+                                @if(Contact::where('user_id',  Auth::user()->id)->pluck('pincode')!='verified')
+                                    <button class="btn btn-xs btn-primary" onclick="location.href='/doVerifyMobileNumber'" style=" margin: 5px;">Verify!</button>
+                                @else
+                                    <span class="btn btn-xs btn-default" style=" margin: 5px;">Verified</span>
+                                @endif
+                            @endif
+                            <br/>
                             @endforeach
                         </div>
                         <hr/>

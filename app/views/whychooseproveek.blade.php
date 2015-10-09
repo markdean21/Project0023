@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Food is required">
-    <meta name="author" content="EjLambo">
+    <meta name="description" content="Proveek is an online platform that allows an individual or company to hire or outsource jobs from skilled or manual laborers near their area.">
+    <meta name="author" content="Proveek Inc.">
 
     <title>Proveek | Why Choose Proveek</title>
 
@@ -38,7 +38,11 @@
 </head>
 
 <body id="page-top">
-
+    <div class="toTop">
+        <a class="page-scroll text-primary" href="#page-top" style="text-decoration:none; outline:none;">
+            <i class="fa fa-chevron-circle-up"></i>   Back to top
+        </a>
+    </div>
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -63,8 +67,8 @@
 
 
                     <li class = "active">
-                     <!--   <a class="" href="WhyProveek.html">Why Choose Proveek</a> -->
-                         {{ HTML::link('/whychooseproveek', 'Why Choose Proveek')}}
+                       <a class="page-scroll" href="#page-top">Why Choose Proveek</a>
+                         
 
                     </li>
                     <li>
@@ -72,7 +76,8 @@
                         {{ HTML::link('/pricing', 'Pricing')}}
                     </li>
                     <li>
-                        <a class="" href="#">Login / Sign Up</span></a>
+                        <!--<a class="" href="#">Login / Sign Up</span></a> -->
+                        {{ HTML::link('/login', 'Login / Sign Up')}}
                     </li>
                 </ul>
             </div>
@@ -101,7 +106,7 @@
                 <div class="header-content-inner wow fadeIn" style="background-color:rgba(0,0,0,.5); padding-top: 35px; padding-bottom:15px; border-radius: 8px;">
                     <h1>Proveek</h1>
                     <hr>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p style="text-align:center">Proveek, formerly called TASKminator, is an online system that aims to connect Job providers (Employers) to Job Seekers (Workers) specifically skilled and manual laborers. The system seeks to empower the skilled and manual laborers by providing them an avenue to highlight their skills in an online profile for the whole wide world to see which may in turn increase their chance of getting a job as well as having additional source of income by doing part-time jobs. Also, the platform serves as an avenue for Job providers or employers to easily look for workers fitted for the job. Proveek is one of the finalists of Ideaspace Foundation Inc. incubation for the year 2015.</p>
                     <div class="text-center div_header">
                     <a href="#next" class="page-scroll">
                         <i class="fa fa-4x fa-angle-down"></i>
@@ -112,7 +117,7 @@
     </header>
     <!-- END OF -->
 
-    <section id="next" style="padding-top:40px; border-bottom:1px solid #222">
+    <section id="next" style="padding-top:40px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -121,30 +126,25 @@
                     <hr class="text-primary">
 
 <!-- WHY PROVEEK? CONTAINER -->
-                    <div class="col-lg-4">
-                        <img src="frontend/img/header1.jpg" style="width:267px; height:150px;" class="wow bounceIn" data-wow-delay=".1s">
-                        <p style="padding-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="col-lg-12">
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay=".1s">
+                            <img src="frontend/img/header1.jpg" style="width:100%; height:236px; margin:0p; padding:0;">
+                            <p style="padding-top:20px; text-align:justify">Hire with ease. We provide you a wide range of pre-vetted workers to choose from.</p>
+                        </div>
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay=".15s">
+                            <img src="frontend/img/slideshow/01.jpg" style="width:100%;; height:236px;">
+                            <p style="padding-top:20px; text-align:justify">Reduced expenses. We charge you only for the workers you choose.</p>
+                        </div>
                     </div>
-                    <div class="col-lg-4">
-                        <img src="frontend/img/slideshow/01.jpg" style="width:267px; height:150px;" class="wow bounceIn" data-wow-delay=".15s">
-                        <p style="padding-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                    <div class="col-lg-4">
-                        <img src="frontend/img/slideshow/02.jpg" style="width:267px; height:150px;" class="wow bounceIn" data-wow-delay=".20s">
-                        <p style="padding-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <img src="frontend/img/slideshow/04.jpg" style="width:267px; height:150px;" class="wow bounceIn" data-wow-delay=".25s">
-                        <p style="padding-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                    <div class="col-lg-4">
-                        <img src="frontend/img/slideshow/03.jpg" style="width:267px; height:150px;" class="wow bounceIn" data-wow-delay=".30s">
-                        <p style="padding-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                    <div class="col-lg-4">
-                        <img src="frontend/img/slideshow/07.jpg" style="width:267px; height:150px;" class="wow bounceIn" data-wow-delay=".35s">
-                        <p style="padding-top:20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="col-lg-12">
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay=".20s">
+                            <img src="frontend/img/slideshow/02.jpg" style="width:100%;; height:236px;">
+                            <p style="padding-top:20px; text-align:justify">Guaranteed quality. Workers will be screened based on the recommendations of their LGUs or Trainers (in the case of TESDA). For better quality, all workers will be reviewed and rated by their client after each job done.</p>
+                        </div>
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay=".25s">
+                            <img src="frontend/img/slideshow/04.jpg" style="width:100%;; height:236px;">
+                            <p style="padding-top:20px; text-align:justify">Help while being helped out. You will help someone today to get a job to provide for his/her family.</p>
+                        </div>
                     </div>
 <!-- END OF -->
 
@@ -153,39 +153,39 @@
                     <hr class="text-primary">
 
 <!-- PROVEEK TEAM CONTAINERS -->
-                    <div class="col-lg-3">
-                        <img src="frontend/img/team/01.png" style="width:150px; height:150px; border-radius:100%;" class="wow bounceIn" data-wow-delay=".1s">
-                        <p style="padding-top:20px">Lambo</p>
+                    <div class="col-lg-3 wow fadeIn" data-wow-delay=".1s">
+                        <img src="frontend/img/team/03.jpg" style="width:150px; height:150px; border-radius:100%;">
+                        <p style="padding-top:20px">Joni Salang-oy</p>
                     </div>
-                    <div class="col-lg-3">
-                        <img src="frontend/img/team/02.jpg" style="width:150px; height:150px; border-radius:100%;" class="wow bounceIn" data-wow-delay=".2s">
+                    <div class="col-lg-3 wow fadeIn" data-wow-delay=".2s">
+                        <img src="frontend/img/team/05.jpg" style="width:150px; height:150px; border-radius:100%;">
+                        <p style="padding-top:20px">Marc Briones</p>
+                    </div>
+                    <div class="col-lg-3 wow fadeIn" data-wow-delay=".3s">
+                        <img src="frontend/img/team/04.jpg" style="width:150px; height:150px; border-radius:100%;">
+                        <p style="padding-top:20px">Rhoda Lyn Ramos</p>
+                    </div>
+                    <div class="col-lg-3 wow fadeIn" data-wow-delay=".4s">
+                        <img src="frontend/img/team/02.jpg" style="width:150px; height:150px; border-radius:100%;">
                         <p style="padding-top:20px">Mark Dean Raymundo</p>
                     </div>
-                    <div class="col-lg-3">
-                        <img src="frontend/img/team/03.jpg" style="width:150px; height:150px; border-radius:100%;" class="wow bounceIn" data-wow-delay=".3s">
-                        <p style="padding-top:20px">Boom - Boom</p>
-                    </div>
-                    <div class="col-lg-3">
-                        <img src="frontend/img/team/04.jpg" style="width:150px; height:150px; border-radius:100%;" class="wow bounceIn" data-wow-delay=".4s">
-                        <p style="padding-top:20px">Doge, very team, such grahpics, much pictures wow</p>
-                    </div>
 
-                    <div class="col-lg-3">
-                        <img src="frontend/img/team/05.jpg" style="width:150px; height:150px; border-radius:100%;" class="wow bounceIn" data-wow-delay=".5s">
-                        <p style="padding-top:20px">Batcat</p>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay=".5s">
+                        <img src="frontend/img/team/00.jpg" style="width:150px; height:150px; border-radius:100%;">
+                        <p style="padding-top:20px">Felicia Mae Sace</p>
                     </div>
-                    <div class="col-lg-3">
-                        <img src="frontend/img/team/06.jpg" style="width:150px; height:150px; border-radius:100%;" class="wow bounceIn" data-wow-delay=".6s">
-                        <p style="padding-top:20px">Emo Alpaca</p>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay=".6s">
+                        <img src="frontend/img/team/01.png" style="width:150px; height:150px; border-radius:100%;">
+                        <p style="padding-top:20px">Lambo</p>
                     </div>
-                    <div class="col-lg-3">
-                        <img src="frontend/img/team/07.png" style="width:150px; height:150px; border-radius:100%;" class="wow bounceIn" data-wow-delay=".7s">
-                        <p style="padding-top:20px">Edgaaarrr! - sup Bros!</p>
+                    <!-- <div class="col-lg-3 wow fadeIn" data-wow-delay=".7s">
+                        <img src="frontend/img/team/00.jpg" style="width:150px; height:150px; border-radius:100%;">
+                        <p style="padding-top:20px">Reserved</p>
                     </div>
-                    <div class="col-lg-3">
-                        <img src="frontend/img/team/08.jpg" style="width:150px; height:150px; border-radius:100%;" class="wow bounceIn" data-wow-delay=".8s">
-                        <p style="padding-top:20px">Jon Snow - "He knows nothing" and just to make this page cool</p>
-                    </div>
+                    <div class="col-lg-3 wow fadeIn" data-wow-delay=".8s">
+                        <img src="frontend/img/team/00.jpg" style="width:150px; height:150px; border-radius:100%;">
+                        <p style="padding-top:20px">Reserved</p>
+                    </div> -->
 <!-- END OF -->
                 </div>
             </div>
@@ -193,51 +193,58 @@
     </section>
 
 <!-- FOOTER -->
-    <section id="footer" style="padding-top:40px; padding-bottom:40px;">
+    <section id="footer" class="divFooterDark" style="padding-top:40px; padding-bottom:60px;">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-8 text-center">
-                    <div class="col-lg-4">
-                        <div class="col-md-12 text-left div_footer">
-                        <h2><i class="fa fa-wrench"></i>  Proveek</h2>
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="HowItWorks.html">How It Works</a></li>
-                                <li><a href="#page-top" class="page-scroll">Why Choose Proveek</a></li>
-                                <li><a href="Pricing.html">Pricing</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="#page-top">Login / Sign Up</a></li>
-                            </ul>
+                <div class="col-lg-12">
+                    <div class="col-lg-8 text-center">
+                        <div class="col-lg-4">
+                            <div class="col-lg-12 text-left div_footer">
+                                <h2>Proveek</h2>
+				                <ul style="padding-left:0">
+                                    <li><a href="#page-top" class="page-scroll">Home</a></li>
+                                    <li>{{ HTML::link('/howitworks', 'How It Works')}}</li>
+                                    <li>  {{ HTML::link('/whychooseproveek', 'Why Choose Proveek')}}</li>
+                                    <li>  {{ HTML::link('/pricing', 'Pricing')}}</li>
+                                   <li><a href="faq.html">FAQ</a></li>
+                                    <li>    {{ HTML::link('/login', 'Login / Sign Up')}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 text-left feedback_footer">
+                            <h2>Contact Us</h2>
+                            <p>We love to hear from you. Please drop us a message.</p>
+                            <div class="col-lg-12" style="padding:0;">
+                                <input type="text" placeholder="Name">
+                            </div>
+                            <div class="col-lg-12" style="padding:15px 0 0 0 ;">
+                                <input type="email" placeholder="Email">
+                            </div>
+                            <div class="col-lg-12" style="padding:15px 0 0 0 ;">
+                                <input type="text" placeholder="Message">
+                            </div>
+                            <div class="col-lg-12 text-right" style="padding:15px 0 0 0 ;">
+                                <button type="button" class="btn btn-primary btn-md" style="width: 120px;border-radius: 4px;">Send</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-8 text-left feedback_footer">
-                        <h2>Feedback</h2>
-                        <p>We are like Jon Snow, we know nothing, so please send a feedback. Every feedback saves Emo Alpacas.</p>
-                        <div class="col-lg-12" style="padding:0;">
-                            <input type="email" placeholder="Email">
-                        </div>
-                        <div class="col-lg-12" style="padding:15px 0 0 0 ;">
-                            <input type="text" placeholder="Message">
-                        </div>
-                        <div class="col-lg-12 text-right" style="padding:15px 0 0 0 ;">
-                            <button type="button" class="btn btn-primary btn-md" style="width: 120px;border-radius: 4px;">Send</button>
+                    <div class="col-lg-4 text-center">
+                         <div class="col-lg-12 text-center div_footer">
+                            <h2>Find Us On</h2>
+                            <hr class="primary">
+                            <p>
+                                Stay connected to keep up with the latest news, promos and updates.
+                            </p>
+                            <div class="div_footer">
+                                <a href="https://www.facebook.com/proveek"><i class="fa fa-facebook-square fa-3x wow bounceIn" data-wow-delay=".2s"></i></a>
+                                <a href="https://twitter.com/Proveek"><i class="fa fa-twitter-square fa-3x wow bounceIn" data-wow-delay=".3s"></i></a>
+                                <a href="#"><i class="fa fa-instagram fa-3x wow bounceIn" data-wow-delay=".4s"></i></a>
+                                <a href="https://plus.google.com/108796854139900682022/posts"><i class="fa fa-google-plus-square fa-3x wow bounceIn" data-wow-delay=".5s"></i></a>
+                                <a href="#"><i class="fa fa-envelope-square fa-3x wow bounceIn" data-wow-delay=".6s"></i></a>
+                            </div>
+                            <p>2015  <i class="fa fa-copyright"></i>  Proveek Inc.</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 text-center" style="">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <hr class="primary">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                    <div class="div_footer">
-                        <a href="#"><i class="fa fa-facebook-square fa-3x wow bounceIn" data-wow-delay=".2s"></i></a>
-                        <a href="#"><i class="fa fa-twitter-square fa-3x wow bounceIn" data-wow-delay=".3s"></i></a>
-                        <a href="#"><i class="fa fa-instagram fa-3x wow bounceIn" data-wow-delay=".4s"></i></a>
-                        <a href="#"><i class="fa fa-google-plus-square fa-3x wow bounceIn" data-wow-delay=".5s"></i></a>
-                        <a href="#"><i class="fa fa-envelope-square fa-3x wow bounceIn" data-wow-delay=".6s"></i></a>
-                    </div>
-                    <p>2015  <i class="fa fa-copyright"></i>  Proveek Inc.</p>
                 </div>
             </div>
         </div>
@@ -260,7 +267,7 @@
     <script src="frontend/js/creative.js"></script>
 
     <script src="frontend/js/jquery.nicescroll.js"></script>
-
+    <script src="frontend/js/custom.js"></script>
 <!-- HTML SMOOTH MOUSEWHEEL SCROLLING -->
     <script>
     $(document).ready(

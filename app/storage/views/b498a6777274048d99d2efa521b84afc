@@ -24,10 +24,6 @@
             }
         }
 
-        $(document).ready(function(){
-            enableSubmit();
-        });
-
         function passConfirm(){
             if(document.getElementById('passwordInput').value == document.getElementById('confirmpassId').value){
                 document.getElementById('confirmedPass').className = 'form-group has-success has-feedback';
@@ -38,18 +34,34 @@
             }
         }
 
+        function validateMobile(){
+            value = document.getElementById('mobileNum').value;
+            if(value.match(/[^0-9]/i))
+                document.getElementById('mobileNum').value = value.replace(/[^0-9]/g, '');
+
+        }
+
+/*
         function removeSkill(data){
             var dataId = $(data).attr('data-removeId');
 //            alert($(data).attr('data-removeId'));
             $('#div_'+dataId).remove();
             $('#input_'+dataId).remove();
         }
+*/
 
         $(document).ready(function(){
+            
+            enableSubmit();
+
             $('#reset').click(function(event){
                 document.getElementById('submitForm').disabled = true;
             });
+            // validate password
             $("#confirmpassId").keyup(passConfirm);
+            // prevent alpha input on mobileNum
+            $("#mobileNum").keyup(validateMobile);
+/*
 
             $('#submitForm').click(function(event){
                 event.preventDefault();
@@ -80,7 +92,9 @@
                 }
 
                 $('#confirmModal').modal('show');
+*/
             });
+/*
 //            $('#submitForm').click(function(event){
 //                event.preventDefault();
 //
@@ -130,6 +144,7 @@
                 }
             })
         });
+*/
     </script>
 <?php $__env->stopSection(); ?>
 
@@ -212,7 +227,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="control-label">Mobile Number</label>
-                                <?php echo Form::text('mobileNum', Input::old('mobileNum'), array('data-name' => 'Mobile Number', 'class' => 'inputItem form-control', 'placeholder' => 'Mobile number', 'required' => 'true')); ?>
+                                <?php echo Form::text('mobileNum', Input::old('mobileNum'), array('data-name' => 'Mobile Number', 'class' => 'inputItem form-control', 'id' => 'mobileNum', 'placeholder' => 'Mobile number', 'required' => 'true')); ?>
 
                             </div>
                         </div><br/>
@@ -227,28 +242,29 @@
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label class="control-label" style="margin-left: 5px;">Years of Experience</label>
-                                <?php echo Form::select('experience', array('0-1 years' => '0-1 years', '2-3 years' => '2-3 years', '3-5 years' => '3-5 years', '5-10 years' => '5-10 years', 'more than 10 years' => 'more than 10 years'), Input::old('experience'), array('data-name' => 'Years of Experience', 'class' => 'inputItem form-control', 'required' => 'true')); ?>
+                                <?php echo Form::select('experience', array('0-1 years' => '0-1 years', '2-3 years' => '2-3 years', '3-5 years' => '3-5 years', '5-10 years' => '5-10 years', 'more than 10 years' => 'more than 10 years'), Input::old('experience'), array('data-name' => 'Years of Experience', 'class' => 'inputItem form-control', 'required' => 'true'), Input::old('experience')); ?>
 
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="control-label" style="margin-left: 5px;">Rate</label>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select class="inputItem form-control" name="minRate">
+                                        <select class="inputItem form-control" name="minRate" id="minRate">
                                             <option selected disabled>Select minimum rate</option>
                                             <?php
-                                                for ($i=400; $i <= 1000; $i+=50) { 
-                                                    echo "<option value=".$i.">".$i."</option>";
+                                                for ($i=400; $i <= 1000; $i+=50) {
+                                                    echo "<option value=".$i." ".(Input::old("minRate") == $i ? "selected":"").">".$i."</option>";
                                                 }
                                             ?>
                                         </select>
+
                                     </div>
                                     <div class="col-md-6">
                                         <select class="inputItem form-control" name="maxRate">
                                             <option selected disabled>Select maximum rate</option>
                                             <?php
                                                 for ($i=1000; $i <= 5000; $i+=100) { 
-                                                    echo "<option value=".$i.">".$i."</option>";
+                                                    echo "<option value=".$i." ".(Input::old("maxRate") == $i ? "selected":"").">".$i."</option>";
                                                 }
                                             ?>
                                         </select>
