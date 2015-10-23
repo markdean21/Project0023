@@ -30,9 +30,11 @@
             if(document.getElementById('passwordInput').value != '' && document.getElementById('passwordInput').value == document.getElementById('confirmpassId').value){
                 document.getElementById('confirmedPass').className = 'form-group has-success has-feedback';
                 document.getElementById('confirmpassId2').style.display = 'block';
+                document.getElementById('tooltipPass').style.display = 'none';
             }else{
                 document.getElementById('confirmedPass').className = 'form-group has-error has-feedback';
                 document.getElementById('confirmpassId2').style.display = 'none';
+                document.getElementById('tooltipPass').style.display = 'inline';
             }
         }
 
@@ -60,7 +62,7 @@
             $("#confirmpassId").keyup(passConfirm);
             // prevent alpha input on mobileNum
             $("#mobileNum").keyup(validateMobile);
-
+            $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
 @stop
@@ -82,7 +84,9 @@
                             {{ Form::open(array('url' => '/doRegisterIndi', 'id' => 'registrationForm')) }}
                                 
                                 <div class="form-group">
-                                    <label class="control-label row" style="margin-left: 2px;">Name</label>
+                                    <label class="control-label row" style="margin-left: 2px;">
+                                        Name <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your full name"></a>
+                                    </label>
                                     <div class="row">
                                         <div class="col-md-4" style="margin-bottom: 2px;">
                                             {{ Form::text('firstName', Input::old('firstName'), array('data-name' => 'First Name', 'class' => 'inputItem form-control', 'placeholder' => 'First name', 'required' => 'true')) }}
@@ -98,14 +102,15 @@
 
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label class="control-label" style="margin-left: 2px;">Gender</label>
-                                        <select name="gender" required="required" class="form-control inputItem" data-name="Gender">
-                                            <option value="MALE">Male</option>
-                                            <option value="FEMALE">Female</option>
-                                        </select>
+                                        <label class="control-label" style="margin-left: 2px;">
+                                            Gender <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please select your gender"></a>
+                                        </label>
+                                        {{ Form::select('gender', array('MALE' => 'Male', 'FEMALE' => 'Female'), Input::old('gender'), array('data-name' => 'Gender', 'class' => 'inputItem form-control', 'required' => 'true')) }}
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="control-label" style="margin-left: 2px;">Occupation</label>
+                                        <label class="control-label" style="margin-left: 2px;">
+                                            Occupation <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your occupation"></a>
+                                        </label>
                                         {{ Form::text('occupation', Input::old('occupation'), array('data-name' => 'Occupation', 'class' => 'inputItem form-control', 'placeholder' => 'Ex. Contractor', 'required' => 'true')) }}
                                     </div>
                                 </div>
@@ -113,7 +118,9 @@
 
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label class="control-label">Birth Date</label>
+                                        <label class="control-label">
+                                            Birth Date <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your birthdate"></a>
+                                        </label>
                                         <div class="row">
                                             <div class="col-md-4" style="margin-bottom: 2px;">
                                                 {{ Form::selectMonth('month', Input::old('month'), array('data-name' => 'Month', 'class' => 'inputItem form-control', 'required' => 'true')) }}
@@ -128,13 +135,17 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="control-label">Mobile Number</label>
+                                        <label class="control-label">
+                                            Mobile Number <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your mobile number"></a>
+                                        </label>
                                         {{ Form::text('mobileNum', Input::old('mobileNum'), array('data-name' => 'Mobile Number', 'class' => 'inputItem form-control', 'placeholder' => 'Mobile number', 'required' => 'true', 'id' => 'mobileNum')) }}
                                     </div>
                                 </div><br/>
 
                                 <div class="form-group">
-                                    <label class="control-label">TIN Number</label>
+                                    <label class="control-label">
+                                        TIN Number <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your TIN number"></a>
+                                    </label>
                                     <div class="row">
                                         <div class="col-md-1" style="margin-bottom: 2px;">
                                             {{ Form::text('tin1', Input::old('tin1'), array('data-name' => 'TIN Number', 'class' => 'form-control inputItem', 'placeholder' => 'XXX', 'maxlength' => '3','required' => 'true')) }}
@@ -150,26 +161,35 @@
                                 </div><br/>
 
                                 <div class="form-group">
-                                    <label class="control-label">Email Address</label>
+                                    <label class="control-label">
+                                        Email Address <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your working email address"></a>
+                                    </label>
                                     {{ Form::text('email', Input::old('email'), array('data-name' => 'Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Email address', 'required' => 'true', 'id' => 'email', 'style' => 'max-width: 400px;')) }}
                                 </div><br/>
                                 
                                 <hr/>
                                 
                                 <div class="form-group">
-                                    <label class="control-label">Username</label>
+                                    <label class="control-label">
+                                        Username <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your username"></a>
+                                    </label>
                                     {{ Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'inputItem form-control', 'placeholder' => 'Username', 'required' => 'true', 'style' => 'max-width: 400px;')) }}
                                 </div><br/>
 
                                 <div class="form-group">
-                                    <label class="control-label">Password <h6>(minimum of 8 characters)</h6></label>
+                                    <label class="control-label">
+                                        Password <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your password"></a>
+                                        <h6>(minimum of 8 characters)</h6>
+                                    </label>
                                     {{ Form::password('password', array('data-name' => 'Password', 'data-display' => 'strengthDisplay', 'id' => 'passwordInput', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter password', 'required' => 'true', 'style' => 'max-width: 400px;')) }}
                                     <h5 id="strengthDisplay"></h5>
                                 </div><br/>
 
 
                                 <div class="form-group" id="confirmedPass">
-                                    <label class="control-label" for="confirmpassId">Confirm Password</label>
+                                    <label class="control-label" for="confirmpassId">
+                                        Confirm Password <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please re-input your password to confirm" id="tooltipPass"></a>
+                                    </label>
                                     {{ Form::password('confirmpass', array('data-name' => 'Confirm Password', 'id' => 'confirmpassId', 'class' => 'inputItem form-control', 'placeholder' => 'Re-type password', 'style' => 'max-width: 400px;', 'required' => 'true')) }}
                                     <span class="glyphicon glyphicon-ok form-control-feedback" style="display: none;" id="confirmpassId2"></span>
                                 </div><br/>

@@ -30,9 +30,11 @@
             if(document.getElementById('passwordInput').value != '' && document.getElementById('passwordInput').value == document.getElementById('confirmpassId').value){
                 document.getElementById('confirmedPass').className = 'form-group has-success has-feedback';
                 document.getElementById('confirmpassId2').style.display = 'block';
+                document.getElementById('tooltipPass').style.display = 'none';
             }else{
                 document.getElementById('confirmedPass').className = 'form-group has-error has-feedback';
                 document.getElementById('confirmpassId2').style.display = 'none';
+                document.getElementById('tooltipPass').style.display = 'inline';
             }
         }
 
@@ -60,7 +62,7 @@
             $("#confirmpassId").keyup(passConfirm);
             // prevent alpha input on businessNum
             $("#businessNum").keyup(validateNumberOnly);
-
+            $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
 @stop
@@ -81,38 +83,52 @@
                             @endif
                             {{ Form::open(array('url' => '/doRegisterComp', 'id' => 'registrationForm-comp')) }}
                                 <div class="form-group">
-                                    <label class="control-label">Company Name</label>
+                                    <label class="control-label">
+                                        Company Name <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your company name"></a>
+                                    </label>
                                     {{ Form::text('companyName', Input::old('companyName'), array('data-name' => 'Company Name', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter company name', 'required' => 'true')) }}
                                 </div><br/>
 
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label class="control-label">Nature of Business</label>
+                                        <label class="control-label">
+                                            Nature of Business <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your nature of business"></a>
+                                        </label>
                                         {{ Form::text('businessNature', Input::old('businessNature'), array('data-name' => 'Business Nature', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter nature of business', 'required' => 'true')) }}
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="control-label" style="margin-left: 2px;">Years in Operation</label>
-                                        {{ Form::select('experience', array('0-1 years' => '0-1 years', '2-3 years' => '2-3 years', '3-5 years' => '3-5 years', '5-10 years' => '5-10 years', 'more than 10 years' => 'more than 10 years'), Input::old('experience'), array('data-name' => 'Years in Operation', 'class' => 'inputItem form-control', 'required' => 'true', 'style' => 'max-width: 200px;'), Input::old('experience')) }}
+                                        <label class="control-label" style="margin-left: 2px;">
+                                            Years in Operation <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please select your years in operation"></a>
+                                        </label>
+                                        {{ Form::select('experience', array('0-1 years' => '0-1 years', '2-3 years' => '2-3 years', '3-5 years' => '3-5 years', '5-10 years' => '5-10 years', 'more than 10 years' => 'more than 10 years'), Input::old('experience'), array('data-name' => 'Years in Operation', 'class' => 'inputItem form-control', 'required' => 'true', 'style' => 'max-width: 200px;')) }}
                                     </div>
                                 </div><br/>
 
                                 <div class="form-group">
-                                    <label class="control-label">Business Description</label>
+                                    <label class="control-label">
+                                        Business Description <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your business description"></a>
+                                    </label>
                                     {{ Form::text('businessDescription', Input::old('businessDescription'), array('data-name' => 'Business Description', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business description', 'required' => 'true')) }}
                                 </div><br/>
                                 
                                 <div class="form-group">
-                                    <label class="control-label">Business Address</label>
+                                    <label class="control-label">
+                                        Business Address <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your business address"></a>
+                                    </label>
                                     {{ Form::text('address', Input::old('address'), array('data-name' => 'Business Address', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business address', 'required' => 'true')) }}
                                 </div><br/>
 
                                 <div class="form-group">
-                                    <label class="control-label">Business Number</label>
+                                    <label class="control-label">
+                                        Business Number <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your business number"></a>
+                                    </label>
                                     {{ Form::text('businessNum', Input::old('businessNum'), array('data-name' => 'Business Number', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business number', 'required' => 'true', 'id' => 'businessNum', 'style' => 'max-width: 500px;')) }}
                                 </div><br><br>
 
                                 <div class="form-group">
-                                    <label class="control-label row" style="margin-left: 2px;">Key Contact Person</label>
+                                    <label class="control-label row" style="margin-left: 2px;">
+                                        Key Contact Person <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input the full name of your Key Contact Person"></a>
+                                    </label>
                                     <div class="row">
                                         <div class="col-md-4" style="margin-bottom: 2px;">
                                             {{ Form::text('firstName-keyperson', Input::old('firstName-keyperson'), array('data-name' => 'First Name', 'class' => 'inputItem form-control', 'placeholder' => 'First name', 'required' => 'true')) }}
@@ -127,35 +143,48 @@
                                 </div><br/>
 
                                 <div class="form-group">
-                                    <label class="control-label">Position</label>
+                                    <label class="control-label">
+                                        Position <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input the position of your Key Contact Person"></a>
+                                    </label>
                                     {{ Form::text('position-keyperson', Input::old('position-keyperson'), array('data-name' => 'Point Person Position', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter position', 'required' => 'true', 'style' => 'max-width: 500px;')) }}
                                 </div><br>
 
                                 <div class="form-group">
-                                    <label class="control-label">SEC / DTI Registration Number</label>
+                                    <label class="control-label">
+                                        SEC / DTI Registration Number <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your SEC or Registration Number"></a>
+                                    </label>
                                     {{ Form::text('regNum', Input::old('regNum'), array('data-name' => 'Registration Number', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter registration number', 'required' => 'true', 'style' => 'max-width: 400px;')) }}
                                 </div><br>
 
                                 <div class="form-group">
-                                    <label class="control-label">Email</label>
+                                    <label class="control-label">
+                                        Email <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your working email address"></a>
+                                    </label>
                                     {{ Form::text('email', Input::old('email'), array('data-name' => 'Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Email address', 'required' => 'true', 'id' => 'email', 'style' => 'max-width: 400px;')) }}
                                 </div><br>
 
                                 <hr/>
                                 
                                 <div class="form-group">
-                                    <label class="control-label">Username</label>
+                                    <label class="control-label">
+                                        Username <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your username"></a>
+                                    </label>
                                     {{ Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'inputItem form-control', 'placeholder' => 'Username', 'required' => 'true', 'style' => 'max-width: 400px;')) }}
                                 </div><br/>
                                 
                                 <div class="form-group">
-                                    <label class="control-label">Password <h6>(minimum of 8 characters)</h6></label>
+                                    <label class="control-label">
+                                        Password <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your password"></a>
+                                        <h6>(minimum of 8 characters)</h6>
+                                    </label>
                                     {{ Form::password('password', array('data-name' => 'Password', 'data-display' => 'strengthDisplay', 'id' => 'passwordInput', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter password', 'required' => 'true', 'style' => 'max-width: 400px;')) }}
                                     <h5 id="strengthDisplay"></h5>
                                 </div><br/>
 
                                 <div class="form-group" id="confirmedPass">
-                                    <label class="control-label" for="confirmpassId">Confirm Password</label>
+                                    <label class="control-label" for="confirmpassId">
+                                        Confirm Password <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please re-input your password to confirm" id="tooltipPass"></a>
+                                    </label>
                                     {{ Form::password('confirmpass', array('data-name' => 'Confirm Password', 'id' => 'confirmpassId', 'class' => 'inputItem form-control', 'placeholder' => 'Re-type password', 'style' => 'max-width: 400px;', 'required' => 'true')) }}
                                     <span class="glyphicon glyphicon-ok form-control-feedback" style="display: none;" id="confirmpassId2"></span>
                                 </div><br/>

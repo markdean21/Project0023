@@ -1,62 +1,76 @@
-
-
 <?php $__env->startSection('head'); ?>
-    Proveek | Register as Client (Company)
+    Register as Employer (Company)
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('head-contents'); ?>
+    <style type="text/css">
+        span#confirmpassId2 {
+            top: -60px;
+            left: 125px;
+            content: "\2713";
+            color: green;
+        }
+    </style>
     <script>
+        function enableSubmit(){
+            var val = document.getElementById('TOS');
+            var sbmt = document.getElementById("submitForm");
+            
+            if (val.checked){
+                sbmt.disabled = false;
+            }
+            else{
+                sbmt.disabled = true;
+            }
+        }
+
+        function passConfirm(){
+            if(document.getElementById('passwordInput').value != '' && document.getElementById('passwordInput').value == document.getElementById('confirmpassId').value){
+                document.getElementById('confirmedPass').className = 'form-group has-success has-feedback';
+                document.getElementById('confirmpassId2').style.display = 'block';
+            }else{
+                document.getElementById('confirmedPass').className = 'form-group has-error has-feedback';
+                document.getElementById('confirmpassId2').style.display = 'none';
+            }
+        }
+
+        function validateNumberOnly(){
+            value = document.getElementById('businessNum').value;
+            if(value.match(/[^0-9]/i))
+                document.getElementById('businessNum').value = value.replace(/[^0-9]/g, '');
+
+        }
+/*
+        function validateInput(this){
+            if(this.value != ''){
+                this.className .= ' has-success has-feedback';
+            }else{
+                this.className .= ' has-error has-feedback';
+            }
+        }
+*/
         $(document).ready(function(){
-            $('#submitForm').click(function(event){
-                event.preventDefault();
-                var inputs = $('.inputItem'),
-                    missingInputs = '',
-                    trigger = false;
-
-                for(var x=0; x < inputs.size(); x++){
-                    if(inputs.eq(x).val() == ''){
-                        trigger = true;
-                        break;
-                    }
-                }
-
-                if(trigger){
-                    for(var i=0; i < inputs.size(); i++){
-                        if(inputs.eq(i).val() == ''){
-                            missingInputs += '- '+inputs.eq(i).attr('data-name')+'<br/>';
-                        }
-                    }
-
-                    $('#confirmBtn').prop('disabled', true);
-                    $('#emailConfirm').empty();
-                    $('#confirmMsg').empty().append('Please fill up necessary information first<br/>'+missingInputs);
-                }else{
-                    $('#confirmBtn').prop('false', true);
-                    $('#confirmMsg').empty().append('Please confirm your email information before proceeding (This email will recieve necessary updates and notifications)');
-                    $('#emailConfirm').empty().append('<i class="se7en-envelope"></i> '+$('#email').val());
-                }
-
-                $('#confirmModal').modal('show');
+            enableSubmit();
+            $('#reset').click(function(event){
+                document.getElementById('submitForm').disabled = true;
             });
+            // validate password
+            $("#confirmpassId").keyup(passConfirm);
+            // prevent alpha input on businessNum
+            $("#businessNum").keyup(validateNumberOnly);
 
-            locationChain($('#region-comp'), $('#city-comp'),$('#registrationForm-comp'), '/chainRegion');
-            locationChain($('#region-comp'), $('#province-comp'),$('#registrationForm-comp'), '/chainProvince');
-            locationChain($('#city-comp'), $('#barangay-comp'),$('#registrationForm-comp'), '/chainCity');
-    //        locationChain($('#region'), $('#city'),$('#registrationForm'), '/chainRegion');
-    //        locationChain($('#region'), $('#province'),$('#registrationForm'), '/chainProvince');
-    //        locationChain($('#city'), $('#barangay'),$('#registrationForm'), '/chainCity');
         });
     </script>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
     <div class="taskminator-form">
-        <h3 style="text-align:center">Client Registration (Company)</h3>
+        <h3 style="text-align:center">Employer Registration (Company)</h3>
         <div class="row">
             <div class="col-lg-12">
                 <div class="widget-container fluid-height clearfix">
                     <div class="heading" style="padding: 40px 60px">
-                        <i class="icon-reorder"></i>Company Information
+                        Company Information
                     </div>
                     <div class="widget-content padded" style="padding: 10px 60px 40px 60px;">
                         <div class="client-form-comp">
@@ -65,189 +79,116 @@
                             <?php endif; ?>
                             <?php echo Form::open(array('url' => '/doRegisterComp', 'id' => 'registrationForm-comp')); ?>
 
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Company Name</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('companyName', Input::old('companyName'), array('data-name' => 'Company Name', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter company name', 'required' => 'true')); ?>
+                                <div class="form-group">
+                                    <label class="control-label">Company Name</label>
+                                    <?php echo Form::text('companyName', Input::old('companyName'), array('data-name' => 'Company Name', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter company name', 'required' => 'true')); ?>
+
+                                </div><br/>
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label">Nature of Business</label>
+                                        <?php echo Form::text('businessNature', Input::old('businessNature'), array('data-name' => 'Business Nature', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter nature of business', 'required' => 'true')); ?>
+
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label" style="margin-left: 2px;">Years in Operation</label>
+                                        <?php echo Form::select('experience', array('0-1 years' => '0-1 years', '2-3 years' => '2-3 years', '3-5 years' => '3-5 years', '5-10 years' => '5-10 years', 'more than 10 years' => 'more than 10 years'), Input::old('experience'), array('data-name' => 'Years in Operation', 'class' => 'inputItem form-control', 'required' => 'true', 'style' => 'max-width: 200px;'), Input::old('experience')); ?>
 
                                     </div>
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Company Address</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('address', Input::old('address'), array('data-name' => 'Company Address', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter company address', 'required' => 'true')); ?>
 
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Mobile Number</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('mobileNum', Input::old('mobileNum'), array('data-name' => 'Mobile Number', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter mobile number', 'required' => 'true')); ?>
+                                <div class="form-group">
+                                    <label class="control-label">Business Description</label>
+                                    <?php echo Form::text('businessDescription', Input::old('businessDescription'), array('data-name' => 'Business Description', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business description', 'required' => 'true')); ?>
 
-                                    </div>
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Email Address</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('email', Input::old('email'), array('id' => 'email', 'data-name' => 'Email', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter email address', 'required' => 'true')); ?>
+                                
+                                <div class="form-group">
+                                    <label class="control-label">Business Address</label>
+                                    <?php echo Form::text('address', Input::old('address'), array('data-name' => 'Business Address', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business address', 'required' => 'true')); ?>
 
-                                    </div>
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Business Number</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('businessNum', Input::old('businessNum'), array('data-name' => 'Business Number', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business name', 'required' => 'true')); ?>
 
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Business Nature</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('businessNature', Input::old('businessNature'), array('data-name' => 'Business Nature', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business nature', 'required' => 'true')); ?>
+                                <div class="form-group">
+                                    <label class="control-label">Business Number</label>
+                                    <?php echo Form::text('businessNum', Input::old('businessNum'), array('data-name' => 'Business Number', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business number', 'required' => 'true', 'id' => 'businessNum', 'style' => 'max-width: 500px;')); ?>
 
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Business Description</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('businessDescription', Input::old('businessDescription'), array('data-name' => 'Business Description', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business description', 'required' => 'true')); ?>
+                                </div><br><br>
 
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Business Permit</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('businessPermit', Input::old('businessPermit'), array('data-name' => 'Business Permit', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter DTI/SEC Business Permit No.', 'required' => 'true')); ?>
+                                <div class="form-group">
+                                    <label class="control-label row" style="margin-left: 2px;">Key Contact Person</label>
+                                    <div class="row">
+                                        <div class="col-md-4" style="margin-bottom: 2px;">
+                                            <?php echo Form::text('firstName-keyperson', Input::old('firstName-keyperson'), array('data-name' => 'First Name', 'class' => 'inputItem form-control', 'placeholder' => 'First name', 'required' => 'true')); ?>
 
+                                        </div>
+                                        <div class="col-md-3" style="margin-bottom: 2px;">
+                                            <?php echo Form::text('midName-keyperson', Input::old('midName-keyperson'), array('data-name' => 'Middle Name', 'class' => 'inputItem form-control', 'placeholder' => 'Middle name', 'required' => 'true')); ?>
+
+                                        </div>
+                                        <div class="col-md-5">
+                                            <?php echo Form::text('lastName-keyperson', Input::old('lastName-keyperson'), array('data-name' => 'Last Name', 'class' => 'inputItem form-control', 'placeholder' => 'Last name', 'required' => 'true')); ?>
+
+                                        </div>
                                     </div>
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Region</label>
-                                    <div class="col-md-10">
-                                        <select name="region-comp" id="region-comp" class="form-control inputItem" required="required" data-name="Region">
-                                            <?php foreach($regions as $region): ?>
-                                                <option data-regcode="<?php echo $region->regcode; ?>" value="<?php echo $region->regcode; ?>" <?php if(Input::old('region-comp') == $region->regcode){ echo('selected'); } ?>> <?php echo $region->regname; ?> </option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                </div><br/>
-<!--                                <div class="row form-group">-->
-<!--                                    <label class="control-label col-md-2">Province</label>-->
-<!--                                    <div class="col-md-10">-->
-<!--                                        <select name="province-comp" id="province-comp" class="form-control">-->
-<!--                                        </select>-->
-<!--                                    </div>-->
-<!--                                </div><br/>-->
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">City</label>
-                                    <div class="col-md-10">
-                                        <select name="city-comp" id="city-comp" class="form-control inputItem" required="required" data-name="City">
-                                            <?php if(Input::old('region-comp')): ?>
-                                                <?php foreach(City::where('regcode', Input::old('region-comp'))->orderBy('cityname', 'ASC')->get() as $city): ?>
-                                                    <option value="<?php echo $city->citycode; ?>" <?php if(Input::old('city-comp') == $city->citycode){ echo('selected'); } ?>><?php echo $city->cityname; ?></option>
-                                                <?php endforeach; ?>
-                                            <?php else: ?>
-                                                <?php foreach($cities as $city): ?>
-                                                    <option value="<?php echo $city->citycode; ?>" <?php if(Input::old('city-comp') == $city->citycode){ echo('selected'); } ?>><?php echo $city->cityname; ?></option>
-                                                <?php endforeach; ?>
-                                            <?php endif; ?>
-                                        </select>
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Barangay</label>
-                                    <div class="col-md-10">
-                                        <select name="barangay-comp" id="barangay-comp" class="form-control inputItem" required="required" data-name="Barangay">
-                                            <?php if(Input::old('city-comp')): ?>
-                                                <?php foreach(Barangay::where('citycode', Input::old('city-comp'))->orderBy('bgyname', 'ASC')->get() as $bgy): ?>
-                                                    <option value="<?php echo $bgy->bgycode; ?>" <?php  if(Input::old('barangay-comp') == $bgy->bgycode){ echo('selected'); } ?>><?php echo $bgy->bgyname; ?></option>
-                                                <?php endforeach; ?>
-                                            <?php else: ?>
-                                                <?php foreach($barangays as $bgy): ?>
-                                                    <option value="<?php echo $bgy->bgycode; ?>" <?php  if(Input::old('barangay-comp') == $bgy->bgycode){ echo('selected'); } ?>><?php echo $bgy->bgyname; ?></option>
-                                                <?php endforeach; ?>
-                                            <?php endif; ?>
-                                        </select>
-                                    </div>
-                                </div><br/>
+
+                                <div class="form-group">
+                                    <label class="control-label">Position</label>
+                                    <?php echo Form::text('position-keyperson', Input::old('position-keyperson'), array('data-name' => 'Point Person Position', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter position', 'required' => 'true', 'style' => 'max-width: 500px;')); ?>
+
+                                </div><br>
+
+                                <div class="form-group">
+                                    <label class="control-label">SEC / DTI Registration Number</label>
+                                    <?php echo Form::text('regNum', Input::old('regNum'), array('data-name' => 'Registration Number', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter registration number', 'required' => 'true', 'style' => 'max-width: 400px;')); ?>
+
+                                </div><br>
+
+                                <div class="form-group">
+                                    <label class="control-label">Email</label>
+                                    <?php echo Form::text('email', Input::old('email'), array('data-name' => 'Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Email address', 'required' => 'true', 'id' => 'email', 'style' => 'max-width: 400px;')); ?>
+
+                                </div><br>
+
                                 <hr/>
-                                <h5>Key Person Info</h5>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">First Name</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('firstName-keyperson', Input::old('firstName-keyperson'), array('data-name' => 'Point Person First Name', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter first name', 'required' => 'true')); ?>
+                                
+                                <div class="form-group">
+                                    <label class="control-label">Username</label>
+                                    <?php echo Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'inputItem form-control', 'placeholder' => 'Username', 'required' => 'true', 'style' => 'max-width: 400px;')); ?>
 
-                                    </div>
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Middle Name</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('midName-keyperson', Input::old('midName-keyperson'), array('data-name' => 'Point Person Middle Name', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter middle name', 'required' => 'true')); ?>
+                                
+                                <div class="form-group">
+                                    <label class="control-label">Password <h6>(minimum of 8 characters)</h6></label>
+                                    <?php echo Form::password('password', array('data-name' => 'Password', 'data-display' => 'strengthDisplay', 'id' => 'passwordInput', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter password', 'required' => 'true', 'style' => 'max-width: 400px;')); ?>
 
-                                    </div>
+                                    <h5 id="strengthDisplay"></h5>
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Last Name</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('lastName-keyperson', Input::old('lastName-keyperson'), array('data-name' => 'Point Person Last Name', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter last name', 'required' => 'true')); ?>
 
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Email Address</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('email-keyperson', Input::old('email-keyperson'), array('data-name' => 'Point Person Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter email address', 'required' => 'true')); ?>
+                                <div class="form-group" id="confirmedPass">
+                                    <label class="control-label" for="confirmpassId">Confirm Password</label>
+                                    <?php echo Form::password('confirmpass', array('data-name' => 'Confirm Password', 'id' => 'confirmpassId', 'class' => 'inputItem form-control', 'placeholder' => 'Re-type password', 'style' => 'max-width: 400px;', 'required' => 'true')); ?>
 
-                                    </div>
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" style="display: none;" id="confirmpassId2"></span>
                                 </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Mobile Number</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('mobileNum-keyperson', Input::old('mobileNum-keyperson'), array('data-name' => 'Point Person Mobile Number', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter mobile number', 'required' => 'true')); ?>
 
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Position</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('position-keyperson', Input::old('position-keyperson'), array('data-name' => 'Point Person Position', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter position', 'required' => 'true')); ?>
+                                <p>
+                                    <?php echo HTML::image(URL::to('simplecaptcha'),'Captcha', array('class' => 'img-rounded')); ?><br><br>
+                                    <label>CAPTCHA</label>
+                                    <?php echo Form::text('captcha', '', array('data-name' => 'Captcha', 'class' => 'inputItem form-control', 'id' => 'captcha','placeholder' => 'Type code above', 'required' => 'true', 'style' => 'width: 130px;')); ?>
 
-                                    </div>
-                                </div><br/>
-                                <hr/>
-                                <h5>Account Information</h5>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Username</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter username', 'required' => 'true')); ?>
+                                </p>
 
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Password</label>
-                                    <div class="col-md-6">
-                                        <?php echo Form::password('password', array('data-name' => 'Password', 'data-display' => 'strengthDisplay', 'id' => 'passwordInput', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter password', 'required' => 'true')); ?>
+                                <div class="row form-group" style="margin-left: 5px;">
+                                    <input id="TOS" name="TOS" type="checkbox" value="1" onclick="enableSubmit()" style="display: -moz-box;">
+                                    <label class="control-label" style="margin-left: 5px;">Accept Terms of Service and Privacy Policy</label>
+                                </div>
+                            
+                                <button class="btn btn-primary" type="submit" id="submitForm" disabled>Register</button>
+                                <?php echo Form::reset('Reset', array('class' => 'btn btn-default', 'id' => 'reset')); ?>
 
-                                    </div>
-                                    <div class="col-md-4" id="strengthDisplay">
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Confirm Password</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::password('confirmpass', array('data-name' => 'Confirm Password', 'class' => 'form-control inputItem', 'placeholder' => 'Re-type password', 'required' => 'true')); ?>
-
-                                    </div>
-                                </div><br/>
-                                <div class="row form-group">
-                                    <label class="control-label col-md-2">Terms of Service</label>
-                                    <div class="col-md-10">
-                                        <?php echo Form::checkbox('TOS', '1', array('class' => 'form-control'));; ?>
-
-                                    </div>
-                                </div><br/>
-                                <br/>
-                                <button class="btn btn-primary" type="submit" id="submitForm">Register</button>
                             <?php echo Form::close(); ?>
 
                         </div>
@@ -257,7 +198,7 @@
         </div>
     </div>
 
-<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<!--div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -276,6 +217,6 @@
             </div>
         </div>
     </div>
-</div>
+</div-- >
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.registration', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

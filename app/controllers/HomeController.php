@@ -204,7 +204,7 @@ class HomeController extends BaseController {
         $validator = Validator::make(Input::all(), $rules, $messages);
 
         if($validator->fails()){
-            return Redirect::back()->with('errorMsg', $validator->messages()->first())->withInput(Input::except('password'));
+            return Redirect::back()->with('errorMsg', $validator->messages()->first())->withInput(Input::except('password', 'captcha'));
         }
 
         // if validation is successful
@@ -304,7 +304,7 @@ class HomeController extends BaseController {
         $validator = Validator::make(Input::all(), $rules, $messages);
 
         if($validator->fails()){
-            return Redirect::back()->with('errorMsg', $validator->messages()->first())->withInput(Input::except('password', 'captcha'));
+            return Redirect::back()->with('errorMsg', $validator->messages()->first())->withInput(Input::except('password' , 'confirmpass'));
         }
         // validation successful
 
