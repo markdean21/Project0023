@@ -85,6 +85,15 @@ aside {
     transition: all .35s;
 }
 
+/*LOGO IMG */
+.navbar-default .navbar-header .logoImg {
+    background-image: url('../img/proveek-logo.png');
+    background-size: contain;
+    width:156px;
+    height:52px;
+    opcaity: .7;
+}
+
 .navbar-default .navbar-header .navbar-brand {
     text-transform: uppercase;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
@@ -135,6 +144,24 @@ aside {
     .navbar-default .navbar-header .navbar-brand:focus {
         color: #fff;
     }
+
+/*LOGO IMG @768 width*/
+    .navbar-default .navbar-header .logoImg {
+        background-image: url('../img/proveek-logo-white.png');
+        background-size: contain;
+        width:156px;
+        height:52px;
+        opacity:1;
+    }
+
+/*LOGO IMG @768 width affix navbar*/
+    .navbar-default.affix .navbar-header .logoImg {
+    background-image: url('../img/proveek-logo.png');
+    background-size: contain;
+    width:156px;
+    height:52px;
+    opcaity: .7;
+}
 
     .navbar-default .nav > li>a,
     .navbar-default .nav>li>a:focus {
@@ -277,6 +304,7 @@ header .header-content .header-content-inner p {
     text-align: center;
     color: #fff;
     opacity: 0;
+    outline:none;
     background: rgba(41,128,185,.9);
     -webkit-transition: all .35s;
     -moz-transition: all .35s;

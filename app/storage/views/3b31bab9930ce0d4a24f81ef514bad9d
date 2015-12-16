@@ -18,9 +18,11 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="frontend/font-awesome/css/font-awesome.min.css" type="text/css">
-
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="frontend/css/animate.min.css" type="text/css">
+
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="frontend/css/creative.css" type="text/css">
@@ -53,7 +55,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="/home"><i class="fa fa-wrench"></i>  Proveek</a>
+                <a class="navbar-brand page-scroll logoImg" href="/home" style="padding:0; margin:0;"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -130,24 +132,32 @@
 
 <!-- WHY PROVEEK? CONTAINER -->
                     <div class="col-lg-12">
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay=".1s">
-                            <img src="frontend/img/header1.jpg" style="width:100%; height:236px; margin:0p; padding:0;">
-                            <p style="padding-top:20px; text-align:justify">Hire with ease. We provide you a wide range of pre-vetted workers to choose from.</p>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-4 wow fadeIn" data-wow-delay=".1s">
+                            <img src="frontend/img/customIcons/group-user.png" style="margin:0; padding:0;">
+                            <p style="padding-top:20px; text-align:center"><p style="padding: 0 0 0 0; margin:0; font-size:14pt; font-family: 'Lato', sans-serif;">Hire with ease.</p><br>
+                            We provide you a wide range of pre-vetted workers to choose from.</p>
                         </div>
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay=".15s">
-                            <img src="frontend/img/slideshow/01.jpg" style="width:100%;; height:236px;">
-                            <p style="padding-top:20px; text-align:justify">Reduced expenses. We charge you only for the workers you choose.</p>
+                        <div class="col-lg-4 wow fadeIn" data-wow-delay=".15s">
+                            <img src="frontend/img/customIcons/group-user.png" style="margin:0; padding:0;">
+                            <p style="padding-top:20px; text-align:center"><p style="padding: 0 0 0 0; margin:0; font-size:14pt; font-family: 'Lato', sans-serif;">Reduced expenses.</p><br>
+                            We charge you only for the workers you choose.</p>
                         </div>
+                        <div class="col-lg-2"></div>
                     </div>
                     <div class="col-lg-12">
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay=".20s">
-                            <img src="frontend/img/slideshow/02.jpg" style="width:100%;; height:236px;">
-                            <p style="padding-top:20px; text-align:justify">Guaranteed quality. Workers will be screened based on the recommendations of their LGUs or Trainers (in the case of TESDA). For better quality, all workers will be reviewed and rated by their client after each job done.</p>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-4 wow fadeIn" data-wow-delay=".20s">
+                            <img src="frontend/img/customIcons/excel-badge.png" style="margin:0; padding:0;">
+                            <p style="padding-top:20px; text-align:center"><p style="padding: 0 0 0 0; margin:0; font-size:14pt; font-family: 'Lato', sans-serif;">Guaranteed quality.</p><br>
+                            Workers will be screened based on the recommendations of their LGUs or Trainers (in the case of TESDA). For better quality, all workers will be reviewed and rated by their client after each job done.</p>
                         </div>
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay=".25s">
-                            <img src="frontend/img/slideshow/04.jpg" style="width:100%;; height:236px;">
-                            <p style="padding-top:20px; text-align:justify">Help while being helped out. You will help someone today to get a job to provide for his/her family.</p>
+                        <div class="col-lg-4 wow fadeIn" data-wow-delay=".25s">
+                            <img src="frontend/img/customIcons/group-user.png" style="margin:0; padding:0;">
+                            <p style="padding-top:20px; text-align:center"><p style="padding: 0 0 0 0; margin:0; font-size:14pt; font-family: 'Lato', sans-serif;">Help while being helped out.</p><br> 
+                            You will help someone today to get a job to provide for his/her family.</p>
                         </div>
+                        <div class="col-lg-2"></div>
                     </div>
 <!-- END OF -->
 

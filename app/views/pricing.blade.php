@@ -176,7 +176,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="/home"><i class="fa fa-wrench"></i>  Proveek</a>
+                <a class="navbar-brand page-scroll logoImg" href="/home" style="padding:0; margin:0;"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
