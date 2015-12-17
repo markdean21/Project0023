@@ -77,7 +77,8 @@ aside {
 }
 
 .navbar-default {
-    border-color: rgba(34,34,34,.05);
+    /*border-color: rgba(34,34,34,.05);*/
+    border:none;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     background-color: #fff;
     -webkit-transition: all .35s;
@@ -85,12 +86,25 @@ aside {
     transition: all .35s;
 }
 
+
+
 .navbar-default .navbar-header .navbar-brand {
     text-transform: uppercase;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
     color: #2980b9;
 }
+
+/*LOGO IMG */
+.navbar-default .navbar-header .logoImg {
+    background-image: url('../img/proveek-logo.png');
+    background-size: contain;
+    width:156px;
+    height:52px;
+    opcaity: .7;
+}
+
+
 
 .navbar-default .navbar-header .navbar-brand:hover,
 .navbar-default .navbar-header .navbar-brand:focus {
@@ -119,6 +133,12 @@ aside {
 .navbar-default .nav > li.active>a:hover,
 .navbar-default .nav>li.active>a:focus:hover {
     background-color: transparent;
+}
+/* notifPane-sm FOR PROFILE PAGE in DESKTOP version class */
+.navbar-default .notifPane-sm
+{
+    width:300px;
+    height:400px;
 }
 
 @media(min-width:768px) {
@@ -154,6 +174,30 @@ aside {
     .navbar-default.affix .navbar-header .navbar-brand {
         font-size: 14px;
         color: #2980b9;
+    }
+
+/*LOGO IMG @768 width*/
+    .navbar-default .navbar-header .logoImg {
+        background-image: url('../img/proveek-logo-white.png');
+        background-size: contain;
+        width:156px;
+        height:52px;
+        opacity:1;
+    }
+
+/*LOGO IMG @768 width affix navbar*/
+    .navbar-default.affix .navbar-header .logoImg {
+    background-image: url('../img/proveek-logo.png');
+    background-size: contain;
+    width:156px;
+    height:52px;
+    opcaity: .7;
+}
+
+/* notifPane-sm FOR PROFILE PAGE in MOBILE version class */
+    .navbar-default.affix .navbar-header .notifPane-sm
+    {
+        width:100%;
     }
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,

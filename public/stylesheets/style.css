@@ -1871,8 +1871,17 @@ input[type="text"] {
   margin-right: 20px; }
   .opacity .radio-inline + .radio-inline, .opacity .radio-inline + .checkbox-inline, .opacity .checkbox-inline + .radio-inline, .opacity .checkbox-inline + .checkbox-inline {
     margin-left: 0; }
-.opacity input[type="checkbox"], .opacity input[type="radio"] {
-  display: none; }
+
+input[type=checkbox]
+{
+  -webkit-appearance:checkbox;
+  -moz-appearance:checkbox;
+  appearance:checkbox;
+  -o-appearance:checkbox;
+}
+    
+/*.opacity input[type="checkbox"], .opacity input[type="radio"] {
+  display: none; }*/
   .opacity input[type="checkbox"] + span:before, .opacity input[type="radio"] + span:before {
     content: "";
     width: 18px;

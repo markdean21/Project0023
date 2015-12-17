@@ -53,7 +53,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <a class="navbar-brand page-scroll" href="#page-top"><i class="fa fa-wrench"></i>  Proveek</a> 
+               <a class="navbar-brand page-scroll logoImg" href="#page-top" style="padding:0; margin:0;"></a> 
                
             </div>
 
