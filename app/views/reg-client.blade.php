@@ -88,17 +88,30 @@
 @stop
 
 @section('content')
+
+
+
     <h3 style="text-align:center">Employer Registration</h3>
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist" style="margin-left: 19px; margin-right: 17px; text-align:center;">
-      <li class="active" style="width: 50%;"><a href="#individual" role="tab" data-toggle="tab">Individual</a></li>
-      <li style="width: 50%;"><a href="#company" role="tab" data-toggle="tab">Company</a></li>
+        @if(Session::has('client'))
+            <li style="width: 50%;"><a href="#individual" role="tab" data-toggle="tab">Individual</a></li>
+            <li class="active" style="width: 50%;"><a href="#company" role="tab" data-toggle="tab">Company</a></li>
+        @else
+            <li class="active" style="width: 50%;"><a href="#individual" role="tab" data-toggle="tab">Individual</a></li>
+            <li style="width: 50%;"><a href="#company" role="tab" data-toggle="tab">Company</a></li>
+        @endif
+      
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
-        <div class="tab-pane active" id="individual">
+        @if(!Session::has('client'))
+            <div class="tab-pane active" id="individual">
+        @else
+            <div class="tab-pane" id="individual">
+        @endif
             <div class="taskminator-form">
             <div class="row">
                 <div class="col-lg-12">
@@ -108,27 +121,32 @@
                         </div>
                         <div class="widget-content padded" style="padding: 10px 60px 40px 60px;">
                             <div class="client-form-indi">
-                                @if(Session::has('errorMsg'))
-                                    <font color="red">{{ Session::get('errorMsg') }}</font><br><br>
-                                @endif
                                 {{ Form::open(array('url' => '/doRegisterIndi', 'id' => 'registrationForm')) }}
-                                    
                                     <div class="form-group">
                                         <label class="control-label row" style="margin-left: 2px;">
                                             Name <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your full name"></a>
                                         </label>
                                         <div class="row">
                                             <div class="col-md-4" style="margin-bottom: 2px;">
-                                                {{ Form::text('firstName', Input::old('firstName'), array('data-name' => 'First Name', 'class' => 'inputItem form-control', 'placeholder' => 'First name', 'required' => 'true')) }}
-                                                <div class="error">{{ $errors->first('firstName') }}</div>
+                                                {{ Form::text('firstName', Input::old('firstName'), array('data-name' => 'First Name', 'class' => 'inputItem form-control success', 'placeholder' => 'First name', 'required' => 'true')) }}
+                                                @if ($errors->has())
+                                                    <font color="red">{{ $errors->first('firstName') }}</font>
+                                                @endif
                                             </div>
                                             <div class="col-md-3" style="margin-bottom: 2px;">
                                                 {{ Form::text('midName', Input::old('midName'), array('data-name' => 'Middle Name', 'class' => 'inputItem form-control', 'placeholder' => 'Middle name', 'required' => 'true')) }}
+                                                @if ($errors->has())
+                                                    <font color="red">{{ $errors->first('midName') }}</font>
+                                                @endif
                                             </div>
                                             <div class="col-md-5">
                                                 {{ Form::text('lastName', Input::old('lastName'), array('data-name' => 'Last Name', 'class' => 'inputItem form-control', 'placeholder' => 'Last name', 'required' => 'true')) }}
+                                                @if ($errors->has())
+                                                    <font color="red">{{ $errors->first('lastName') }}</font>
+                                                @endif
                                             </div>
                                         </div>
+
                                     </div><br/>
 
                                     <div class="row">
@@ -143,6 +161,9 @@
                                                 Occupation <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your occupation"></a>
                                             </label>
                                             {{ Form::text('occupation', Input::old('occupation'), array('data-name' => 'Occupation', 'class' => 'inputItem form-control', 'placeholder' => 'Ex. Contractor', 'required' => 'true')) }}
+                                            @if ($errors->has())
+                                                <font color="red">{{ $errors->first('occupation') }}</font>
+                                            @endif
                                         </div>
                                     </div>
                                     <br/>
@@ -170,6 +191,9 @@
                                                 Mobile Number <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your mobile number"></a>
                                             </label>
                                             {{ Form::text('mobileNum', Input::old('mobileNum'), array('data-name' => 'Mobile Number', 'class' => 'inputItem form-control', 'placeholder' => 'Mobile number', 'required' => 'true', 'id' => 'mobileNum')) }}
+                                            @if ($errors->has())
+                                                <font color="red">{{ $errors->first('mobileNum') }}</font>
+                                            @endif
                                         </div>
                                     </div><br/>
 
@@ -189,6 +213,15 @@
                                             </div>
                                             <label class="col-md-8" style="font-size: 16pt;">-&nbsp;000</label>
                                         </div>
+                                        @if ($errors->has())
+                                            @if(!is_null($errors->first('tin1')))
+                                                <font color="red">{{ $errors->first('tin1') }}</font>
+                                            @elseif (!is_null($errors->first('tin2')))
+                                                <font color="red">{{ $errors->first('tin2') }}</font>
+                                            @elseif (!is_null($errors->first('tin3')))
+                                                <font color="red">{{ $errors->first('tin3') }}</font>
+                                            @endif
+                                        @endif
                                     </div><br/>
 
                                     <div class="form-group">
@@ -196,6 +229,9 @@
                                             Email Address <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your working email address"></a>
                                         </label>
                                         {{ Form::text('email', Input::old('email'), array('data-name' => 'Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Email address', 'required' => 'true', 'id' => 'email', 'style' => 'max-width: 400px;')) }}
+                                        @if ($errors->has())
+                                            <font color="red">{{ $errors->first('email') }}</font>
+                                        @endif
                                     </div><br/>
                                     
                                     <hr/>
@@ -205,6 +241,9 @@
                                             Username <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your username"></a>
                                         </label>
                                         {{ Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'inputItem form-control', 'placeholder' => 'Username', 'required' => 'true', 'style' => 'max-width: 400px;')) }}
+                                        @if ($errors->has())
+                                            <font color="red">{{ $errors->first('username') }}</font>
+                                        @endif
                                     </div><br/>
 
                                     <div class="form-group">
@@ -214,6 +253,9 @@
                                         </label>
                                         {{ Form::password('password', array('data-name' => 'Password', 'data-display' => 'strengthDisplay', 'id' => 'passwordInput', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter password', 'required' => 'true', 'style' => 'max-width: 400px;')) }}
                                         <h5 id="strengthDisplay"></h5>
+                                        @if ($errors->has())
+                                            <font color="red">{{ $errors->first('password') }}</font>
+                                        @endif
                                     </div><br/>
 
 
@@ -229,6 +271,9 @@
                                         {{ HTML::image(URL::to('simplecaptcha'),'Captcha', array('class' => 'img-rounded')) }}<br><br>
                                         <label>CAPTCHA</label>
                                         {{ Form::text('captcha', '', array('data-name' => 'Captcha', 'class' => 'inputItem form-control', 'id' => 'captcha','placeholder' => 'Type code above', 'required' => 'true', 'style' => 'width: 130px;')) }}
+                                        @if ($errors->has())
+                                            <font color="red">{{ Session::get('captcha') }}</font>
+                                        @endif
                                     </p>
 
                                     <div class="row form-group" style="margin-left: 5px;">
@@ -246,7 +291,11 @@
             </div>
         </div>
       </div>
-      <div class="tab-pane" id="company">
+      @if(Session::has('client'))
+        <div class="tab-pane active" id="company">
+      @else
+        <div class="tab-pane" id="company">
+      @endif
             <div class="taskminator-form">
                     <div class="row">
                         <div class="col-lg-12">
@@ -256,7 +305,7 @@
                                 </div>
                                 <div class="widget-content padded" style="padding: 10px 60px 40px 60px;">
                                     <div class="client-form-comp">
-                                        @if(Session::has('errorMsg'))
+                                        @if(Session::has('errorMsg') && Session::has('client'))
                                             <font color="red">{{ Session::get('errorMsg') }}</font>
                                         @endif
                                         {{ Form::open(array('url' => '/doRegisterComp', 'id' => 'registrationForm-comp')) }}
@@ -265,6 +314,9 @@
                                                     Company Name <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your company name"></a>
                                                 </label>
                                                 {{ Form::text('companyName', Input::old('companyName'), array('data-name' => 'Company Name', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter company name', 'required' => 'true')) }}
+                                                @if ($errors->has())
+                                                    <font color="red">{{ $errors->first('companyName') }}</font>
+                                                @endif
                                             </div><br/>
 
                                             <div class="row">
@@ -273,6 +325,9 @@
                                                         Nature of Business <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input the nature of business"></a>
                                                     </label>
                                                     {{ Form::text('businessNature', Input::old('businessNature'), array('data-name' => 'Business Nature', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter nature of business', 'required' => 'true')) }}
+                                                    @if ($errors->has())
+                                                        <font color="red">{{ $errors->first('businessNature') }}</font>
+                                                    @endif
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label class="control-label" style="margin-left: 2px;">
@@ -288,6 +343,9 @@
                                                     Business Description <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your business description"></a>
                                                 </label>
                                                 {{ Form::text('businessDescription', Input::old('businessDescription'), array('data-name' => 'Business Description', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business description', 'required' => 'true')) }}
+                                                @if ($errors->has())
+                                                    <font color="red">{{ $errors->first('businessDescription') }}</font>
+                                                @endif
                                             </div><br/>
                                             
                                             <div class="form-group">
@@ -295,6 +353,9 @@
                                                     Business Address <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your business address"></a>
                                                 </label>
                                                 {{ Form::text('address', Input::old('address'), array('data-name' => 'Business Address', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business address', 'required' => 'true')) }}
+                                                @if ($errors->has())
+                                                    <font color="red">{{ $errors->first('address') }}</font>
+                                                @endif
                                             </div><br/>
 
                                             <div class="form-group">
@@ -302,6 +363,9 @@
                                                     Business Number <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your business number"></a>
                                                 </label>
                                                 {{ Form::text('businessNum', Input::old('businessNum'), array('data-name' => 'Business Number', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter business number', 'required' => 'true', 'id' => 'businessNum', 'style' => 'max-width: 500px;')) }}
+                                                @if ($errors->has())
+                                                    <font color="red">{{ $errors->first('businessNum') }}</font>
+                                                @endif
                                             </div><br><br>
 
                                             <div class="form-group">
@@ -311,12 +375,21 @@
                                                 <div class="row">
                                                     <div class="col-md-4" style="margin-bottom: 2px;">
                                                         {{ Form::text('firstName-keyperson', Input::old('firstName-keyperson'), array('data-name' => 'First Name', 'class' => 'inputItem form-control', 'placeholder' => 'First name', 'required' => 'true')) }}
+                                                        @if ($errors->has())
+                                                            <font color="red">{{ $errors->first('firstName-keyperson') }}</font>
+                                                        @endif
                                                     </div>
                                                     <div class="col-md-3" style="margin-bottom: 2px;">
                                                         {{ Form::text('midName-keyperson', Input::old('midName-keyperson'), array('data-name' => 'Middle Name', 'class' => 'inputItem form-control', 'placeholder' => 'Middle name', 'required' => 'true')) }}
+                                                        @if ($errors->has())
+                                                            <font color="red">{{ $errors->first('midName-keyperson') }}</font>
+                                                        @endif
                                                     </div>
                                                     <div class="col-md-5">
                                                         {{ Form::text('lastName-keyperson', Input::old('lastName-keyperson'), array('data-name' => 'Last Name', 'class' => 'inputItem form-control', 'placeholder' => 'Last name', 'required' => 'true')) }}
+                                                        @if ($errors->has())
+                                                            <font color="red">{{ $errors->first('lastName-keyperson') }}</font>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div><br/>
@@ -326,6 +399,9 @@
                                                     Position <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input the position of your Key Contact Person"></a>
                                                 </label>
                                                 {{ Form::text('position-keyperson', Input::old('position-keyperson'), array('data-name' => 'Point Person Position', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter position', 'required' => 'true', 'style' => 'max-width: 500px;')) }}
+                                                @if ($errors->has())
+                                                    <font color="red">{{ $errors->first('position-keyperson') }}</font>
+                                                @endif
                                             </div><br>
 
                                             <div class="form-group">
@@ -333,6 +409,9 @@
                                                     SEC / DTI Registration Number <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your SEC or Registration Number"></a>
                                                 </label>
                                                 {{ Form::text('regNum', Input::old('regNum'), array('data-name' => 'Registration Number', 'class' => 'form-control inputItem', 'placeholder' => 'Please enter registration number', 'required' => 'true', 'style' => 'max-width: 400px;')) }}
+                                                @if ($errors->has())
+                                                    <font color="red">{{ $errors->first('regNum') }}</font>
+                                                @endif
                                             </div><br>
 
                                             <div class="form-group">
@@ -340,6 +419,9 @@
                                                     Email <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your business address"></a>
                                                 </label>
                                                 {{ Form::text('email', Input::old('email'), array('data-name' => 'Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Email address', 'required' => 'true', 'id' => 'email', 'style' => 'max-width: 400px;')) }}
+                                                @if ($errors->has())
+                                                    <font color="red">{{ $errors->first('email') }}</font>
+                                                @endif
                                             </div><br>
 
                                             <hr/>
@@ -348,7 +430,10 @@
                                                 <label class="control-label">
                                                     Username <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your username"></a>
                                                 </label>
-                                                {{ Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'inputItem form-control', 'placeholder' => 'Username', 'required' => 'true', 'style' => 'max-width: 400px;')) }}
+                                                {{ Form::text('username2', Input::old('username2'), array('data-name' => 'Username', 'class' => 'inputItem form-control', 'placeholder' => 'Username', 'required' => 'true', 'style' => 'max-width: 400px;')) }}
+                                                @if ($errors->has())
+                                                    <font color="red">{{ $errors->first('username2') }}</font>
+                                                @endif
                                             </div><br/>
                                             
                                             <div class="form-group">
@@ -357,7 +442,10 @@
                                                     <h6>(minimum of 8 characters)</h6>
                                                 </label>
                                                 {{ Form::password('password', array('data-name' => 'Password', 'data-display' => 'strengthDisplay', 'id' => 'passwordInput2', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter password', 'required' => 'true', 'style' => 'max-width: 400px;')) }}
-                                                <h5 id="strengthDisplay2"></h5>
+                                                <h5 id="strengthDisplay"></h5>
+                                                @if ($errors->has())
+                                                    <font color="red">{{ $errors->first('password') }}</font>
+                                                @endif
                                             </div><br/>
 
                                             <div class="form-group" id="confirmedPass2">
@@ -372,6 +460,9 @@
                                                 {{ HTML::image(URL::to('simplecaptcha'),'Captcha', array('class' => 'img-rounded')) }}<br><br>
                                                 <label>CAPTCHA</label>
                                                 {{ Form::text('captcha', '', array('data-name' => 'Captcha', 'class' => 'inputItem form-control', 'id' => 'captcha','placeholder' => 'Type code above', 'required' => 'true', 'style' => 'width: 130px;')) }}
+                                                @if ($errors->has())
+                                                    <font color="red">{{ Session::get('captcha') }}</font>
+                                                @endif
                                             </p>
 
                                             <div class="row form-group" style="margin-left: 5px;">
@@ -390,10 +481,4 @@
                 </div>
       </div>
     </div>
-
-   
-
-    
-
-    
 @stop

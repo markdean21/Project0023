@@ -156,9 +156,6 @@
                     Personal Information
                 </div>
                 <div class="widget-content padded" style="padding: 10px 60px 40px 60px;">
-                    <?php if(Session::has('errorMsg')): ?>
-                        <font color="red"><?php echo Session::get('errorMsg'); ?></font>
-                    <?php endif; ?>
                     <?php echo Form::open(array('url' => '/doRegisterTaskminator', 'id' => 'registrationForm-task')); ?>
 
                         <div class="form-group">
@@ -169,15 +166,23 @@
                                 <div class="col-md-4" style="margin-bottom: 2px;">
                                     <?php echo Form::text('firstName', Input::old('firstName'), array('data-name' => 'First Name', 'class' => 'inputItem form-control', 'placeholder' => 'First name', 'required' => 'true')); ?>
 
-                                    
+                                    <?php if($errors->has()): ?>
+                                        <font color="red"><?php echo $errors->first('firstName'); ?></font>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="col-md-3" style="margin-bottom: 2px;">
                                     <?php echo Form::text('midName', Input::old('midName'), array('data-name' => 'Middle Name', 'class' => 'inputItem form-control', 'placeholder' => 'Middle name', 'required' => 'true')); ?>
 
+                                    <?php if($errors->has()): ?>
+                                        <font color="red"><?php echo $errors->first('midName'); ?></font>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="col-md-5">
                                     <?php echo Form::text('lastName', Input::old('lastName'), array('data-name' => 'Last Name', 'class' => 'inputItem form-control', 'placeholder' => 'Last name', 'required' => 'true')); ?>
 
+                                    <?php if($errors->has()): ?>
+                                        <font color="red"><?php echo $errors->first('lastName'); ?></font>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div><br/>
@@ -197,6 +202,9 @@
                                 </label>
                                 <?php echo Form::text('nationality', Input::old('nationality'), array('data-name' => 'Nationality', 'class' => 'inputItem form-control', 'placeholder' => 'Ex. Filipino', 'required' => 'true')); ?>
 
+                                <?php if($errors->has()): ?>
+                                    <font color="red"><?php echo $errors->first('nationality'); ?></font>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <br/>
@@ -228,6 +236,9 @@
                                 </label>
                                 <?php echo Form::text('mobileNum', Input::old('mobileNum'), array('data-name' => 'Mobile Number', 'class' => 'inputItem form-control', 'id' => 'mobileNum', 'placeholder' => 'Mobile number', 'required' => 'true')); ?>
 
+                                <?php if($errors->has()): ?>
+                                    <font color="red"><?php echo $errors->first('mobileNum'); ?></font>
+                                <?php endif; ?>
                             </div>
                         </div><br/>
 
@@ -237,6 +248,9 @@
                             </label>
                             <?php echo Form::text('preferredJob', Input::old('preferredJob'), array('data-name' => 'Preffered Job', 'class' => 'form-control inputItem', 'placeholder' => 'Ex. Carpenter', 'required' => 'true')); ?>
 
+                            <?php if($errors->has()): ?>
+                                <font color="red"><?php echo $errors->first('preferredJob'); ?></font>
+                            <?php endif; ?>
                         </div>
                         <br/>
 
@@ -262,7 +276,9 @@
                                                 }
                                             ?>
                                         </select>
-
+                                        <?php if($errors->has()): ?>
+                                            <font color="red"><?php echo $errors->first('minRate'); ?></font>
+                                        <?php endif; ?>
                                     </div>
                                     <div class="col-md-6">
                                         <select class="inputItem form-control" name="maxRate">
@@ -273,6 +289,9 @@
                                                 }
                                             ?>
                                         </select>
+                                        <?php if($errors->has()): ?>
+                                            <font color="red"><?php echo $errors->first('maxRate'); ?></font>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -287,6 +306,9 @@
                                     </label>
                                     <?php echo Form::text('email', Input::old('email'), array('data-name' => 'Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Email address', 'required' => 'true', 'id' => 'email', 'style' => 'max-width: 400px;')); ?>
 
+                                    <?php if($errors->has()): ?>
+                                        <font color="red"><?php echo $errors->first('email'); ?></font>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="control-label">
@@ -306,6 +328,15 @@
 
                                         </div>
                                         <label class="col-md-2" style="font-size: 16pt;">-&nbsp;000</label>
+                                        <?php if($errors->has()): ?>
+                                            <?php if(!is_null($errors->first('tin1'))): ?>
+                                                <font color="red"><?php echo $errors->first('tin1'); ?></font>
+                                            <?php elseif(!is_null($errors->first('tin2'))): ?>
+                                                <font color="red"><?php echo $errors->first('tin2'); ?></font>
+                                            <?php elseif(!is_null($errors->first('tin3'))): ?>
+                                                <font color="red"><?php echo $errors->first('tin3'); ?></font>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -320,6 +351,9 @@
                             </label>
                             <?php echo Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'inputItem form-control', 'placeholder' => 'Username', 'required' => 'true', 'style' => 'max-width: 400px;')); ?>
 
+                            <?php if($errors->has()): ?>
+                                <font color="red"><?php echo $errors->first('username'); ?></font>
+                            <?php endif; ?>
                         </div><br/>
                         
                         <div class="form-group">
@@ -330,6 +364,9 @@
                             <?php echo Form::password('password', array('data-name' => 'Password', 'data-display' => 'strengthDisplay', 'id' => 'passwordInput', 'class' => 'inputItem form-control', 'placeholder' => 'Please enter password', 'required' => 'true', 'style' => 'max-width: 400px;')); ?>
 
                             <h5 id="strengthDisplay"></h5>
+                            <?php if($errors->has()): ?>
+                                <font color="red"><?php echo $errors->first('password'); ?></font>
+                            <?php endif; ?>
                         </div><br/>
 
                         <div class="form-group" id="confirmedPass">
@@ -346,6 +383,9 @@
                             <label>CAPTCHA</label>
                             <?php echo Form::text('captcha', '', array('data-name' => 'Captcha', 'class' => 'inputItem form-control', 'id' => 'captcha','placeholder' => 'Type code above', 'required' => 'true', 'style' => 'width: 130px;')); ?>
 
+                            <?php if($errors->has()): ?>
+                                <font color="red"><?php echo Session::get('captcha'); ?></font>
+                            <?php endif; ?>
                         </p>
 
                         <div class="row form-group" style="margin-left: 5px;">

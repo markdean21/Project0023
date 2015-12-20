@@ -55,33 +55,44 @@ class HomeController extends BaseController {
 
         $check = SimpleCaptcha::check($_POST['captcha']);
 
-        if(!$check) {
-            return Redirect::back()->with('errorMsg', 'Captcha does not match. Please retry.')->withInput(Input::except('password', 'captcha'));
-        }
-
         $rules = array(
-            'companyName'           => 'required',
-            'businessNature'        => 'required',
+            'companyName'           => "required|alpha_num",
+            'businessNature'        => 'required|alpha_num',
             'experience'            => 'required',
-            'businessDescription'   => 'required',
+            'businessDescription'   => 'required|alpha_num',
             'address'               => 'required',
             'businessNum'           => 'required|numeric',
-            'firstName-keyperson'   => 'required',
-            'midName-keyperson'    => 'required',
-            'lastName-keyperson'    => 'required',
-            'position-keyperson'    => 'required',
+            'firstName-keyperson'   => "required|regex:/^[\p{L}\s'.-]+$/",
+            'midName-keyperson'     => "required|regex:/^[\p{L}\s'.-]+$/",
+            'lastName-keyperson'    => "required|regex:/^[\p{L}\s'.-]+$/",
+            'position-keyperson'    => 'required|alpha_num',
             'regNum'                => 'required',
             'email'                 => 'required|email',
-            'username'          => 'required|unique:users,username',
-            'password'          => 'required|min:8',
-            'confirmpass'       => 'required|min:8|same:password',
-            'TOS'               => 'required'
+            'username2'             => 'required|unique:users,username',
+            'password'              => 'required|min:8',
+            'confirmpass'           => 'required|min:8|same:password',
+            'TOS'                   => 'required'
         );
 
-        $validator = Validator::make(Input::all(), $rules);
+        $messages = array(
+            'firstName-keyperson.regex' => 'Name must have no special characters', 
+            'midName-keyperson.regex'   => 'Name must have no special characters', 
+            'lastName-keyperson.regex'  => 'Name must have no special characters', 
+        );
 
-        if($validator->fails()){
-            return Redirect::back()->with('errorMsg', $validator->messages()->first())->withInput(Input::except('password', 'captcha'));
+        $validator = Validator::make(Input::all(), $rules, $messages);
+
+        if($validator->fails() && !$check){
+            return Redirect::back()
+                ->withErrors($validator)
+                ->with('client', 'company')
+                ->with('captcha', 'Captcha does not match. Please retry.')
+                ->withInput(Input::except('password', 'captcha'));
+        }elseif ($validator->fails() && $check) {
+            return Redirect::back()
+                ->withErrors($validator)
+                ->with('client', 'company')
+                ->withInput(Input::except('password', 'captcha'));
         }
         // else validation successful
 
@@ -99,7 +110,7 @@ class HomeController extends BaseController {
             'businessNature'        =>  Input::get('businessNature'),
             'businessDescription'   =>  Input::get('businessDescription'),
             'businessPermit'        =>  Input::get('regNum'),
-            'username'              =>  Input::get('username'),
+            'username'              =>  Input::get('username2'),
             'password'              =>  Hash::make(Input::get('password')),
             'confirmationCode'      =>  $this->generateConfirmationCode(),
             'yearsOfExperience'     =>  Input::get('experience'),
@@ -147,7 +158,7 @@ class HomeController extends BaseController {
 //                'module'   =>  'Logged in at '.date('D, M j, Y \a\t g:ia'),
         ));
 
-        Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')));
+        Auth::attempt(array('username' => Input::get('username2'), 'password' => Input::get('password')));
         return Redirect::to('/')->with('successMsg', 'Registration Success. You may now login.');
     }
 
@@ -164,12 +175,8 @@ class HomeController extends BaseController {
         Input::merge(array_map('trim', Input::all()));
         $check = SimpleCaptcha::check($_POST['captcha']);
 
-        if(!$check) {
-            return Redirect::back()->with('errorMsg', 'Captcha does not match. Please retry.')->withInput(Input::except('password', 'captcha'));
-        }
-
         $rules = array(
-            'firstName' => "required|regex:/^[\p{L}\s'.-]+$/",
+            'firstName' => "required|regex:/^[\p{L}\s'()]+$/",
             'midName'  => "required|regex:/^[\p{L}\s'.-]+$/",
             'lastName' => "required|regex:/^[\p{L}\s'.-]+$/",
             'gender' => 'required',
@@ -193,9 +200,9 @@ class HomeController extends BaseController {
             'midName.regex' => 'Name must be letters only',
             'lastName.regex' => 'Name must be letters only',
             'occupation.regex' => 'Occupation should not have special characters',
-            'tin1.regex' => 'Wrong TIN number',
-            'tin2.regex' => 'Wrong TIN number',
-            'tin3.regex' => 'Wrong TIN number',
+            'tin1.regex', 'tin1.digits' => 'Wrong TIN number',
+            'tin2.regex', 'tin2.digits' => 'Wrong TIN number',
+            'tin3.regex', 'tin3.digits' => 'Wrong TIN number',
             'tin1.required' => 'Fill up all fields for TIN number',
             'tin2.required' => 'Fill up all fields for TIN number',
             'tin3.required' => 'Fill up all fields for TIN number',
@@ -203,8 +210,15 @@ class HomeController extends BaseController {
 
         $validator = Validator::make(Input::all(), $rules, $messages);
 
-        if($validator->fails()){
-            return Redirect::back()->with('errorMsg', $validator->messages()->first())->withInput(Input::except('password', 'captcha'));
+        if($validator->fails() && !$check){
+            return Redirect::back()
+                ->withErrors($validator)
+                ->with('captcha', 'Captcha does not match. Please retry.')
+                ->withInput(Input::except('password', 'captcha'));
+        }elseif ($validator->fails() && $check) {
+            return Redirect::back()
+                ->withErrors($validator)
+                ->withInput(Input::except('password', 'captcha'));
         }
 
         // if validation is successful
@@ -260,14 +274,11 @@ class HomeController extends BaseController {
         Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')));
         return Redirect::to('/')->with('successMsg', 'Registration Success. You may now login.');
     }
+
     public function  doRegisterTaskminator(){
         Input::merge(array_map('trim', Input::all()));
         
         $check = SimpleCaptcha::check($_POST['captcha']);
-
-        if(!$check) {
-            return Redirect::back()->with('errorMsg', 'Captcha does not match. Please retry.')->withInput(Input::except('password', 'captcha'));
-        }
         
         $rules = array(
             'firstName'         => "required|regex:/^[\p{L}\s'.-]+$/",
@@ -296,15 +307,22 @@ class HomeController extends BaseController {
             'firstName.regex' => 'Name must be letters only',
             'midName.regex' => 'Name must be letters only',
             'lastName.regex' => 'Name must be letters only',
-            'tin1.regex' => 'Wrong TIN number',
-            'tin2.regex' => 'Wrong TIN number',
-            'tin3.regex' => 'Wrong TIN number',
+            'tin1.regex', 'tin1.digits' => 'Wrong TIN number',
+            'tin2.regex', 'tin2.digits' => 'Wrong TIN number',
+            'tin3.regex', 'tin3.digits' => 'Wrong TIN number',
         );
 
         $validator = Validator::make(Input::all(), $rules, $messages);
 
-        if($validator->fails()){
-            return Redirect::back()->with('errorMsg', $validator->messages()->first())->withInput(Input::except('password' , 'confirmpass'));
+        if($validator->fails() && !$check){
+            return Redirect::back()
+                ->withErrors($validator)
+                ->with('captcha', 'Captcha does not match. Please retry.')
+                ->withInput(Input::except('password', 'captcha'));
+        }elseif ($validator->fails() && $check) {
+            return Redirect::back()
+                ->withErrors($validator)
+                ->withInput(Input::except('password', 'captcha'));
         }
         // validation successful
 
