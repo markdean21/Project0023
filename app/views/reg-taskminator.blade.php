@@ -12,9 +12,6 @@
             content: "\2713";
             color: green;
         }
-        .error{
-            color: red;
-        }
     </style>
     <script>
         function enableSubmit(){
@@ -30,7 +27,7 @@
         }
 
         function passConfirm(){
-            if(document.getElementById('passwordInput').value == document.getElementById('confirmpassId').value){
+            if(document.getElementById('passwordInput').value != '' && document.getElementById('passwordInput').value == document.getElementById('confirmpassId').value){
                 document.getElementById('confirmedPass').className = 'form-group has-success has-feedback';
                 document.getElementById('confirmpassId2').style.display = 'block';
                 document.getElementById('tooltipPass').style.display = 'none';
@@ -39,18 +36,40 @@
                 document.getElementById('confirmpassId2').style.display = 'none';
                 document.getElementById('tooltipPass').style.display = 'inline';
             }
+            validateRequired('passwordInput');
+        }
+
+        function validateRequired(idName){
+            value = document.getElementById(idName).value;
+            classProperty = document.getElementById(idName).className;
+            if(value || value!=''){
+                document.getElementById(idName).className = classProperty.replace(' error', '');
+            }else{
+                if(classProperty.indexOf("error") == -1) document.getElementById(idName).className = classProperty.concat(' error');
+            }
         }
 
         function validateMobile(){
             value = document.getElementById('mobileNum').value;
-            if(value.match(/[^0-9]/i))
+            if(value.match(/[^0-9]/i)){
                 document.getElementById('mobileNum').value = value.replace(/[^0-9]/g, '');
-
+            }
+            validateRequired('mobileNum');
         }
 
         $(document).ready(function(){
             
             enableSubmit();
+            $("select").each(function(){
+                var input = $(this);
+                input.prepend('<option value="disabled" disabled selected> -- select '+input.attr('name')+' -- </option>');
+            });
+            $('form input[type=text], form input[type=password], form select').each(function(){
+                var input = $(this);
+                if( !input.val() || input.val()!='' ) {
+                    input.addClass('error');
+                }
+            });
 
             $('#reset').click(function(event){
                 document.getElementById('submitForm').disabled = true;
@@ -165,19 +184,19 @@
                             </label>
                             <div class="row">
                                 <div class="col-md-4" style="margin-bottom: 2px;">
-                                    {{ Form::text('firstName', Input::old('firstName'), array('data-name' => 'First Name', 'class' => 'inputItem form-control', 'placeholder' => 'First name', 'required' => 'true')) }}
+                                    {{ Form::text('firstName', Input::old('firstName'), array('data-name' => 'First Name', 'class' => 'inputItem form-control', 'placeholder' => 'First name', 'required' => 'true', 'id' => 'firstName', 'onkeyup' => 'validateRequired("firstName");')) }}
                                     @if ($errors->has())
                                         <font color="red">{{ $errors->first('firstName') }}</font>
                                     @endif
                                 </div>
                                 <div class="col-md-3" style="margin-bottom: 2px;">
-                                    {{ Form::text('midName', Input::old('midName'), array('data-name' => 'Middle Name', 'class' => 'inputItem form-control', 'placeholder' => 'Middle name', 'required' => 'true')) }}
+                                    {{ Form::text('midName', Input::old('midName'), array('data-name' => 'Middle Name', 'class' => 'inputItem form-control', 'placeholder' => 'Middle name', 'required' => 'true', 'id' => 'midName', 'onkeyup' => 'validateRequired("midName");')) }}
                                     @if ($errors->has())
                                         <font color="red">{{ $errors->first('midName') }}</font>
                                     @endif
                                 </div>
                                 <div class="col-md-5">
-                                    {{ Form::text('lastName', Input::old('lastName'), array('data-name' => 'Last Name', 'class' => 'inputItem form-control', 'placeholder' => 'Last name', 'required' => 'true')) }}
+                                    {{ Form::text('lastName', Input::old('lastName'), array('data-name' => 'Last Name', 'class' => 'inputItem form-control', 'placeholder' => 'Last name', 'required' => 'true', 'id' => 'lastName', 'onkeyup' => 'validateRequired("lastName")')) }}
                                     @if ($errors->has())
                                         <font color="red">{{ $errors->first('lastName') }}</font>
                                     @endif
@@ -191,13 +210,13 @@
                                 <label class="control-label">
                                     Gender <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your gender"></a>
                                 </label>
-                                {{ Form::select('gender', array('MALE' => 'Male', 'FEMALE' => 'Female'), Input::old('gender'), array('data-name' => 'Gender', 'class' => 'inputItem form-control', 'required' => 'true')) }}
+                                {{ Form::select('gender', array('MALE' => 'Male', 'FEMALE' => 'Female'), Input::old('gender'), array('data-name' => 'Gender', 'class' => 'inputItem form-control', 'required' => 'true', 'id' => 'gender', 'onchange' => 'validateRequired("gender")')) }}
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="control-label" style="margin-left: 2px;">
                                     Nationality <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your nationality"></a>
                                 </label>
-                                {{ Form::text('nationality', Input::old('nationality'), array('data-name' => 'Nationality', 'class' => 'inputItem form-control', 'placeholder' => 'Ex. Filipino', 'required' => 'true')) }}
+                                {{ Form::text('nationality', Input::old('nationality'), array('data-name' => 'Nationality', 'class' => 'inputItem form-control', 'placeholder' => 'Ex. Filipino', 'required' => 'true', 'id' => 'nationality', 'onkeyup' => 'validateRequired("nationality");')) }}
                                 @if ($errors->has())
                                     <font color="red">{{ $errors->first('nationality') }}</font>
                                 @endif
@@ -212,14 +231,14 @@
                                 </label>
                                 <div class="row">
                                     <div class="col-md-4" style="margin-bottom: 2px;">
-                                        {{ Form::selectMonth('month', Input::old('month'), array('data-name' => 'Month', 'class' => 'inputItem form-control', 'required' => 'true')) }}
+                                        {{ Form::selectMonth('month', Input::old('month'), array('data-name' => 'Month', 'class' => 'inputItem form-control', 'required' => 'true', 'id' => 'month', 'onchange' => 'validateRequired("month")')) }}
                                     </div>
                                     <div class="col-md-2" style="margin-bottom: 2px;">
-                                        {{ Form::selectRange('date', 1, 31, Input::old('date'), array('data-name' => 'Date', 'class' => 'inputItem form-control', 'required' => 'true')) }}
+                                        {{ Form::selectRange('date', 1, 31, Input::old('date'), array('data-name' => 'Date', 'class' => 'inputItem form-control', 'required' => 'true', 'id' => 'date', 'onchange' => 'validateRequired("date")')) }}
                                     </div>
                                     <div class="col-md-3" style="margin-bottom: 2px;">
                                         <?php $year = date("Y"); $year -= 18; ?>
-                                        {{ Form::selectYear('year', $year, 1955, Input::old('year'), array('data-name' => 'Year', 'class' => 'inputItem form-control', 'required' => 'true')) }}
+                                        {{ Form::selectYear('year', $year, 1955, Input::old('year'), array('data-name' => 'Year', 'class' => 'inputItem form-control', 'required' => 'true', 'id' => 'year', 'onchange' => 'validateRequired("year")')) }}
                                     </div>
                                 </div>
                             </div>
@@ -238,7 +257,7 @@
                             <label class="control-label">
                                 Preferred Job <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your preferred job"></a>
                             </label>
-                            {{ Form::text('preferredJob', Input::old('preferredJob'), array('data-name' => 'Preffered Job', 'class' => 'form-control inputItem', 'placeholder' => 'Ex. Carpenter', 'required' => 'true')) }}
+                            {{ Form::text('preferredJob', Input::old('preferredJob'), array('data-name' => 'Preffered Job', 'class' => 'form-control inputItem', 'placeholder' => 'Ex. Carpenter', 'required' => 'true', 'id' => 'preferredJob', 'onkeyup' => 'validateRequired("preferredJob");')) }}
                             @if ($errors->has())
                                 <font color="red">{{ $errors->first('preferredJob') }}</font>
                             @endif
@@ -250,7 +269,7 @@
                                 <label class="control-label" style="margin-left: 2px;">
                                     Years of Experience <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your years of experience"></a>
                                 </label>
-                                {{ Form::select('experience', array('0-1 years' => '0-1 years', '2-3 years' => '2-3 years', '3-5 years' => '3-5 years', '5-10 years' => '5-10 years', 'more than 10 years' => 'more than 10 years'), Input::old('experience'), array('data-name' => 'Years of Experience', 'class' => 'inputItem form-control', 'required' => 'true')) }}
+                                {{ Form::select('experience', array('0-1 years' => '0-1 years', '2-3 years' => '2-3 years', '3-5 years' => '3-5 years', '5-10 years' => '5-10 years', 'more than 10 years' => 'more than 10 years'), Input::old('experience'), array('data-name' => 'Years of Experience', 'class' => 'inputItem form-control', 'required' => 'true', 'id' => 'experience', 'onchange' => 'validateRequired("experience")')) }}
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="control-label" style="margin-left: 2px;">
@@ -258,8 +277,7 @@
                                 </label>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select class="inputItem form-control" name="minRate" id="minRate">
-                                            <option selected disabled>Select minimum rate</option>
+                                        <select class="inputItem form-control" name="minRate" id="minRate" onchange="validateRequired('minRate')">
                                             <?php
                                                 for ($i=400; $i <= 1000; $i+=50) {
                                                     echo "<option value=".$i." ".(Input::old("minRate") == $i ? "selected":"").">".$i."</option>";
@@ -271,8 +289,7 @@
                                         @endif
                                     </div>
                                     <div class="col-md-6">
-                                        <select class="inputItem form-control" name="maxRate">
-                                            <option selected disabled>Select maximum rate</option>
+                                        <select class="inputItem form-control" name="maxRate" id="maxRate" onchange="validateRequired('maxRate')">
                                             <?php
                                                 for ($i=1000; $i <= 5000; $i+=100) { 
                                                     echo "<option value=".$i." ".(Input::old("maxRate") == $i ? "selected":"").">".$i."</option>";
@@ -294,7 +311,7 @@
                                     <label class="control-label">
                                         Email Address <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your working email address"></a>
                                     </label>
-                                    {{ Form::text('email', Input::old('email'), array('data-name' => 'Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Email address', 'required' => 'true', 'id' => 'email', 'style' => 'max-width: 400px;')) }}
+                                    {{ Form::text('email', Input::old('email'), array('data-name' => 'Email Address', 'class' => 'form-control inputItem', 'placeholder' => 'Email address', 'required' => 'true', 'id' => 'email', 'style' => 'max-width: 400px;', 'onkeyup' => 'validateRequired("email")')) }}
                                     @if ($errors->has())
                                         <font color="red">{{ $errors->first('email') }}</font>
                                     @endif
@@ -305,13 +322,13 @@
                                     </label>
                                     <div class="row">
                                         <div class="col-md-2" style="margin-bottom: 2px;">
-                                            {{ Form::text('tin1', Input::old('tin1'), array('data-name' => 'TIN Number', 'class' => 'form-control inputItem', 'placeholder' => 'XXX', 'maxlength' => '3')) }}
+                                            {{ Form::text('tin1', Input::old('tin1'), array('data-name' => 'TIN Number', 'class' => 'form-control inputItem', 'placeholder' => 'XXX', 'maxlength' => '3', 'id' => 'tin1', 'onkeyup' => 'validateRequired("tin1")')) }}
                                         </div>
                                         <div class="col-md-2" style="margin-bottom: 2px;">
-                                            {{ Form::text('tin2', Input::old('tin2'), array('data-name' => 'TIN Number', 'class' => 'form-control inputItem', 'placeholder' => 'XXX', 'maxlength' => '3')) }}
+                                            {{ Form::text('tin2', Input::old('tin2'), array('data-name' => 'TIN Number', 'class' => 'form-control inputItem', 'placeholder' => 'XXX', 'maxlength' => '3', 'id' => 'tin2', 'onkeyup' => 'validateRequired("tin2")')) }}
                                         </div>
                                         <div class="col-md-2" style="margin-bottom: 2px;">
-                                            {{ Form::text('tin3', Input::old('tin3'), array('data-name' => 'TIN Number', 'class' => 'form-control inputItem', 'placeholder' => 'XXX', 'maxlength' => '3')) }}
+                                            {{ Form::text('tin3', Input::old('tin3'), array('data-name' => 'TIN Number', 'class' => 'form-control inputItem', 'placeholder' => 'XXX', 'maxlength' => '3', 'id' => 'tin3', 'onkeyup' => 'validateRequired("tin3")')) }}
                                         </div>
                                         <label class="col-md-2" style="font-size: 16pt;">-&nbsp;000</label>
                                         @if ($errors->has())
@@ -335,7 +352,7 @@
                             <label class="control-label">
                                 Username <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please input your username"></a>
                             </label>
-                            {{ Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'inputItem form-control', 'placeholder' => 'Username', 'required' => 'true', 'style' => 'max-width: 400px;')) }}
+                            {{ Form::text('username', Input::old('username'), array('data-name' => 'Username', 'class' => 'inputItem form-control', 'placeholder' => 'Username', 'required' => 'true', 'style' => 'max-width: 400px;', 'id' => 'username', 'onkeyup' => 'validateRequired("username");')) }}
                             @if ($errors->has())
                                 <font color="red">{{ $errors->first('username') }}</font>
                             @endif
@@ -353,6 +370,7 @@
                             @endif
                         </div><br/>
 
+
                         <div class="form-group" id="confirmedPass">
                             <label class="control-label" for="confirmpassId">
                                 Confirm Password <a href="#" class="icon-question-sign" data-toggle="tooltip" title="Please re-input your password to confirm" id="tooltipPass"></a>
@@ -364,19 +382,22 @@
                         <p>
                             {{ HTML::image(URL::to('simplecaptcha'),'Captcha', array('class' => 'img-rounded')) }}<br><br>
                             <label>CAPTCHA</label>
-                            {{ Form::text('captcha', '', array('data-name' => 'Captcha', 'class' => 'inputItem form-control', 'id' => 'captcha','placeholder' => 'Type code above', 'required' => 'true', 'style' => 'width: 130px;')) }}
+                            {{ Form::text('captcha', '', array('data-name' => 'Captcha', 'class' => 'inputItem form-control', 'id' => 'captcha','placeholder' => 'Type code above', 'required' => 'true', 'style' => 'width: 130px;', 'id' => 'captcha',  'onkeyup' => 'validateRequired("captcha")')) }}
                             @if ($errors->has())
                                 <font color="red">{{ Session::get('captcha') }}</font>
                             @endif
                         </p>
 
-                        <div class="row form-group" style="margin-left: 5px;">
-                            <input id="TOS" name="TOS" type="checkbox" value="1" onclick="enableSubmit()" style="display: -moz-box;">
-                            <label class="control-label" style="margin-left: 5px;">Accept Terms of Service and Privacy Policy</label>
+                        <div class="row form-group checkbox" style="margin-left: 1px;">
+                            <label class="control-label" style="margin-left: 5px;">
+                            <input id="TOS" class="error" name="TOS" type="checkbox" value="1" onclick="enableSubmit()" style="display: -moz-box;">
+                            Accept Terms of Service and Privacy Policy</label>
                         </div>
                         
-                            <button class="btn btn-primary" type="submit" id="submitForm" disabled>Register</button>
-                            {{ Form::reset('Reset', array('class' => 'btn btn-default', 'id' => 'reset')) }}
+                        <br>
+
+                        <button class="btn btn-primary" type="submit" id="submitForm" disabled>Register</button>
+                        {{ Form::reset('Reset', array('class' => 'btn btn-default', 'id' => 'reset')) }}
                         {{ Form::close() }}
                 </div>
             </div>

@@ -67,7 +67,7 @@ class HomeController extends BaseController {
             'lastName-keyperson'    => "required|regex:/^[\p{L}\s'.-]+$/",
             'position-keyperson'    => 'required|alpha_num',
             'regNum'                => 'required',
-            'email'                 => 'required|email',
+            'email2'                 => 'required|email',
             'username2'             => 'required|unique:users,username',
             'password'              => 'required|min:8',
             'confirmpass'           => 'required|min:8|same:password',
@@ -141,7 +141,7 @@ class HomeController extends BaseController {
             array(
                 'user_id'       =>  $userId,
                 'ctype'         =>  'email',
-                'content'       =>  Input::get('email'),
+                'content'       =>  Input::get('email2'),
             ),
             array(
                 'user_id'       =>  $userId,
@@ -420,10 +420,11 @@ class HomeController extends BaseController {
 
     public function index(){
         if(Auth::check()){
-            if(Auth::user()->id!=19) {
+            if(Auth::user()->id!=11 && Auth::user()->id!=8) {
                 Auth::logout();
                 return View::make('welcome');
             }
+            
             switch(Auth::user()->status){
                 case 'DEACTIVATED'      :
                 case 'SELF_DEACTIVATED' :
