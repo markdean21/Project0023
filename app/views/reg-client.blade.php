@@ -88,7 +88,11 @@
             $('[data-toggle="tooltip"]').tooltip();
             $("select").each(function(){
                 var input = $(this);
-                input.prepend('<option value="disabled" disabled selected> -- select '+input.attr('name')+' -- </option>');
+                @if (!$errors->has())
+                    input.prepend('<option value="disabled" disabled selected> -- select '+input.attr('name')+' -- </option>');
+                @else
+                    input.prepend('<option value="disabled" disabled> -- select '+input.attr('name')+' -- </option>');
+                @endif
             });
             $('form input[type=text], form input[type=password], form select').each(function(){
                 var input = $(this);
